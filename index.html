@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Portal</title> <!-- Page title -->
+  <link rel="stylesheet" href="style.css" type="text/css" /> <!-- External CSS stylesheet link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome CSS stylesheet link -->
+</head>
+<body class="align">
+
+  <div class="cube-loader_bg">
+  <div class="cube-loader">
+    <div class="cube-top"></div>
+    <div class="cube-wrapper">
+      <span style="--i:0" class="cube-span"></span>
+      <span style="--i:1" class="cube-span"></span>
+      <span style="--i:2" class="cube-span"></span>
+      <span style="--i:3" class="cube-span"></span>
+    </div>
+  </div>
+</div>
+
+  <div class="grid">
+    <div class="form-container">
+        <img src="images/colored_wo_bg.png" alt="Form Image" class="form-image"> <!-- Image for the form -->
+
+        <form method="POST" class="form login"> <!-- Login form -->
+          <div class="form_field">
+              <label><i class="fa fa-user" style="color: #606468;"></i></label>
+              <input type="text" name="username" id="email" class="form_input" placeholder="Username">
+          </div>
+          <div class="form_field">
+              <label><i class="fa fa-lock" style="color: #606468;"></i></label>
+              <input type="password" name="password" id="password" class="form_input" placeholder="Password">
+          </div>
+      
+          <div class="form_field">
+            <button class="loginAdmin" type="button" onclick="auth()">Login</button>
+
+          </div>
+          <p><span style="color: #808080;">Don't have an account?</span> <a class="requestReg" href="requestform.html" style="color: #4285f4;">Register</a></p>
+
+      </form>
+
+    </div>
+  </div>
+  <script>
+
+      
+    function auth() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Check if username and password are not empty
+        if (email.trim() === "" || password.trim() === "") {
+            alert("Username and password are required");
+            return;
+        }
+
+        // Your existing authentication logic
+        if (email == "admin@gmail.com" && password == "admin123") {
+            window.location.assign("admindashboard.html");
+            
+        } else if (email == "admin2@gmail.com" && password == "admin2123") {
+            window.location.assign("s_adminDashboard.html");
+        }else if (email == "barangay@gmail.com" && password == "barangay123") {
+            window.location.assign("requestmainpage.html");
+        } else {
+            // Handle invalid login
+            alert("Please make sure that username and password are correct.");
+        }
+    }
+
+  
+</script>
+
+<script>
+ 
+  </script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      setTimeout(function() {
+        $('.cube-loader_bg').fadeOut();
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>

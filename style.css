@@ -1,0 +1,360 @@
+/* Global styles */
+* {
+  box-sizing: inherit;
+}
+
+/* HTML styles */
+html {
+  box-sizing: border-box;
+  font-size: 100%; 
+}
+
+body {
+  background-image: linear-gradient(rgba(212, 212, 212, 0.7), rgba(212, 212, 212, 0.7)),
+                    url(images/val-cityhall.jpg); /* Background image with linear gradient overlay */
+  min-height: 50vh; /* Minimum height of the viewport */
+  width: 100%;
+  background-attachment: fixed; 
+  background-size: cover; 
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  color: #606468; 
+  font-family: "Open Sans", sans-serif; 
+  font-size: 0.875rem; 
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  min-block-size: 100vh; /* Minimum block size for viewport height */
+}
+
+/* Styles for centering elements within the page */
+.align {
+  display: grid;
+  place-items: center;
+}
+
+/* Grid styling */
+.grid {
+  inline-size: 70%; /* Inline size of the grid container */
+  margin-inline: auto; /* Auto margin for horizontal centering */
+  max-inline-size: 30rem; 
+  margin-top: 5px; 
+}
+
+/* Styling for the main container of the form */
+.form-container {
+  background: #fff; 
+  padding: 2rem;
+  text-align: center; 
+  border-radius: 20px; 
+  box-shadow: 0px 36.98px 73.97px 0px rgba(216, 216, 216, 0.25),
+              0px 31.7px 63.4px 0px rgba(0, 0, 0, 0.25); /* Shadow effect */
+}
+
+/* Styling for the form image */
+.form-image {
+  object-fit: cover;
+  max-inline-size: 30rem; 
+  width: 300px; 
+  height: 80px; 
+  margin-bottom: 20px; 
+}
+
+/* Styles for links */
+a {
+  color: #606468; 
+  outline: 0;
+  text-decoration: none;
+}
+
+/* Styles for paragraphs */
+p {
+  margin-block: 1.5rem; 
+}
+
+/* Styles for input elements */
+input {
+  background-image: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  transition: background-color 0.3s; /* Transition effect for background color */
+}
+
+/* Styles for submit button */
+input[type="submit"] {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.form {
+  display: grid;
+  gap: 0.875rem;
+}
+
+
+.form input[type="password"],
+.form input[type="text"],
+.submitButton,
+.LogRep {
+  inline-size: 80%;
+}
+
+
+.form_field {
+  display: flex;
+}
+
+
+.form_input {
+  flex: 1;
+}
+
+
+.login {
+  color: #161616; 
+}
+
+/* Styles for labels and input fields */
+.login label,
+.login input[type="text"],
+.login input[type="password"] {
+  font: 300 14px 'Roboto', sans-serif;
+  background-color: #3b4148; 
+  border: 2px solid #ccc;
+  color: #0f0f0f; 
+  padding: 0.82rem; 
+  font-size: 0.8rem;
+  transition: background-color 0.3s; /* Transition effect for background color */
+}
+
+
+
+.login label {
+  background-color: #fff; 
+  border-radius: 30.567rem, solid #5b5b5b; 
+  background-color: #fff; 
+  padding-inline: 1.25rem; 
+}
+
+/* Styles for login input fields */
+.login input[type="password"],
+.login input[type="text"] {
+  background-color: #fff; 
+  border-radius: 10.567px solid #7e7e7e; 
+}
+
+/* Hover effect for login input fields */
+.login input[type="password"]:hover,
+.login input[type="text"]:hover {
+  background-color: rgb(226, 226, 226); /* Background color change on hover */
+}
+
+/* Styles for login as admin button */
+.loginAdmin {
+  border: none;
+  height: 100%; 
+  width:  410px;
+  color: #fff; 
+  text-align: center; 
+  border-radius: 10.567px; 
+  box-shadow: 0px 21.13331px 42.26662px 0px rgba(217, 2, 15, 0.2),
+              0px 31.69996px 63.39993px 0px rgba(172, 172, 172, 0.05); /* Box shadow */
+  background-color: #ea4335; 
+  align-self: center;
+  margin-top: 2px; 
+  max-width: 100%; 
+  padding: 15px 20px 15px 15px; 
+  font: 600 14px 'Roboto', sans-serif; 
+  cursor: pointer; /* Cursor style */
+}
+
+/* Hover effect for the submit button */
+.loginAdmin:hover {
+  background-color: #34A853; 
+  color: #fff; 
+}
+
+
+/* Hover effect for the "Login as Representative" button */
+.loginRep:hover {
+  background-color: #161616; 
+  color: #fff; 
+}
+
+
+/* Styles for centered text with links */
+.requestReg {
+  
+  text-align: center; /* Right-aligned text */
+  margin-right: 10px; /* Margin on the right side */
+}
+
+/* Styles for links within centered text */
+.requestReg a {
+  font: 300 14px 'Roboto', sans-serif;
+  color: #4285f4;
+  text-align: right;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 991px) {
+  .form-container {
+    padding: 3rem; /* Increased padding */
+    border-radius: 10px; /* Smaller border radius */
+    box-shadow: 0px 16px 32px 0px rgba(216, 216, 216, 0.25),
+                0px 13px 26px 0px rgba(0, 0, 0, 0.25); /* Adjusted shadow effect */
+  }
+    /* Styles for form image, grid, input fields, and labels */
+    .form-image {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      margin-bottom: 10px; /* Adjusted margin */
+    }
+
+    .grid {
+      max-inline-size: 70rem;
+      margin-top: 10px; /* Increased margin */
+
+    }
+    .form_input,
+    .login input[type="text"],
+    .login input[type="password"]{
+      font-size: 2rem; /* Larger font size */
+      width: 100%;
+    }
+
+    .loginAdmin{
+      font-size: 1.5rem; /* Larger font size */
+      width: 580px;
+    }
+
+    .form_field {
+      padding: 0.5rem; /* Adjusted padding */
+    }
+
+    .login label {
+      padding: 0.8rem; /* Padding */
+      font-size: 2rem; /* Larger font size */
+      padding-inline: 1.25rem;
+    }
+
+    .requestReg a {
+      font-size: 1rem; /* Larger font size */
+    }
+    /* Cursor pointer on hover for buttons */
+    .loginAdmin, .loginRep {
+      cursor: pointer;
+    }
+
+    /* Hover effect for buttons */
+    .loginAdmin:hover {
+      background-color: #161616; /* Background color change on hover */
+      color: #fff; /* Text color change on hover */
+    }
+    .loginRep:hover {
+      background-color: #161616; /* Background color change on hover */
+      color: #fff; /* Text color change on hover */
+    }
+    
+  }
+
+  .cube-loader_bg {
+    position: fixed;
+    z-index: 999999;
+    background: #e6e6e6;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cube-loader {
+    position: relative;
+  width: 75px;
+  height: 75px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  animation: animate 4s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: rotateX(-30deg) rotateY(0);
+    }
+  
+    100% {
+      transform: rotateX(-30deg) rotateY(360deg);
+    }
+  }
+  
+  .cube-loader .cube-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+  
+  .cube-loader .cube-wrapper .cube-span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);
+    background: #ea4335; /* Set the initial color to red */}
+  
+  .cube-loader .cube-wrapper .cube-span:nth-child(even) {
+    background: #4285f4;
+  }
+  
+  .cube-top {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: green;
+    transform: rotateX(90deg) translateZ(37.5px);
+    transform-style: preserve-3d;
+  
+  }
+  
+  .cube-top::before {
+    content: '';
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: hsl(176.61, 42.28%, 40.7%) 19.6%;
+    transform: translateZ(-90px);
+    filter: blur(10px);
+    box-shadow: 0 0 10px #323232,
+                0 0 20px hsl(176.61, 42.28%, 40.7%) 19.6%,
+                0 0 30px #323232,
+                0 0 40px hsl(176.61, 42.28%, 40.7%) 19.6%;
+  }
+  
+  
+  /* Add more media queries as needed for different screen sizes */
+  @media (max-width: 600px) {
+    .cube-loader {
+      width: 40vw;
+      height: 40vw;
+      max-width: none;
+      max-height: none;
+    }
+  
+    .cube-top,
+    .cube-top::before {
+      width: 40vw;
+      height: 40vw;
+      max-width: none;
+      max-height: none;
+    }
+  }
+  
+  

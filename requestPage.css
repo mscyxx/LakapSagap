@@ -1,0 +1,6 @@
+@media (max-width: 640px) {
+    .responsive-btn {
+        flex-basis: 100%; /* Make each button take up the full width on small screens */
+        margin-bottom: 2px; /* Add some spacing between buttons on small screens */
+    }
+}

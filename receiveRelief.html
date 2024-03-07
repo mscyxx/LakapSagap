@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receive Relief</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+<div class = "font-[Roboto]">
+    <!-- Navigation start -->
+    <nav class="navbar top-0 left-0 right-0 flex justify-between items-center p-1 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hidden Hamburger Icon -->
+            <span class="absolute text-white text-2xl top-6 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars-staggered text-red-700"></i>
+            </span>
+          </a>
+
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+        
+        <div class="flex items-center">
+            <div class="flex flex-shrink-0 items-center ml-auto">
+               <!-- Notification Bell Icon -->
+                  <button class="relative p-2 text-red-700 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full mr-2">
+                    <span class="sr-only">Notifications</span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </button>
+                <!-- Profile Avatar -->
+                <a href="adminSettings.html">
+                <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+                  <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+                    <span class="font-semibold">Jessa De Reyes</span>
+                    <span class="text-sm text-gray-600">CSWD ADMIN</span>
+                  </div>
+                  <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                    <img src="images/avatar_sample.png" alt="user profile photo" class="h-full w-full object-cover">
+                  </span>
+                </button>
+                </a>
+            </div>
+    </nav>
+    <!-- Navigation End -->
+
+    <!-- Sidebar Menu Start -->
+    <div class="sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 lg:left-0 left-[-300px]  duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen lg:block">
+      <div class="text-gray-100 text-xl">
+          <div class="p-2.5 mt-1 flex items-center rounded-md ">
+              <!-- Logo in Sidebar -->
+              <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+              <!-- Close Icon in Sidebar -->
+              <i class="fa-solid fa-xmark ml-4 mb-10 cursor-pointer lg:hidden text-red-700" onclick="Openbar()"></i>
+          </div>
+          
+          <hr class="my-2 text-gray-600">
+
+          <div>
+            <!-- Dashboard Link -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                  <a href="admindashboard.html">
+                  <i class="fa-solid fa-house text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Dashboard</span>
+                  </a>
+              </div>
+
+              <!-- Request Link -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                  <a href="adminRequest.html">
+                  <i class="fa-solid fa-hand-holding-hand text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Request</span>
+                </a>
+              </div>
+
+              <!-- Warehouse -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-warehouse text-red-700 group-hover:text-white"></i>
+                <div class="flex justify-between w-full items-center" onclick="toggleDropdown('stocks')">
+                    <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Warehouse</span>
+                    <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-stocks">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </span>
+                </div>
+              </div>
+
+            <!-- Warehouse Stocks Management Link  -->
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto " id="submenu-stocks">
+                <a href="adminStockManage.html"> 
+                <h1 class="cursor-pointer p-2 text-white group-hover:text-white rounded-md mt-1 bg-red-700">
+                      Stock Management
+                  </h1>
+                </a>
+              </div>
+            <!-- Warehouse Kitting Link  -->
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto " id="submenu-kitting">
+                <a href="adminKiting.html"> 
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Kitting
+                  </h1>
+                </a>
+              </div>
+
+            <!-- Administrator Dropdown -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-user-shield text-red-700 group-hover:text-white"></i>
+                  <div class="flex justify-between w-full items-center" onclick="toggleDropdown('administrator')">
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Administrator</span>
+                      <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-administrator">
+                          <i class="fa-solid fa-angle-up"></i>
+                      </span>
+                  </div>
+              </div>
+
+            <!-- Administrator Dropdown Content -->
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-user-management">
+                <a href="adminControl.html"> 
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      User Management
+                  </h1>
+                </a>
+              </div>
+
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-request-confirmation">
+                <a href="adminConfirm.html"> 
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Request Confirmation
+                  </h1>
+                </a>
+              </div>
+
+              <!-- History Link -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                <a href="adminHistory.html"> 
+                <i class="fa-solid fa-clipboard text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">History</span>
+                </a>
+              </div>
+
+              <!-- Account Setting Link -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                <a href="adminSettings.html"> 
+                <i class="fa-solid fa-gear text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Account Setting</span>
+                </a>
+              </div>
+
+              <!-- Logout Link -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black" >
+                  <a href="index.html">
+                <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px]  ml-4 text-red-700 group-hover:text-white">Logout</span>
+                  </a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- end of sidebar -->
+
+    <!-- main content -->
+    <div class="p-2 w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 ">
+        <div class="ml-2 p-6 mb-6 p-4 gap-10">
+
+          <!-- Form content -->
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+                <h2 class="block tracking-wide text-grey-darker text-2xl font-bold mb-2"> Receive Relief</h2>
+                <div class="border-b border-gray-300 my-4"></div>
+ 
+                      <div class=" -mx-5 md:flex mb-6">
+                        <!-- receiver name input -->
+                        <div class="mt-5 md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                              Received by
+                            </label>
+                            <input class=" appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" >
+                        </div>
+
+                         <!-- Donor Organization input -->
+                        <div class="mt-5 md:w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                            Supplier
+                            </label>
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" >
+                        </div>
+
+                        <div class="mt-5 md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                          Date Received
+                          </label>
+                          <div class="relative">
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 pl-10" id="grid-last-name" type="text">
+                            <i class="fa-solid fa-calendar-days text-gray-700 absolute right-0 mr-5 top-3 cursor-pointer"></i>
+                          </div>
+                      </div>
+
+                      </div>
+
+                      
+                      <div class=" -mx-5 md:flex mb-6">
+                        <!-- receiver name input -->
+                        <div class="mt-5 md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                              Item Type
+                            </label>
+                            <input class=" appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" >
+                        </div>
+
+                         <!-- Donor Organization input -->
+                         <div class="mt-5 md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                          Brand
+                          </label>
+                          <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" >
+                      </div>
+
+
+                         <!-- Donor Organization input -->
+                        <div class="mt-5 md:w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                            Quantity of Item
+                            </label>
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" >
+                        </div>
+
+                          <!-- Type of Kit dropdown -->
+                          <div class="mt-5 md:w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                            Category
+                            </label>
+
+                            <div class="relative group ">
+                              <button id="dropdown-button" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4">
+                              
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                                  <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                              </button>
+              
+                              <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1" >
+          
+                                <!-- Dropdown content goes here -->
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-bold active:bg-blue-100 cursor-pointer rounded-md">Food</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-bold active:bg-blue-100 cursor-pointer rounded-md">Coffee</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-bold active:bg-blue-100 cursor-pointer rounded-md">Clothes</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-bold active:bg-blue-100 cursor-pointer rounded-md">Hygiene</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-bold active:bg-blue-100 cursor-pointer rounded-md">Utensils</a>
+                                <a href="#" class="block px-4 py-2 text-gray-400 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Add Category</a>
+                            
+                                
+                              </div>
+                             
+                            </div>
+                           
+                        </div>
+                        <div class="mt-5 md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                          Expiration Date
+                          </label>
+                          <div class="relative">
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 pl-10" id="grid-last-name" type="text">
+                            <i class="fa-solid fa-calendar-days text-gray-700 absolute right-0 mr-5 top-3 cursor-pointer"></i>
+                          </div>
+                      </div>
+                      </div>
+                      <button class="cursor-pointer transition-all  font-bold
+                      bg-blue-700 text-white px-6 py-2 rounded-lg
+                      border-b-blue-900[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                      active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-blue-300 shadow-blue-300 active:shadow-none">
+                      Add Item
+                      </button>
+             
+                      
+
+                  <!--  buttons -->
+                  <div class="text-sm mt-5 flex ml-auto gap-2">
+                    <a href=adminStockManage.html>
+                    <button class="cursor-pointer transition-all 
+                    bg-red-700 text-white px-6 py-2 rounded-lg
+                    border-red-800
+                    border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                    active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-red-300 shadow-red-300 active:shadow-none ">
+                    Cancel
+                    </button></a>
+
+                    <a href=adminStockManage.html>
+                    <button class=" cursor-pointer transition-all 
+                    bg-green-700 text-white px-6 py-2 rounded-lg
+                    border-green-800
+                    border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                    active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                    Save
+                    </button>
+                    </a>
+              </div>
+    </div>
+
+        <!-- Dropdown Menu Toggle Function -->
+    <!-- Toggle dropdown menu visibility for different sections -->
+      <script>
+        function toggleDropdown(type) {
+            // Toggle visibility for the specified dropdown
+            if (type === 'stocks') {
+                document.querySelector('#submenu-stocks').classList.toggle('hidden');
+                document.querySelector('#submenu-kitting').classList.toggle('hidden');
+                document.querySelector('#arrow-stocks').classList.toggle('rotate-0');
+            } else if (type === 'administrator') {
+                document.querySelector('#submenu-user-management').classList.toggle('hidden');
+                document.querySelector('#submenu-request-confirmation').classList.toggle('hidden');
+                document.querySelector('#arrow-administrator').classList.toggle('rotate-0');
+            }
+        }
+      </script>
+
+      <!-- Dropdown menu for status -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get references to the dropdown button and the dropdown content
+            const dropdownBtn = document.getElementById("statusDropdownBtn");
+            const dropdown = document.getElementById("statusDropdown");
+
+            // Event listener to toggle the dropdown visibility when the button is clicked
+            dropdownBtn.addEventListener("click", function () {
+                dropdown.classList.toggle("hidden");
+            });
+
+            // Event listener to close the dropdown when clicking outside the dropdown content
+            window.addEventListener("click", function (event) {
+                if (!event.target.matches("#statusDropdownBtn") && !event.target.matches("#statusDropdown")) {
+                    dropdown.classList.add("hidden");
+                }
+            });
+        });
+      </script>
+
+      <script>
+        // JavaScript to toggle the dropdown
+        const button = document.getElementById('dropdown-button');
+      const menu = document.getElementById('dropdown-menu');
+
+
+      button.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          searchInput.value = ''; // Clear the search input when the dropdown is opened
+      });
+
+      document.addEventListener('click', (event) => {
+          if (!button.contains(event.target) && !menu.contains(event.target)) {
+              menu.classList.add('hidden');
+          }
+      });
+      </script>
+
+        <!-- Sidebar Functions -->
+        <script>
+            // Function to handle icon click
+            function handleIconClick() {
+                // Add functionality as needed
+            }
+    
+            // Function to toggle sidebar visibility
+            function Openbar() {
+                document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+            }
+        </script>
+        </body>
+    </html>

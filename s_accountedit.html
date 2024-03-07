@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Account</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+  <body class = "font-[Roboto]">
+    <!-- Header starts here -->
+    <header class="bg-gray-200 py-2 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-300">
+      <div class="mx-auto px-2 sm:px-6">
+        <div class="flex h-16 items-center justify-between">
+            
+          <!-- Hamburger Icon for Small Screens -->
+          <div x-data="{ openMobileMenu: false }">
+            <div class="md:hidden">  
+
+            <!-- Toggle Button -->
+            <button @click="openMobileMenu = !openMobileMenu" class="p-2 text-gray-700 hover:text-red-900 focus:outline-none focus:bg-red-100">
+              <i class="fa-solid fa-bars text-xl"></i>
+            </button>      
+          
+                <!-- Sidebar -->
+                <div x-show="openMobileMenu" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300" class="fixed inset-0 z-50 bg-red-800 bg-opacity-95 sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center shadow h-screen lg:block md:hidden">
+                  <div class="flex justify-start h-full relative">
+                        
+                    <!-- Close Button (Top Right) -->
+                    <button @click="openMobileMenu = false" class="absolute top-4 right-4 text-white">
+                      <i class="fa-solid fa-times text-xl"></i>
+                    </button>        
+
+                      <!-- Sidebar Content -->
+                      <div class="flex flex-col items-start text-white mt-6">
+                        <!-- Your mobile menu items here -->
+                        <img src="images/colored2_w_stroke.png" class="mr-auto" alt="Icon" style="width: 200px; height: 70px; ">
+                        <a href="s_adminDashboard.html" class="text-white p-4">Dashboard</a>
+                        <a href="s_adminRequest.html" class="text-white p-4">Request</a>
+                        <a href="s_report_warehouseStock.html" class="text-white p-4">Reports</a>
+                        <a href="s_adminHistory.html" class="text-white p-4">History</a>
+                      </div>    
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <!-- Nav Bar Content -->
+          <a class="block text-teal-600 dark:text-teal-600 mr-auto" href="s_adminDashboard.html">
+            <span class="sr-only">Home</span>
+            <img
+                id="largeImage"
+                src="images/colored_wo_bg.png"
+                class="mr-auto"
+                alt="Icon"
+                style="width: 220px; height: 80px; "/>
+            <img
+                id="smallImage"
+                src="images/icon_only_colored.png"
+                class="mr-auto"
+                alt="Icon"
+                style="width: 40px; height: 40px; display: none;"/>    
+          </a>
+
+          <!-- Tabs for Medium and Large Screens -->
+          <div class="hidden md:block">
+            <nav aria-label="Global">
+
+              <ul class="flex items-center gap-8 text-sm">
+                <li>  <!-- Dashboard Tab -->
+                  <a href="s_adminDashboard.html">
+                    <div class="group p-2.5 px-6 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border">
+                      <i class="fa-solid fa-house text-gray-700 group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">Dashboard</span>
+                    </div>
+                  </a>
+                </li>
+                                                      
+                <li> <!-- Request Tab -->
+                  <a href="s_adminRequest.html">
+                    <div class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border">
+                      <i class="fa-solid fa-hand-holding-hand text-gray-700 group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">Request</span>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="s_report_warehouseStock.html"> <!-- Report Tab -->
+                    <div class="group p-2.5 mt-2 flex items-center rounded-full px-6 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border">
+                      <i class="fa-solid fa-clipboard text-gray-700 group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">Reports</span>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="s_adminHistory.html"> <!-- History Tab -->
+                    <div class="group p-2.5 mt-2 flex items-center rounded-full px-6 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border">
+                      <i class="fa-solid fa-clipboard text-gray-700 group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">History</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>             
+            </nav>
+          </div>
+
+          <div x-data="{ showNotification: false }" class="flex items-center ml-auto relative">
+            <!-- Notification Bell Icon -->
+            <button @click="showNotification = !showNotification" class="relative p-2 ml-2 text-red-700 bg-gray-200 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+              <span class="sr-only">Notifications</span>
+              <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+              <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+              <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button>  
+            
+              <!-- Notification Alert -->
+              <div x-show="showNotification" @click.away="showNotification = false" class="absolute top-16 right-36 p-4 space-y-4">
+                <div class="flex w-64 h-28 shadow-lg rounded-lg">
+
+                  <!-- warning -->
+                  <div class="px-4 py-2 bg-white border border-l-8 border-red-700 text-gray-700 flex justify-between rounded">
+                    <div class="flex items-center">
+                      <div class="flex flex-col items-start text-sm">
+                        <p class="font-bold text-[15px]">WARNING</p>
+                        <p class="font-bold text-[10px]">[20324-20330 Food Packages]</p>
+                        <p class="text-xs text-white-700 font-regular mt-1 cursor-default">150 pcs of Bear Brand Milk Powder will expire on November 25, 2023.</p>
+                      </div>
+                    </div>
+                    <button @click="showNotification = false" class="text-gray-700 mb-auto mt-3 hover:text-red-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Profile -->
+              <div x-data="{ open: false, rotateArrow: false }">
+                  <div @click="open = !open; rotateArrow = !rotateArrow" class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer">
+                    <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                          <img src="images/rayul-_M6gy9oHgII-unsplash.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+    
+                        <div class="dark:text-gray-700">
+                          <div class="cursor-pointer">
+                            <span class="font-semibold text-md">Juan Dela Cruz</span><br>
+                            <span class="text-[13px] text-gray-600">OFFICE HEAD</span>
+                          </div>
+                        </div>
+    
+                        <span class="text-sm ml-2 text-red-700" :class="{ 'rotate-180': rotateArrow }">
+                          <i class="fa-solid fa-caret-down"></i>
+                        </span>
+                    </div>
+
+                  <!-- Dropdown Profile -->
+                    <template x-if="open">
+                      <div @click.away="open = false; rotateArrow = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95"  class="absolute w-48 px-6 py-3 bg-red-700  rounded-lg shadow border dark:border-transparent mt-36">
+                        <ul class="space-y-3 dark:text-white">
+
+                          <!-- Account Setting -->
+                          <li class="font-medium">
+                            <a href="s_adminSettings.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                              <div class="mr-3" id="submenu-account">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                              </div>
+                              Account Setting
+                            </a>
+                          </li>
+
+                          <!-- Logout -->
+                          <li class="font-medium">
+                            <a href="index.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                              <div class="mr-3" id="submenu-logout">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                              </div>
+                              Logout
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End of header -->
+
+        <!-- Main Content-->
+        <div class="w-full min-h-screen bg-gray-200 transition-all main sm:px-40 sm:py-3">
+          <div class="ml-2 grid bg-white lg:ml-5 round grid-cols-1 lg:grid-cols-1 gap-6 mb-6 p-10 border border-gray-100 shadow-md shadow-black/5 rounded-2xl max-w-full mx-auto">
+              
+            <form>
+              <div class="space-y-12">
+      
+                <!-- Account Settings Section -->
+                <div class="border-b border-gray-900/10 pb-12">
+                  <h2 class="text-3xl font-semibold leading-7 text-gray-900">Account Settings</h2>
+
+                  <!-- Profile Image Section -->
+                  <div class="col-span-full">
+                    <div class="mt-2 flex items-center gap-x-3">
+                        <img src="images/rayul-_M6gy9oHgII-unsplash.jpg" alt="Logo" class="mb-2 w-24 h-24 rounded-full text-gray-300">
+                        <button class="py-1 px-6 text-black text-sm font-semibold uppercase rounded-[30px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-green-500 before:to-green-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[30px] hover:before:left-0">
+                            Change
+                        </button>
+                    </div>
+                  </div>          
+      
+                  <!-- Personal Information Section -->
+                  <div class="mt-2 pb-12">
+                    <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+                    <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent email address where you can receive mail.</p>
+
+                    <!-- Designation Dropdown -->
+                    <div class="mt-3 sm:col-span-3">
+                        <label for="designation" class="block text-sm font-medium leading-6 text-gray-900">Designation</label>
+                        <div class="mt-2">
+                            <select id="designation" name="designation-role" autocomplete="designation-title" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-g-300 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                <option>Admin</option>
+                                <option>Representative</option>
+                            </select>
+                        </div>
+                    </div>          
+      
+                    <!-- Name Input Fields -->
+                    <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                      <div class="sm:col-span-3">
+                          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                          <div class="mt-2">
+                              <input type="text" name="first-name" placeholder="Juan" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          </div>
+                      </div>
+
+                      <div class="sm:col-span-3">
+                          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                          <div class="mt-2">
+                              <input type="text" name="last-name" placeholder="Dela Cruz" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          </div>
+                      </div>
+                    </div>          
+      
+                    <!-- Email and Phone Input Fields -->
+                    <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                      <div class="sm:col-span-3">
+                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
+                        <div class="mt-2">
+                            <input type="text" name="email" placeholder="juandelacruz@valenzuela.ph" id="email" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+
+                      <div class="sm:col-span-3">
+                          <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Phone number</label>
+                          <div class="mt-2">
+                              <input type="text" name="phone" placeholder="+639188287476" id="phone" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          </div>
+                      </div>
+                    </div>                
+        
+                    <!-- Username and Password Input Fields -->
+                    <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                      <div class="sm:col-span-3">
+                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username/ID</label>
+                        <div class="mt-2">
+                            <input type="text" name="username" placeholder="CSWDADMIN0942" id="username" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+
+                      <div class="sm:col-span-3">
+                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Change Password</label>
+                        <div class="mt-2">
+                            <input type="password" name="password" placeholder="*********" id="password" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+                    </div>                
+                  </div>
+      
+                    <!-- Office Details Section -->
+                    <div class="mt-7 col-span-full">
+                      <label for="about" class="block text-sm font-semibold leading-6 text-gray-900">Office Details</label>
+                    </div>
+
+                    <!-- Office Details Input Fields -->
+                    <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+                      <div class="sm:col-span-2 sm:col-start-1">
+                        <label for="office-number" class="block text-sm font-medium leading-6 text-gray-900">Office Number</label>
+                          <div class="mt-2">
+                            <input type="text" name="office-number" id="office-number" placeholder="8352-1000 loc.1406 / 1407 / 1416 / 1129 / 1103 / 1105" autocomplete="address-level2" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          </div>  
+                      </div>
+
+                      <div class="sm:col-span-2">
+                        <label for="direct-line" class="block text-sm font-medium leading-6 text-gray-900">Direct Line</label>
+                          <div class="mt-2">
+                            <input type="text" name="direct-line" id="direct-line" placeholder="8277-3929" autocomplete="address-level1" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          </div>
+                      </div>  
+
+                      <div class="sm:col-span-2">
+                        <label for="fax-number" class="block text-sm font-medium leading-6 text-gray-900">Fax Number</label>
+                          <div class="mt-2">
+                            <input type="text" name="fax-number" id="fax-number" placeholder="3445-5437" autocomplete="postal-code" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          </div>
+                      </div>  
+
+                      <div class="sm:col-span-2">
+                        <label for="office-address" class="block text-sm font-medium leading-6 text-gray-900">Office Address</label>
+                          <div class="mt-2">
+                            <input type="text" name="office-address" id="office-address" placeholder="1st Floor Legislative Building, New City Government Complex MacArthur Highway, Barangay Karuhatan, Valenzuela City, Philippines 1440" autocomplete="postal-code" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                          </div>  
+                      </div>      
+                    </div>
+      
+                    <!-- Upload ID or Documents Section -->
+                    <div class="mt-2 col-span-full">
+                      <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Upload Your ID or Documents here</label>
+                        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                          <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                            </svg>
+
+                            <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                              <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                              </label>
+                                <p class="pl-1">or drag and drop</p>
+                            </div>
+
+                            <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                          </div>
+                        </div>
+                    </div>            
+      
+                    <!-- Action Buttons Section -->
+                    <div class="mt-2 flex items-center justify-end gap-x-6">
+                      <a href="adminSettings.html">
+                        <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+                      </a>
+
+                      <a href="adminSettings.html">
+                        <button type="submit" class="rounded-md w-20 bg-green-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                      </a>
+                    </div>  
+                </div>
+            </form>
+          </div>
+        </div>
+  
+
+      <!-- JS SCRIPT -->
+      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+      <!-- Chart.js library -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+
+      <!-- my custom script -->
+      <script src="script.js"></script>
+
+      <!-- Dropdown Menu Toggle Function -->
+      <script>
+        // Toggle dropdown menu visibility
+        function toggleDropdown(type) {
+        // Toggle visibility for the specified dropdown
+
+          if (type === 'account'){
+            document.querySelector('#arrow-account').classList.toggle('rotate-0');
+          }
+            }
+      </script>
+
+      <script>
+      // Function to switch images based on screen size
+        function switchImages() {
+          const largeImage = document.getElementById('largeImage');
+          const smallImage = document.getElementById('smallImage');
+
+            if (window.innerWidth <= 768) {
+              // Show the small image on screens with a width of 768 pixels or less
+              smallImage.style.display = 'block';
+              largeImage.style.display = 'none';
+              } else {
+                // Show the large image on screens with a width greater than 768 pixels
+                smallImage.style.display = 'none';
+                largeImage.style.display = 'block';
+              }
+        }
+
+          // Initial call to switchImages on page load
+          switchImages();
+
+          // Add an event listener to handle window resize
+          window.addEventListener('resize', switchImages);
+      </script>
+    
+    </body>
+</html>

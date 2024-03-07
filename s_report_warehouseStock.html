@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Report</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+
+    <style>
+      .custom-smaller-text {
+        font-size: 0.85rem; 
+      }
+
+      #sortbox:checked ~ #sortboxmenu {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body class = "font-[Roboto]">
+    <!-- Header starts here -->
+    <header class="bg-gray-200 py-2 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-300">
+      <div class="mx-auto px-2 sm:px-6">
+        <div class="flex h-16 items-center justify-between">
+            
+          <!-- Hamburger Icon for Small Screens -->
+          <div x-data="{ openMobileMenu: false }">
+            <div class="md:hidden">  
+
+              <!-- Toggle Button -->
+              <button @click="openMobileMenu = !openMobileMenu" class="p-2 text-gray-700 hover:text-red-900 focus:outline-none focus:bg-red-100">
+                <i class="fa-solid fa-bars text-xl"></i>
+              </button>    
+          
+                  <!-- Sidebar -->
+                  <div x-show="openMobileMenu" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300" class="fixed inset-0 z-50 bg-red-800 bg-opacity-95 sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center shadow h-screen lg:block md:hidden">
+                    <div class="flex justify-start h-full relative">
+                          
+                      <!-- Close Button (Top Right) -->
+                      <button @click="openMobileMenu = false" class="absolute top-4 right-4 text-white">
+                        <i class="fa-solid fa-times text-xl"></i>
+                      </button>
+
+                        <!-- Sidebar Content -->
+                        <div class="flex flex-col items-start text-white mt-6">
+                          <!-- Your mobile menu items here -->
+                          <img src="images/colored2_w_stroke.png" class="mr-auto" alt="Icon" style="width: 200px; height: 70px; ">
+                          <a href="s_adminDashboard.html" class="text-white font-bold p-4">Dashboard</a>
+                          <a href="s_adminRequest.html" class="text-white p-4">Request</a>
+                          <a href="s_report_warehouseStock.html" class="text-white p-4">Reports</a>
+                          <a href="s_adminHistory.html" class="text-white p-4">History</a>
+                        </div>    
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Nav Bar Content -->
+            <a class="block text-teal-600 dark:text-teal-600 mr-auto" href="admindashboard.html">
+              <span class="sr-only">Home</span>
+                  <img
+                      id="largeImage"
+                      src="images/colored_wo_bg.png"
+                      class="mr-auto"
+                      alt="Icon"
+                      style="width: 220px; height: 80px; "/>
+                  <img
+                      id="smallImage"
+                      src="images/icon_only_colored.png"
+                      class="mr-auto"
+                      alt="Icon"
+                      style="width: 40px; height: 40px; display: none;"/>    
+            </a>
+
+            <!-- Tabs for Medium and Large Screens -->
+            <div class="hidden md:block">
+              <nav aria-label="Global">
+
+                <ul class="flex items-center gap-8 text-sm">
+                  <li>  <!-- Dashboard Tab -->
+                    <a href="s_adminDashboard.html">
+                      <div class="group p-2.5 px-6 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border">
+                        <i class="fa-solid fa-house text-gray-700 group-hover:text-white"></i>
+                        <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">Dashboard</span>
+                      </div>
+                    </a>
+                  </li>
+                                                          
+                  <li> <!-- Request Tab -->
+                    <a href="s_adminRequest.html">
+                      <div class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border">
+                        <i class="fa-solid fa-hand-holding-hand text-gray-700 group-hover:text-white"></i>
+                        <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">Request</span>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="s_report_warehouseStock.html"> <!-- History Tab -->
+                      <div class="group p-2.5 mt-2 flex items-center rounded-full px-6 duration-300 cursor-pointer  bg-red-700 shadow-md shadow-red-500/50">
+                        <i class="fa-solid fa-clipboard text-white group-hover:text-white"></i>
+                        <span class="text-[12px] ml-2 font-bold text-white group-hover:text-white">Reports</span>
+                      </div>
+                    </a>
+                  </li>
+              
+                  <li>
+                    <a href="s_adminHistory.html"> <!-- History Tab -->
+                      <div class="group p-2.5 mt-2 flex items-center rounded-full px-6 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border">
+                        <i class="fa-solid fa-clock-rotate-left text-gray-700 group-hover:text-white"></i>
+                        <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">History</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>           
+              </nav>
+            </div>
+
+            <div x-data="{ showNotification: false }" class="flex items-center ml-auto relative">
+              <!-- Notification Bell Icon -->
+              <button @click="showNotification = !showNotification" class="relative p-2 ml-2 text-red-700 bg-gray-200 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+                <span class="sr-only">Notifications</span>
+                <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+              </button>
+            
+              <!-- Notification Alert -->
+              <div x-show="showNotification" @click.away="showNotification = false" class="absolute top-16 right-36 p-4 space-y-4">
+                <div class="flex w-64 h-28 shadow-lg rounded-lg">
+                  <!-- warning -->
+                  <div class="px-4 py-2 bg-white border border-l-8 border-red-700 text-gray-700 flex justify-between rounded">
+                    <div class="flex items-center">
+                      <div class="flex flex-col items-start text-sm">
+                        <p class="font-bold text-[15px]">WARNING</p>
+                        <p class="font-bold text-[10px]">[20324-20330 Food Packages]</p>
+                        <p class="text-xs text-white-700 font-regular mt-1 cursor-default">150 pcs of Bear Brand Milk Powder will expire on November 25, 2023.</p>
+                      </div>
+                    </div>
+                    <button @click="showNotification = false" class="text-gray-700 mb-auto mt-3 hover:text-red-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Profile -->
+              <div x-data="{ open: false, rotateArrow: false }">
+                  <div @click="open = !open; rotateArrow = !rotateArrow" class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer">
+                    <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                          <img src="images/rayul-_M6gy9oHgII-unsplash.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+    
+                        <div class="dark:text-gray-700">
+                          <div class="cursor-pointer">
+                            <span class="font-semibold text-md">Juan Dela Cruz</span><br>
+                            <span class="text-[13px] text-gray-600">OFFICE HEAD</span>
+                          </div>
+                        </div>
+    
+                        <span class="text-sm ml-2 text-red-700" :class="{ 'rotate-180': rotateArrow }">
+                          <i class="fa-solid fa-caret-down"></i>
+                        </span>
+                    </div>
+                  
+                  <!-- Dropdown Profile -->
+                    <template x-if="open">
+                      <div @click.away="open = false; rotateArrow = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95"  class="absolute w-48 px-6 py-3 bg-red-700  rounded-lg shadow border dark:border-transparent mt-36">
+                        <ul class="space-y-3 dark:text-white">
+
+                          <!-- Account Setting -->
+                          <li class="font-medium">
+                            <a href="s_adminSettings.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                              <div class="mr-3" id="submenu-account">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                              </div>
+                              Account Setting
+                            </a>
+                          </li>
+
+                          <!-- Logout -->
+                          <li class="font-medium">
+                            <a href="index.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                              <div class="mr-3" id="submenu-logout">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                              </div>
+                              Logout
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </header>
+    <!-- End of header -->
+
+    <!-- main content -->
+    <div class="w-full min-h-screen bg-gray-200 transition-all main sm:px-20 sm:py-3">
+      
+      <!--Tabs starts here-->
+      <div class="flex flex-col">
+      <div class="flex items-center space-x-2 mt-2">
+
+        <!--warehouse inventory tab-->
+        <a href="s_report_warehouseStock.html">
+          <button class="ml-8 inline-block py-1 px-6 rounded-l-xl rounded-t-xl bg-[#34A853] focus:text-[#FFFFFF] focus:bg-gray-200 text-gray-50 font-bold leading-loose transition duration-200">
+            Warehouse Inventory
+          </button>
+        </a>
+
+        <!--Released Donations tab-->
+        <a href="s_report_releasedDonations.html">
+          <button class="inline-block py-1 px-6 rounded-l-xl rounded-t-xl bg-gray-200 border border-green-700 text-green-700 hover:shadow hover:shadow-green-500 hover:bg-white hover:text-[#34A853] focus:text-[#FFFFFF] focus:bg-gray-200 text-gray-50 font-bold leading-loose transition duration-200">
+            Released Donations
+          </button>
+        </a>
+
+        <!--Staff Record tab-->
+        <a href="s_report_staffRecord.html">
+          <button class="inline-block py-1 px-6 rounded-l-xl rounded-t-xl bg-gray-200 border border-green-700 text-green-700 hover:shadow hover:shadow-green-500 hover:bg-white hover:text-[#34A853] focus:text-[#FFFFFF] focus:bg-gray-200 text-gray-50 font-bold leading-loose transition duration-200">
+            Staff Record
+          </button>
+        </a>
+
+        <div class="flex-grow"></div>
+      </div>
+    </div>
+
+      <!--This is the grid-->
+      <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 gap-6 p-4">
+        
+        <!--big white main container content-->
+        <div class="bg-white border border-gray-100 shadow-black/5 p-6 rounded-2xl shadow-md shadow-green-200 h-[1000px]">
+          <div class="flex flex-wrap items-center">
+
+            <!--button for stock tab-->
+            <a href="s_report_warehouseStock.html">
+              <button  class="mb-5 ml-5 hover:brightness-110 hover:animate-pulse font-bold py-2 px-8 text-sm rounded-md bg-green-700 shadow-lg shadow-green-500/50 text-white">Stock</button>
+            </a>
+
+            <!--button for pack tab-->
+            <a href="s_report_warehouseStock_Pack.html">
+              <button  class="mb-5 ml-5 hover:brightness-110 hover:animate-pulse font-bold py-2 px-8 text-sm rounded-md bg-white shadow-lg shadow-green-500/50 text-green-700 border border-b-gray-300 hover:border-green-800">Packs</button>
+            </a>
+
+            <!--dropdown for timeline-->
+            <div class="relative ml-auto mr-7">
+              <select id="category-dropdown" name="category"  class="block appearance-none w-full h-9 bg-white border border-gray-400 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-300">
+                <option>Quarterly</option>
+                <option>Semi-Annual</option>
+                <option>Annual</option>
+              </select>
+              
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!--title-->
+          <div class="flex items-center justify-center">
+            <b class="text-gray-700 text-4xl">SUMMARY REPORT</b>
+          
+          </div>
+            <div class="flex items-center justify-center">
+            <p class="text-gray-700 text-md font-bold">Warehouse Inventory</p>
+            </div>
+
+          <!--link for downloading the summary report-->
+          <div class="flex justify-end mr-10">
+            <a href="report_pdfSample.html">
+            <button class="cursor-pointer group relative flex gap-1.0 text-sm px-10 py-3 bg-green-700 bg-opacity-80 text-white rounded-full hover:bg-opacity-70 transition font-semibold shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" fill="none" viewBox="0 0 24 24" height="16px" width="16px"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Download"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#f1f1f1" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" id="Vector"></path> </g> </g></svg>
+                Download
+              </button>
+            </a>
+          </div>
+          
+          <!--cards for totals-->
+          <div class="flex flex-wrap justify-start mt-5">
+            
+            <!--card 1 for Current Stocks-->
+            <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Current Stocks: </h5><br>
+              <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">15,390</h5>
+            </a>
+
+            <!--card 2 for Added Stocks-->
+            <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Added Stocks: </h5><br>
+              <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">10,390</h5>
+            </a>
+          
+            <!--card 3 for Expired Stocks-->
+            <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Expired Stocks: </h5><br>
+              <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">0</h5>
+            </a>
+
+            <!--card for date-->
+            <a href="#" class="mb-5 ml-auto mr-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Date: </h5><br>
+              <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">January - March 2024</h5>
+            </a>
+          </div>
+          
+          <div class="flex justify-center"> <!-- Centering the content -->
+            <div class="overflow-x-auto">
+              <table class="w-full custom-smaller-text justify-center border border-green-500 bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
+                
+                <!-- Columns -->
+                <thead class="bg-green-700 text-white">
+                  <tr>
+                    <th class="text-center px-4 sm:px-8 py-2 whitespace-nowrap">DATE ADDED</th>
+                    <th class="text-center px-4 sm:px-6 py-2 whitespace-nowrap">ITEM CODE</th>
+                    <th class="text-center px-4 sm:px-8 py-2">ITEM</th>
+                    <th class="text-center px-4 sm:px-6 py-2">TYPE</th>
+                    <th class="text-center px-4 sm:px-6 py-2">CATEGORY</th>
+                    <th class="text-center px-4 sm:px-5 py-2 whitespace-nowrap">QUANTITY (PCS.)</th>
+                    <th class="text-center px-4 sm:px-8 py-2">LOCATION</th>
+                    <th class="text-center px-4 sm:px-8 py-2 whitespace-nowrap">EXPIRY DATE</th>
+                  </tr>      
+                </thead>
+
+                <!-- Column's content -->
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 3, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10901</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">3n1 Coffee</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">2,120</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 2</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">September 21, 2024</td>  
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 3, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10902</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Bear Brand Tipid Pack</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">1,500</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 3</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">December 1, 2024</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10903</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Corned Beef</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">1,195</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 4</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">May 21, 2024</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10904</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Cooking oil</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">750</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">2nd Floor-Rack 2</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 26, 2026</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10905</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Disposable cup</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Plastic</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">1,100</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">Outside</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 15, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10906</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Kaldero - big</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Metal</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Unspecified</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+                  </tr>
+                        
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 25, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10907</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Kumot</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Cotton</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Comfort</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">540</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">2nd-Unspecified</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 28, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10908</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">2,100</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">March 25, 2025</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 28, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10909</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 21, 2025</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 2, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10910</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Rice (50kgs)</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Sacks</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">3,400</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 1</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 11, 2024</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 2, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10911</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">San Marino</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">810</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">August 9, 2025</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 8, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10912</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Sardines</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">4,210</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 21, 2024</td>
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 10, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10913</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Styro cup</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Styrofoam</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">5,000</td>
+                    <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">Outside</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <!-- Pagination -->
+              <nav class="flex justify-end">
+                <ul class="inline-flex -space-x-px text-sm">
+                  <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 ">Previous</a>
+                  </li>
+                  <li>
+                    <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 leading-tight text-blue-500 font-bold border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">1</a>
+                  </li>
+                  <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+                  </li>
+                  <li>
+                    <a href="#"  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">3</a>
+                  </li>
+                  <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">4</a>
+                  </li>
+                  <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
+                  </li>
+                  <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+     <!-- my custom script -->
+     <script src="script.js"></script>
+
+     <!-- Dropdown Menu Toggle Function -->
+     <script>
+       // Toggle dropdown menu visibility
+       function toggleDropdown(type) {
+       // Toggle visibility for the specified dropdown
+     
+         if (type === 'account'){
+           document.querySelector('#arrow-account').classList.toggle('rotate-0');
+         }
+           }
+    </script>
+     
+   <script>
+     // Function to switch images based on screen size
+       function switchImages() {
+         const largeImage = document.getElementById('largeImage');
+         const smallImage = document.getElementById('smallImage');
+     
+           if (window.innerWidth <= 768) {
+             // Show the small image on screens with a width of 768 pixels or less
+             smallImage.style.display = 'block';
+             largeImage.style.display = 'none';
+             } else {
+               // Show the large image on screens with a width greater than 768 pixels
+               smallImage.style.display = 'none';
+               largeImage.style.display = 'block';
+             }
+       }
+     
+         // Initial call to switchImages on page load
+         switchImages();
+     
+         // Add an event listener to handle window resize
+         window.addEventListener('resize', switchImages);
+    </script>
+    
+  </body>
+</html>

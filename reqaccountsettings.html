@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Account Settings</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+  </head>
+
+
+  <body class="bg-gray-200 font-[Roboto]">
+
+    <!-- Header starts here -->
+    <header class="bg-white py-2 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-300">
+      <div class="mx-auto px-2 sm:px-6">
+        <div class="flex h-16 items-center justify-between">
+            
+          <!-- Hamburger Icon for Small Screens -->
+          <div x-data="{ openMobileMenu: false }">
+            <div class="md:hidden">  
+
+              <!-- Toggle Button -->
+              <button @click="openMobileMenu = !openMobileMenu" class="p-2 text-gray-700 hover:text-red-900 focus:outline-none focus:bg-red-100">
+                <i class="fa-solid fa-bars text-xl"></i>
+              </button>    
+          
+                  <!-- Sidebar -->
+                  <div x-show="openMobileMenu" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300" class="fixed inset-0 z-50 bg-red-800 bg-opacity-95 sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center shadow h-screen lg:block md:hidden">
+                    <div class="flex justify-start h-full relative">
+                          
+                      <!-- Close Button (Top Right) -->
+                      <button @click="openMobileMenu = false" class="absolute top-4 right-4 text-white">
+                        <i class="fa-solid fa-times text-xl"></i>
+                      </button>
+
+                      <!-- Sidebar Content -->
+                      <div class="flex flex-col items-start text-white mt-6">
+                          <!-- Your mobile menu items here -->
+                          <img src="images/colored2_w_stroke.png" class="mr-auto" alt="Icon" style="width: 200px; height: 70px; ">
+                          <a href="requestmainpage.html" class="text-white p-4">Request</a>
+                          <a href="donations.html" class="text-white p-4">History</a>
+                      </div>    
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+          <!-- Nav Bar Content -->
+          <a class="block text-teal-600 dark:text-teal-600 mr-auto" href="requestmainpage.html">
+            <span class="sr-only">Home</span>
+              <img
+                id="largeImage"
+                src="images/colored_wo_bg.png"
+                class="mr-auto"
+                alt="Icon"
+                style="width: 220px; height: 80px; "/>
+              <img
+                id="smallImage"
+                src="images/icon_only_colored.png"
+                class="mr-auto"
+                alt="Icon"
+                style="width: 40px; height: 40px; display: none;"/>    
+          </a>
+
+          <!-- Tabs for Medium and Large Screens -->
+          <div class="hidden md:block">
+            <nav aria-label="Global">  
+
+              <ul class="flex items-center gap-8 text-sm">
+                <li>  <!-- Request Tab -->
+                  <a href="requestmainpage.html">
+                    <div class="group p-2.5 px-6 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border border-gray-300">
+                      <i class="fa-solid fa-house text-gray-700 group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">Request</span>
+                    </div>
+                  </a>
+                </li>
+                                                        
+                <li> <!-- history Tab -->
+                  <a href="donations.html">
+                    <div class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border border-gray-300">
+                      <i class="fa-solid fa-hand-holding-hand text-gray-700 group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">History</span>
+                    </div>
+                  </a>
+                </li>    
+              </ul>       
+            </nav>
+          </div>
+
+          <div x-data="{ showNotification: false }" class="flex items-center ml-auto relative">
+
+            <!-- Notification Bell Icon -->
+            <button @click="showNotification = !showNotification" class="relative p-2 ml-2 text-red-700 bg-gray-200 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+              <span class="sr-only">Notifications</span>
+              <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+              <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+              <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button>  
+            
+            <!-- Notification Alert -->
+            <div x-show="showNotification" @click.away="showNotification = false" class="absolute top-16 right-56 p-4 space-y-4">
+              <div class="flex w-64 h-28 shadow-lg rounded-lg">
+                <!-- warning -->
+                <div class="px-4 py-2 bg-white border text-gray-700 flex justify-between rounded">
+                  <div class="flex items-center">
+                    <div class="flex flex-col items-start text-sm">
+                      <p class="font-bold text-[15px] text-green-700">Request Approved!</p>
+                      <p class="text-xs text-white-700 font-regular mt-1 cursor-default">Congratulations! Your request Food Donation from November 18, 2023 is now approved.</p>
+                    </div>
+                  </div>
+                  <button @click="showNotification = false" class="text-gray-700 mb-auto mt-3 hover:text-red-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>  
+
+            <!-- Profile -->
+            <div x-data="{ open: false, rotateArrow: false }">
+              <div @click="open = !open; rotateArrow = !rotateArrow" class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer">
+                <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNqyXqvleb0QBYwdbzB9wAYj-h1_XHe8F2BA" alt="" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="dark:text-gray-700">
+                      <div class="cursor-pointer">
+                        <span class="font-semibold text-md">Jasper Darlang</span><br>
+                        <span class="text-[13px] text-gray-600">Barangay Representative</span>
+                      </div>
+                    </div>
+
+                    <span class="text-sm ml-2 text-red-700" :class="{ 'rotate-180': rotateArrow }">
+                      <i class="fa-solid fa-angle-down"></i>
+                    </span>
+                </div>
+                
+                <!-- Dropdown Profile -->
+                  <template x-if="open">
+                    <div @click.away="open = false; rotateArrow = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95"  class="absolute w-48 px-6 py-3 bg-blue-700  rounded-lg shadow border dark:border-transparent mt-36">
+                      <ul class="space-y-3 dark:text-white">
+
+                        <!-- Account Setting -->
+                        <li class="font-medium">
+                          <a href="reqaccountsettings.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                            <div class="mr-3" id="submenu-account">
+                              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            Account Setting
+                          </a>
+                        </li>
+
+                        <!-- Logout -->
+                        <li class="font-medium">
+                          <a href="index.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                            <div class="mr-3" id="submenu-logout">
+                              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                            </div>
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </template>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End of header -->
+
+    <!-- main content -->
+    <div class="w-full min-h-screen bg-gray-200 transition-all main sm:px-20 sm:py-3">
+      <div class="ml-7 grid bg-white round grid-cols-1 lg:grid-cols-1 gap-6 mb-6 p-4 gap-10 border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md relative">
+        <div class="flex justify-between items-center mb-4">
+        <!-- page title -->
+          <h1 class="text-2xl font-semibold leading-7 text-gray-700">Account</h1>
+          
+          <!-- edit button --->
+          <a href="repAccountEdit.html">
+            <button class="bg-emerald-950 text-white border border-green-400 border-b-4 font-medium px-2 py-1 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group text-sm">
+              <i class="fa-regular fa-pen-to-square text-white mr-1 ml-1"></i> Edit Account
+            </button>
+          </a>
+        </div>
+
+        <!-- account details --->
+        <div class="flex items-center">
+          <span class="h-36 w-36 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden inline-block">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNqyXqvleb0QBYwdbzB9wAYj-h1_XHe8F2BA" alt="user profile photo" class="h-full w-full object-cover"> 
+          </span>
+
+          <!-- names --->
+          <div class="flex flex-col">
+            <p class="max-w-3xl text-3xl ml-5 text-gray-500">Jasper Darlang</p>
+            <b class="max-w-3xl ml-5 text-gray-500">Barangay Representative</b>
+          </div>
+        </div>
+
+      <div class=" border-t border-gray-100">
+
+        <!-- Profile details--->
+        <dl class="divide-y divide-gray-100">
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Full name</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Dave Pascual</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Designation</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Barangay Secretary</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Email Address</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">davepascual@valenzuela.ph</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Phone Number</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">+639188235476</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Username/ID</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Barangay123</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Password</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">********</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Office Details</dt>
+              <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                Office Number:  8352-1000 loc.1406 / 1407 / 1416 / 1129 / 1103 / 1105 <br>
+                Direct Line: 8277-3929 <br>
+                Fax Number: 3445-5432 <br>
+                Office Address: 1st Floor Legislative Building,
+                New City Government Complex
+              MacArthur Highway, Barangay Karuhatan,
+              Valenzuela City, Philippines 1440
+              </dd>
+          </div>
+        </dl>
+      </div>
+      </div>
+    </div>
+
+    <!-- JS SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+
+    <!-- my custom script -->
+    <script src="script.js"></script>
+
+    <!-- Dropdown Menu Toggle Function -->
+    <script>
+      // Toggle dropdown menu visibility
+      function toggleDropdown(type) {
+      // Toggle visibility for the specified dropdown
+
+        if (type === 'account'){
+          document.querySelector('#arrow-account').classList.toggle('rotate-0');
+        }
+          }
+    </script>
+
+    <script>
+    // Function to switch images based on screen size
+      function switchImages() {
+        const largeImage = document.getElementById('largeImage');
+        const smallImage = document.getElementById('smallImage');
+
+          if (window.innerWidth <= 768) {
+            // Show the small image on screens with a width of 768 pixels or less
+            smallImage.style.display = 'block';
+            largeImage.style.display = 'none';
+            } else {
+              // Show the large image on screens with a width greater than 768 pixels
+              smallImage.style.display = 'none';
+              largeImage.style.display = 'block';
+            }
+      }
+
+        // Initial call to switchImages on page load
+        switchImages();
+
+        // Add an event listener to handle window resize
+        window.addEventListener('resize', switchImages);
+    </script>
+
+  </body>
+</html>

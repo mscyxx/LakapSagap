@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Relief Confirm</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+ 
+        <style>
+            .custom-smaller-text {
+            font-size: 0.57rem; 
+          }
+
+        </style>
+ 
+    </head>
+
+<body>
+<div class = "font-[Roboto]">
+ 
+  <!-- main content -->
+    <div class="w-full min-h-screen bg-gray-900 transition-all main sm:px-48 sm:py-3">
+        <div class="grid grid-cols-1 lg:grid-cols-1 p-16">
+
+        <!-- form content -->
+        <div class="bg-white border-t-8 border-gray-700  shadow-md shadow-gray/5 p-10 rounded-sm">
+            <div class="flex flex-wrap justify-end">
+            <h5 class="ml-2 text-md font-bold tracking-tight ml-auto text-gray-900 inline-block">Date: </h5><br>
+            <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">January - March 2024</h5>
+        </div>
+          <div class="flex justify-center mb-1 items-center">
+            
+              <div class="text-4xl font-bold text-gray-700">Summary Report</div> 
+
+      
+
+          </div>
+          <div class="flex items-center justify-center">
+            <p class="text-gray-700 text-md font-bold mr-2">Warehouse Inventory</p>
+            <p class="text-gray-700 text-md font-bold">[Stocks]</p>
+            
+            </div>
+            <div class="flex items-center justify-center">
+            <p class="text-gray-700 text-sm font-bold">QUARTERLY REPORT</p>
+        </div>
+            
+          <div class="flex flex-wrap justify-center mt-5">
+            
+            <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Current Stocks: </h5><br>
+              <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">15,390</h5>
+            </a>
+
+            <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Added Stocks: </h5><br>
+              <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">10,390</h5>
+            </a>
+          
+            <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Expired Stocks: </h5><br>
+              <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">0</h5>
+            </a>
+            </div>
+
+          <div class="flex justify-center"> <!-- Centering the content -->
+            <div class="overflow-x-auto">
+              <table class="w-full custom-smaller-text justify-center border border-green-500 bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
+                         <thead class="bg-green-700 text-white">
+                      <tr>
+                        
+                        <th class="text-center px-4 sm:px-8 py-2 whitespace-nowrap">DATE ADDED</th>
+                          <th class="text-center px-4 sm:px-6 py-2 whitespace-nowrap">ITEM CODE</th>
+                          <th class="text-center px-4 sm:px-8 py-2">ITEM</th>
+                          <th class="text-center px-4 sm:px-6 py-2">TYPE</th>
+                          <th class="text-center px-4 sm:px-6 py-2">CATEGORY</th>
+                          <th class="text-center px-4 sm:px-5 py-2 whitespace-nowrap">QUANTITY (PCS.)</th>
+                          <th class="text-center px-4 sm:px-8 py-2">LOCATION</th>
+                          <th class="text-center px-4 sm:px-8 py-2 whitespace-nowrap">EXPIRY DATE</th>
+                      </tr>
+                  </thead>
+
+                  <tbody class="bg-white divide-y divide-gray-200">
+
+                      <tr class="hover:bg-green-100">
+                        
+                        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 3, 2024</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold">10901</td>
+                          <td class="text-center px-4 sm:px-8 py-2 font-bold">3n1 Coffee</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                          <td class="text-center px-4 sm:px-5 py-2 font-bold">2,120</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 2</td>
+                          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">September 21, 2024</td>
+                          
+                      </tr>
+
+                      <tr class="hover:bg-green-100">
+                        
+                        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 3, 2024</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold">10902</td>
+                          <td class="text-center px-4 sm:px-8 py-2 font-bold">Bear Brand Tipid Pack</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                          <td class="text-center px-4 sm:px-5 py-2 font-bold">1,500</td>
+                          <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 3</td>
+                          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">December 1, 2024</td>
+                         
+                      </tr>
+
+                      <tr class="hover:bg-green-100">
+                        
+                        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold">10903</td>
+                        <td class="text-center px-4 sm:px-8 py-2 font-bold">Corned Beef</td>
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+                        <td class="text-center px-4 sm:px-5 py-2 font-bold">1,195</td>
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 4</td>
+                        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">May 21, 2024</td>
+                        
+                    </tr>
+
+                    <tr class="hover:bg-green-100">
+                      
+                      <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+                      <td class="text-center px-4 sm:px-6 py-2 font-bold">10904</td>
+                      <td class="text-center px-4 sm:px-8 py-2 font-bold">Cooking oil</td>
+                      <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+                      <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+                      <td class="text-center px-4 sm:px-5 py-2 font-bold">750</td>
+                      <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">2nd Floor-Rack 2</td>
+                      <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 26, 2026</td>
+                     
+                  </tr>
+
+                  <tr class="hover:bg-green-100">
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">10905</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold">Disposable cup</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Plastic</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+                    <td class="text-center px-4 sm:px-5 py-2 font-bold">1,100</td>
+                    <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">Outside</td>
+                    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+                   
+                </tr>
+
+                <tr class="hover:bg-green-100">
+                  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 15, 2024</td>
+                  <td class="text-center px-4 sm:px-6 py-2 font-bold">10906</td>
+                  <td class="text-center px-4 sm:px-8 py-2 font-bold">Kaldero - big</td>
+                  <td class="text-center px-4 sm:px-6 py-2 font-bold">Metal</td>
+                  <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+                  <td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
+                  <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Unspecified</td>
+                  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+                  
+              </tr>
+
+              <tr class="hover:bg-green-100">
+                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 25, 2024</td>
+                <td class="text-center px-4 sm:px-6 py-2 font-bold">10907</td>
+                <td class="text-center px-4 sm:px-8 py-2 font-bold">Kumot</td>
+                <td class="text-center px-4 sm:px-6 py-2 font-bold">Cotton</td>
+                <td class="text-center px-4 sm:px-6 py-2 font-bold">Comfort</td>
+                <td class="text-center px-4 sm:px-5 py-2 font-bold">540</td>
+                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">2nd-Unspecified</td>
+                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+                
+            </tr>
+
+            <tr class="hover:bg-green-100">
+              <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 28, 2024</td>
+              <td class="text-center px-4 sm:px-6 py-2 font-bold">10908</td>
+              <td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
+              <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+              <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+              <td class="text-center px-4 sm:px-5 py-2 font-bold">2,100</td>
+              <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
+              <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">March 25, 2025</td>
+              
+          </tr>
+
+          <tr class="hover:bg-green-100">
+            <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 28, 2024</td>
+            <td class="text-center px-4 sm:px-6 py-2 font-bold">10909</td>
+            <td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
+            <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+            <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+            <td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
+            <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
+            <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 21, 2025</td>
+            
+        </tr>
+
+          <tr class="hover:bg-green-100">
+            <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 2, 2024</td>
+            <td class="text-center px-4 sm:px-6 py-2 font-bold">10910</td>
+            <td class="text-center px-4 sm:px-8 py-2 font-bold">Rice (50kgs)</td>
+            <td class="text-center px-4 sm:px-6 py-2 font-bold">Sacks</td>
+            <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+            <td class="text-center px-4 sm:px-5 py-2 font-bold">3,400</td>
+            <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 1</td>
+            <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 11, 2024</td>
+           
+        </tr>
+
+        <tr class="hover:bg-green-100">
+          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 2, 2024</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">10911</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold">San Marino</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+          <td class="text-center px-4 sm:px-5 py-2 font-bold">810</td>
+          <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">August 9, 2025</td>
+         
+      </tr>
+
+
+        <tr class="hover:bg-green-100">
+          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 8, 2024</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">10912</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold">Sardines</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+          <td class="text-center px-4 sm:px-5 py-2 font-bold">4,210</td>
+          <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 21, 2024</td>
+          
+      </tr>
+
+      <tr class="hover:bg-green-100">
+        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 10, 2024</td>
+        <td class="text-center px-4 sm:px-6 py-2 font-bold">10913</td>
+        <td class="text-center px-4 sm:px-8 py-2 font-bold">Styro cup</td>
+        <td class="text-center px-4 sm:px-6 py-2 font-bold">Styrofoam</td>
+        <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+        <td class="text-center px-4 sm:px-5 py-2 font-bold">5,000</td>
+        <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">Outside</td>
+        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+        
+    </tr>
+
+    <tr class="hover:bg-green-100">
+                        
+        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 3, 2024</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">10901</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold">3n1 Coffee</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+          <td class="text-center px-4 sm:px-5 py-2 font-bold">2,120</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 2</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">September 21, 2024</td>
+          
+      </tr>
+
+      <tr class="hover:bg-green-100">
+        
+        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 3, 2024</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">10902</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold">Bear Brand Tipid Pack</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+          <td class="text-center px-4 sm:px-5 py-2 font-bold">1,500</td>
+          <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 3</td>
+          <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">December 1, 2024</td>
+         
+      </tr>
+
+      <tr class="hover:bg-green-100">
+        
+        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+        <td class="text-center px-4 sm:px-6 py-2 font-bold">10903</td>
+        <td class="text-center px-4 sm:px-8 py-2 font-bold">Corned Beef</td>
+        <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+        <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+        <td class="text-center px-4 sm:px-5 py-2 font-bold">1,195</td>
+        <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 4</td>
+        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">May 21, 2024</td>
+        
+    </tr>
+
+    <tr class="hover:bg-green-100">
+      
+      <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+      <td class="text-center px-4 sm:px-6 py-2 font-bold">10904</td>
+      <td class="text-center px-4 sm:px-8 py-2 font-bold">Cooking oil</td>
+      <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
+      <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+      <td class="text-center px-4 sm:px-5 py-2 font-bold">750</td>
+      <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">2nd Floor-Rack 2</td>
+      <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 26, 2026</td>
+     
+  </tr>
+
+  <tr class="hover:bg-green-100">
+    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 5, 2024</td>
+    <td class="text-center px-4 sm:px-6 py-2 font-bold">10905</td>
+    <td class="text-center px-4 sm:px-8 py-2 font-bold">Disposable cup</td>
+    <td class="text-center px-4 sm:px-6 py-2 font-bold">Plastic</td>
+    <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+    <td class="text-center px-4 sm:px-5 py-2 font-bold">1,100</td>
+    <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">Outside</td>
+    <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+   
+</tr>
+
+<tr class="hover:bg-green-100">
+  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 15, 2024</td>
+  <td class="text-center px-4 sm:px-6 py-2 font-bold">10906</td>
+  <td class="text-center px-4 sm:px-8 py-2 font-bold">Kaldero - big</td>
+  <td class="text-center px-4 sm:px-6 py-2 font-bold">Metal</td>
+  <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+  <td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
+  <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Unspecified</td>
+  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+  
+</tr>
+
+<tr class="hover:bg-green-100">
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 25, 2024</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">10907</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold">Kumot</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Cotton</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Comfort</td>
+<td class="text-center px-4 sm:px-5 py-2 font-bold">540</td>
+<td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">2nd-Unspecified</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+
+</tr>
+
+<tr class="hover:bg-green-100">
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 28, 2024</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">10908</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+<td class="text-center px-4 sm:px-5 py-2 font-bold">2,100</td>
+<td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">March 25, 2025</td>
+
+</tr>
+
+<tr class="hover:bg-green-100">
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">January 28, 2024</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">10909</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+<td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
+<td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 21, 2025</td>
+
+</tr>
+
+<tr class="hover:bg-green-100">
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 2, 2024</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">10910</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold">Rice (50kgs)</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Sacks</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+<td class="text-center px-4 sm:px-5 py-2 font-bold">3,400</td>
+<td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 1</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 11, 2024</td>
+
+</tr>
+
+<tr class="hover:bg-green-100">
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 2, 2024</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">10911</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold">San Marino</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+<td class="text-center px-4 sm:px-5 py-2 font-bold">810</td>
+<td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">August 9, 2025</td>
+
+</tr>
+
+
+<tr class="hover:bg-green-100">
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 8, 2024</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">10912</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold">Sardines</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
+<td class="text-center px-4 sm:px-5 py-2 font-bold">4,210</td>
+<td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 21, 2024</td>
+
+</tr>
+
+<tr class="hover:bg-green-100">
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">February 10, 2024</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">10913</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold">Styro cup</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Styrofoam</td>
+<td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
+<td class="text-center px-4 sm:px-5 py-2 font-bold">5,000</td>
+<td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">Outside</td>
+<td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
+
+</tr>
+
+                      <!-- Add more table rows here -->
+                  </tbody>
+                  
+              </table>
+              
+
+
+          
+           <!-- details  -->
+        
+      </div>
+    </div>
+  </div>
+
+      <!-- JS SCRIPT -->
+      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+      <!-- my custom script -->
+      <script src="script.js"></script>
+
+      <!-- Dropdown Menu Toggle Function -->
+      <script>
+        // Toggle dropdown menu visibility
+        function toggleDropdown(type) {
+        // Toggle visibility for the specified dropdown
+
+          if (type === 'account'){
+            document.querySelector('#arrow-account').classList.toggle('rotate-0');
+          }
+            }
+      </script>
+
+      <script>
+      // Function to switch images based on screen size
+        function switchImages() {
+          const largeImage = document.getElementById('largeImage');
+          const smallImage = document.getElementById('smallImage');
+
+            if (window.innerWidth <= 768) {
+              // Show the small image on screens with a width of 768 pixels or less
+              smallImage.style.display = 'block';
+              largeImage.style.display = 'none';
+              } else {
+                // Show the large image on screens with a width greater than 768 pixels
+                smallImage.style.display = 'none';
+                largeImage.style.display = 'block';
+              }
+        }
+
+          // Initial call to switchImages on page load
+          switchImages();
+
+          // Add an event listener to handle window resize
+          window.addEventListener('resize', switchImages);
+      </script>
+
+      <script>
+        // JavaScript to toggle the dropdown
+        const button = document.getElementById('dropdown-button');
+      const menu = document.getElementById('dropdown-menu');
+
+
+      button.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          searchInput.value = ''; // Clear the search input when the dropdown is opened
+      });
+
+      document.addEventListener('click', (event) => {
+          if (!button.contains(event.target) && !menu.contains(event.target)) {
+              menu.classList.add('hidden');
+          }
+      });
+      </script>
+
+        
+        </body>
+    </html>

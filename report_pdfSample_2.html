@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Relief Confirm</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+ 
+        <style>
+            .custom-smaller-text {
+            font-size: 0.57rem; 
+          }
+
+        </style>
+ 
+    </head>
+
+<body>
+<div class = "font-[Roboto]">
+ 
+  <!-- main content -->
+    <div class="w-full min-h-screen bg-gray-900 transition-all main sm:px-48 sm:py-3">
+        <div class="grid grid-cols-1 lg:grid-cols-1 p-16">
+
+        <!-- form content -->
+        <div class="bg-white border-t-8 border-gray-700  shadow-md shadow-gray/5 p-10 rounded-sm">
+            <div class="flex flex-wrap justify-end">
+            <h5 class="ml-2 text-md font-bold tracking-tight ml-auto text-gray-900 inline-block">Date: </h5><br>
+            <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">January - March 2024</h5>
+        </div>
+          <div class="flex justify-center mb-1 items-center">
+            
+              <div class="text-4xl font-bold text-gray-700">Summary Report</div> 
+
+      
+
+          </div>
+          <div class="flex items-center justify-center">
+            <p class="text-gray-700 text-md font-bold mr-2">Record of Distributions</p>
+            <p class="text-gray-700 text-md font-bold">[Quarterly Report]</p>
+            
+            </div>
+
+            <div class="flex flex-wrap justify-center mt-5">
+            
+                <a href="#" class="mb-5 ml-10 block w-64 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+                  <h5 class="ml-2 text-sm font-bold tracking-tight text-gray-900 inline-block">Total No. of Distributed Kits/Stocks: </h5><br>
+                  <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">6,710</h5>
+                </a>
+    
+                <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+                  <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Requests: </h5><br>
+                  <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">7</h5>
+                </a>
+    
+                
+                <a href="#" class="mb-5 ml-7 block w-56 justify-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+                    <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Recipients: </h5><br>
+                    <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">3,860</h5>
+                  </a>
+              
+    
+              </div>
+              
+              <div class="flex justify-center px-5"> <!-- Centering the content -->
+                <div class="overflow-x-auto">
+    
+                  <table class="w-full custom-smaller-text justify-center border border-green-500 bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
+                             <thead class="bg-green-700 text-white">
+                          <tr>
+                            
+                            <th class="text-center px-4 sm:px-4 py-2 whitespace-nowrap">DATE</th>
+                              <th class="text-center px-4 sm:px-6 py-2">REASON</th>
+                              <th class="text-center px-4 sm:px-8 py-2 whitespace-nowrap">KIT/STOCKS</th>
+                              <th class="text-center px-4 sm:px-8 py-2">RELEASED</th>
+                              <th class="text-center px-4 sm:px-8 py-2">RECIPIENT</th>
+                              <th class="text-center px-4 sm:px-6 py-2 whitespace-nowrap">TOTAL RECIPIENT</th>
+                              <th class="text-center px-4 sm:px-4 py-2">LOCATION</th>
+                              <th class="text-center px-4 sm:px-6 py-2">APPROVED BY</th>
+                          </tr>
+                      </thead>
+    
+                      <tbody class="bg-white divide-y divide-gray-200">
+    
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">January 5, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Relocation</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Food Pack<br>Kitchen Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">400 <br> 400</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Malinta Relocation</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">400</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Malinta</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">OIC Juan Dela Cruz</td>
+                          </tr>
+    
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">January 15, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Fire incident</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Food Pack<br>Family Pack<br>Kitchen Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">720 <br> 720 <br>500</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Fire incident IDPs</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">720</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Karuhatan</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">City Mayor</td>
+    
+                          </tr>
+    
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">January 28, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Donation</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Food Pack</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">250</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Bahay Kalinga</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">720</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Canumay West</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+    
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">February 2, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Flood incident</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Food Pack<br>Comfort Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">200 <br> 100</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Flood incident sIDPs</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">200</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Dalandanan</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                              
+                          </tr>
+    
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">February 5, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Fire incident</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Family Pack<br>Food Pack<br>Kitchen Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">600 <br> 400 <br>400</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">SC Juan Dela Cruz</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">600</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Polo</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+    
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">February 17, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Evac-Typhoon</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Food Pack<br>Family Pack <br>Kitchen Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">400 <br> 400 <br>400</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Flood incident IDPs</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">400</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Malanday</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+    
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">February 20, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Fire incident</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Disaster kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">520</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Fire incident IDPs</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">520</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Tagalag</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">February 25, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Flood incident</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Food Pack<br>Snack Pack</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">400<br>200</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Flood incident IDPs</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">400</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Gen. T</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">February 28, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Donation</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Family Kit<br>Food Pack </td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">500<br>200</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Bahay Pag-Asa</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">500</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Canumay West</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">February 28, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Donation</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Comfort Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">300</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Bahay Kalinga</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">300</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Canumay West</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">March 2, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Typhoon</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Disaster kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">1000</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Typhoon IDPs</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">1000</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Malanday</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">March 10, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Fire incident</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Food Pack <br>Family Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">600<br>200</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Fire incident IDPs</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">600</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Polo</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+
+                          <tr class="hover:bg-green-100">
+                            <td class="text-center px-4 sm:px-4 py-3 font-bold whitespace-nowrap">March 20, 2024</td>
+                            <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">Donation</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Kitchen Kit</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold whitespace-nowrap">500</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Bahay Kanlungan</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">500</td>
+                              <td class="text-center px-4 sm:px-4 py-3 font-bold">Canumay West</td>
+                              <td class="text-center px-4 sm:px-6 py-3 font-bold">Office Head</td>
+                          </tr>
+       
+    
+                          <!-- Add more table rows here -->
+                      </tbody>
+                      
+                  </table>
+                  
+              
+
+
+          
+           <!-- details  -->
+        
+      </div>
+    </div>
+  </div>
+
+      <!-- JS SCRIPT -->
+      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+      <!-- my custom script -->
+      <script src="script.js"></script>
+
+      <!-- Dropdown Menu Toggle Function -->
+      <script>
+        // Toggle dropdown menu visibility
+        function toggleDropdown(type) {
+        // Toggle visibility for the specified dropdown
+
+          if (type === 'account'){
+            document.querySelector('#arrow-account').classList.toggle('rotate-0');
+          }
+            }
+      </script>
+
+      <script>
+      // Function to switch images based on screen size
+        function switchImages() {
+          const largeImage = document.getElementById('largeImage');
+          const smallImage = document.getElementById('smallImage');
+
+            if (window.innerWidth <= 768) {
+              // Show the small image on screens with a width of 768 pixels or less
+              smallImage.style.display = 'block';
+              largeImage.style.display = 'none';
+              } else {
+                // Show the large image on screens with a width greater than 768 pixels
+                smallImage.style.display = 'none';
+                largeImage.style.display = 'block';
+              }
+        }
+
+          // Initial call to switchImages on page load
+          switchImages();
+
+          // Add an event listener to handle window resize
+          window.addEventListener('resize', switchImages);
+      </script>
+
+      <script>
+        // JavaScript to toggle the dropdown
+        const button = document.getElementById('dropdown-button');
+      const menu = document.getElementById('dropdown-menu');
+
+
+      button.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          searchInput.value = ''; // Clear the search input when the dropdown is opened
+      });
+
+      document.addEventListener('click', (event) => {
+          if (!button.contains(event.target) && !menu.contains(event.target)) {
+              menu.classList.add('hidden');
+          }
+      });
+      </script>
+
+        
+        </body>
+    </html>

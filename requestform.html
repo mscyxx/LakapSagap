@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Request Form</title>
+        <link rel="stylesheet" href="requestform.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet"
+          href="https://fontawesome.com/icons/file-circle-plus?f=classic&s=regular"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+        />
+    </head>
+
+    <body class="font-[Roboto]">
+      <script src="https://cdn.tailwindcss.com"></script>
+
+
+      <div class="grid">
+        <div class="form-container">
+          <img src="images/colored_wo_bg.png" alt="Form Image" class="form-image"> <!-- Image for the form -->
+
+          <!--Title & Paragraph-->
+          <div class="title">
+            <h1 class="text-2xl font-bold text-red-500 mb-0">Account Request Form</h1>
+          </div>
+          <div class="p">
+            <p class="text-gray-500 mb-5">Please fill up this form and an admin will be in touch with you shortly.</p>
+          </div>
+
+          <!--Form Details-->
+          <form id="myForm" action="#">
+
+            <div class="user-details">
+              
+
+              <div class="input-box">
+                <input type="text" placeholder="Full Name" id="fullName" required>
+
+                <!--Required reminder in filling up the field-->
+                <span class="required-warning" style="color: #34A853; display: none;">This field is required</span>
+              </div>
+              <div class="input-box">
+                <input type="text" placeholder="Last Name" required>
+              </div>
+              <div class="input-box">
+                <input type="number" placeholder="Phone Number" required>
+              </div>
+              <div class="input-box">
+                <input type="email" placeholder="Email Adress" required>
+              </div>
+              <div class="input-box">
+                <input type="text" placeholder="Full Address" required>
+              </div>
+
+              <!-- Dropdown Barangay -->
+              <select class="custom-dropdown" id="dropdownInput" name="dropdownInput">
+                <option value="option1" required>Barangay</option>
+                <option value="option2">Barangay 1</option>
+                <option value="option3">Baranagay 2</option>
+                <option value="option3">Baranagay 3</option>
+                <option value="option3">Baranagay 4</option>
+                <option value="option3">Baranagay 5</option>
+              </select>
+
+              <div class="input-box">
+                <input type="text" placeholder="Role Designation" required>
+              </div>
+
+              <!-- Dropdown Organization -->
+              <select class="custom-dropdown" id="dropdownInput" name="dropdownInput">
+                <option value="option1" required>Type of Organization</option>
+                <option value="option2">Organization 1</option>
+                <option value="option3">Organization 2</option>
+                <option value="option3">Organization 3</option>
+                <option value="option3">Organization 4</option>
+                <option value="option3">Organization 5</option>
+              </select>
+
+              <!--Upload Files-->
+              <div class="upload-wrapper">
+                <div class="upload-container">
+                  <div class="custom-upload">
+                    <label for="fileInput" class="label">
+                      <span class="upload-icon"><i class="fas fa-upload"></i></span>
+                      <span>Choose a file</span>
+                    </label>
+                    <h1 class="text-lg font-bold text-gray-900 mb-0">Upload your ID here</h1>
+                    <p class="text-sm text-gray-500 mb-5">Your ID shoud be issued by your organization</p>
+                    <input type="file" id="fileInput" name="fileInput" accept=".pdf, .doc, .docx" />
+                  </div>
+                </div>
+              </div>
+
+              <!--Gender Option-->
+              <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                  <label for="dot-1">
+                    <span class="dot one"></span>
+                    <span class="gender">Male</span>
+                  </label>
+                  <label for="dot-2">
+                    <span class="dot two"></span>
+                    <span class="gender">Female</span>
+                  </label>
+                </div>
+              </div>
+              
+            </div>
+
+            <!--Continue Button-->
+            <a href="requestapprov.html">
+              <button id="continueButton" class="continue-button mb-0" type="button" disabled>Continue</button>
+            </a>
+            
+            <!--Continue button disabled when required to fill up the fields-->
+            <script>
+              // Get form and button elements
+              var myForm = document.getElementById('myForm');
+              var continueButton = document.getElementById('continueButton');
+
+              // Add a listener for the 'input' event on the form
+              myForm.addEventListener('input', function() {
+                //Check if the form is valid
+                if (myForm.checkValidity()) {
+                  // if valid, enable button
+                  continueButton.removeAttribute('disabled');
+                } else {
+                  // if not valid, disable the button
+                  continueButton.setAttribute('disabled', 'true');
+                }
+              });
+            </script>
+
+            <!--Script for showing/hiding required warnings-->
+            <script>
+              var fullNameInput = document.getElementById('fullName');
+              var fullNameWarning = fullNameInput.nextElementSibling;
+
+              function validateForm() {
+                // Check each required field and show/hide warnings
+                if (fullNameInput.checkValidity()) {
+                  fullNameWarning.style.display = 'none';
+                } else {
+                  fullNameWarning.style.display = 'block';
+                }
+
+                // Check if the form is valid
+                if (fullNameInput.checkValidity()) {
+                  continueButton.removeAttribute('disabled');
+                } else {
+                  continueButton.setAttribute('disabled', 'true');
+                }
+
+                // Add event listeners to validate the form on input
+                fullNameInput.addEventListener('input', validateForm);
+              }
+            </script>
+
+            <!-- Gray divider -->
+            <div class="font-bold border-b border-gray-300 my-4 mt-0"></div>
+    
+            <!-- Already have an account? -->
+            <div class="flex justify-end items-center mb-5">
+              <p class="text-gray-600 mr-2">Already have an account?</p>
+              <a href="index.html" class="text-blue-500">
+                Log in
+                <i class="fas fa-arrow-right ml-1"></i> <!-- Use your arrow icon here -->
+              </a>
+            </div>
+
+          </form>
+            
+        </div>
+      </div>
+    </body>
+</html>
