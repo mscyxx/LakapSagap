@@ -321,54 +321,45 @@
             <i class="fa-solid fa-warehouse text-green-700 mr-2"></i>WAREHOUSE STATUS</div>
         </div>
        
-         <!-- Warehouse name -->
-         <button  style="box-shadow: inset 0 2px 4px 0 rgb(2 6 23 / 0.3), inset 0 -2px 4px 0 rgb(203 213 225);"class="text-sm mt-2 inline-flex cursor-pointer items-center gap-1 rounded border border-slate-300 bg-gradient-to-b from-slate-50 to-slate-200 px-2 py-2 font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-300 focus-visible:ring-offset-2 active:opacity-100" type="button" data-dropdown-toggle="dropdown">ALERT CENTER WAREHOUSE 
-        </button>
-
-          <!-- Dropdown menu sana kaso ayaw na gumana
-          <div class="hidden bg-white text-base px-4 border border-gray-200 z-50 list-none divide-y divide-gray-100 rounded shadow shadow-md my-4" id="dropdown">
-              
-              <ul class="py-1" aria-labelledby="dropdown">
-              <li>
-                  <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">OPTIONAL WAREHOUSE</a>
-              </li>
-              <li>
-                  <a href="#" class="text-sm hover:bg-gray-100 text-gray-400 block px-4 py-2"><i class="fa-solid fa-plus mr-2"></i>Add warehouse</a>
-              </li>
-              </ul>
-          </div>-->
-
-       <!-- warehouse basic details -->
-        <div>
-          <p class="mt-2 font-bold text-gray-700 text-sm inline-block ml-auto"> Location: </p>
-          <p class="mt-3 font-medium text-gray-700 text-sm inline-block ml-auto"> Bldg. Alert Center Warehouse Maysan, Brgy. Malinta, Valenzuela city </p>
+        <div class="flex items-center ">
+          <select style="box-shadow: inset 0 2px 4px 0 rgb(2 6 23 / 0.3), inset 0 -2px 4px 0 rgb(203 213 225);"
+                  class="text-sm mt-2 w-full inline-flex items-center gap-1 rounded border border-slate-300 bg-gradient-to-b from-slate-50 to-slate-200 px-2 py-2 font-semibold
+                    over:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-300 focus-visible:ring-offset-2 active:opacity-100 cursor-pointer">
+            <option selected="" class="text-xs p-1 whitespace-nowrap">Alert Center Warehouse</option>
+            <option class="text-xs p-2">New warehouse (Optional)</option>
+          </select>
         </div>
-
-        <div>
-          <p class="mt-3 font-bold text-gray-700 text-sm inline-block"> Warehouse Men: </p><br>
-          <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> <i class="fa-solid fa-user mr-2"></i>Warehouse Head - Arnel Tiburcio </p><br>
-          <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> <i class="fa-solid fa-user mr-2"></i>Assistant - Juan Dela Cruz </p> <br>
-          <p class="mt-3 font-medium text-gray-700 text-sm inline-block"><i class="fa-solid fa-user mr-2"></i> Assistant - Juan Dela Cruz </p> <br>
-        </div>
-
-        <!-- edit warehouse details button -->
-        <button class="w-full text-green-700 p-2 bg-white border border-green-700 hover:bg-green-700 hover:text-white rounded-full text-xs mt-3">
-          <i class="fa-solid fa-pen-to-square mr-2"></i> 
-          <span class="mr-3">Edit details</span>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </button>
-
-         <!-- warehouse capacity details -->
-        <div class="border-b border-gray-300 mt-5 my-4"></div>
-        <p class="truncate text-sm font-regular leading-5 mt-3 mb-2 font-bold text-gray-700"> Current Warehouse Capacity</p>
-        <div class="w-full h-4 bg-gray-100 rounded-full bg-white border border-gray-500">
-
-           <!-- graphic of warehouse capacity -->
-          <div class="bg-green-700 h-4 font-bold text-[12px] text-white text-center p-0.8 leading-none rounded-full flex items-center justify-center" style="width: 45%">   
+        
+         <!-- warehouse details -->
+          <div>
+            <p class="mt-2 font-bold text-gray-700 text-sm inline-block ml-auto"> Location: </p>
+            <p class="mt-3 font-medium text-gray-700 text-sm inline-block ml-auto"> Bldg. Alert Center Warehouse Maysan, Brgy. Malinta, Valenzuela city </p>
           </div>
-        </div>
 
-        <p class="mr-auto text-[11px] mt-1 mb-3 font-regular text-gray-500">3252 of 5000 Occupied</p>
+          <div>
+            <p class="mt-3 font-bold text-gray-700 text-sm inline-block"> Warehouse Staff: </p><br>
+            <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> <i class="fa-solid fa-user mr-2"></i>Warehouse Head - Arnel Tiburcio </p><br>
+            <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> <i class="fa-solid fa-user mr-2"></i>Assistant - Juan Dela Cruz </p> <br>
+            <p class="mt-3 font-medium text-gray-700 text-sm inline-block"><i class="fa-solid fa-user mr-2"></i> Assistant - Juan Dela Cruz </p> <br>
+          </div>
+
+          <!-- warehouse capacity status -->
+          <p class="truncate text-sm font-regular leading-5 mt-5 mb-2 font-bold text-gray-700">  Warehouse Current Capacity</p>
+          <div class="w-full h-4 bg-gray-100 rounded-full bg-white border border-gray-500">
+            <div class="bg-green-700 h-4 font-bold text-[12px] text-white text-center p-0.8 leading-none rounded-full flex items-center justify-center" style="width: 63.2%">   
+          </div>
+         
+          </div>
+          <p class="mr-auto text-[11px] mt-1 mb-3 font-regular text-gray-500">3160 of 5000 Occupied</p>
+
+          <!-- to open warehouse settings -->
+          <button type="button" id="openSettingsModal" class="w-full text-green-700 p-2 bg-white border border-green-700 hover:bg-green-700 hover:text-white rounded-full text-xs">
+            <i class="fa-solid fa-gear mr-2"></i>
+            <span class="mr-3 font-bold">Warehouse settings</span>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </button>
+
+          <div class="border-b border-gray-300 mt-5 my-4"></div>
 
           <!-- First floor Rack Lists -->
           <div class="border-b border-gray-300 mt-5 my-4"></div>
@@ -507,21 +498,26 @@
             <div class="flex flex-col md:flex-row items-center">
               <div class="text-3xl font-bold text-gray-700 md:mr-auto md:ml-2 mb-4 md:mb-0">Kitting</div>
               
-              <div class="flex justify-end">
-                
-                  <a href="#" class="mt-4 ml-0 mr-6 md:ml-7 block w-full md:w-64 justify-center p-1 bg-white  rounded-lg shadow hover:bg-gray-100">
-                      <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Current Kits: </h5>
-                      <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">4,300</h5>
-                  </a>
-
-                  <div class="flex flex-col sm:flex-row  sm:space-x-4 mt-3">
+              <div class="flex justify-end flex-wrap items-center">
+                <a href="#" class="mt-4 ml-0 mr-6 md:ml-7 block w-full md:w-auto justify-center p-1 bg-white rounded-lg shadow hover:bg-gray-100">
+                    <h5 class="ml-2 text-md font-bold tracking-tight text-gray-900 inline-block">Total No. of Current Kits: </h5>
+                    <h5 class="ml-2 text-md font-regular items-center text-gray-900 inline-block">3,300</h5>
+                </a>
+            
+                <div class="flex flex-col sm:flex-row sm:space-x-4 mt-3">
                     <div class="flex rounded-md overflow-hidden mr-6">
-                      <a  id="openModal" class="rounded-lg p-1 w-36 cursor-pointer hover:bg-green-800 flex items-center justify-center border border-green-500 bg-green-700 group hover:bg-green-500 mt-6 sm:mt-0">
-                        <i class="fa-solid fa-circle-plus text-sm text-white mr-2"></i>  <p class="text-white font-regular text-sm justify-center">Add kit</p>
-                      </a>
+                        <a id="openModal" class="rounded-lg p-1 px-5 py-2 w-full ml-3 cursor-pointer hover:bg-green-800 flex items-center justify-center border border-green-500 bg-green-600 group hover:bg-green-500 mt-6 sm:mt-0">
+                            <i class="fa-solid fa-circle-plus text-sm text-white mr-2"></i>
+                            <p class="text-white font-regular text-sm justify-center">Add Kit type</p>
+                        </a>
+            
+                        <a href="sendRelief.html" class="rounded-lg px-8 py-2 w-full p-1 ml-3 whitespace-nowrap cursor-pointer hover:bg-green-800 flex items-center justify-center border border-green-500 bg-green-600 group hover:bg-green-500 mt-6 sm:mt-0">
+                            <i class="fa-solid fa-paper-plane text-sm text-white mr-2 "></i>
+                            <p class="text-white font-regular text-sm mr-2">Send Relief</p>
+                        </a>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
             </div>
 
             <!-- breadcrump for 2 tabs of kitting page -->   
@@ -585,7 +581,7 @@
           <table class="lg:max-w-full border border-green-400 bg-white shadow-md rounded mb-4 ">
             <thead> <!-- columns -->
               <tr class="text-white custom-smaller-text whitespace-nowrap bg-gradient-to-r px-10 from-green-500 to-green-700">
-                <th class="text-center p-3 px-8">DATE</th>
+                <th class="text-center p-3 px-8">DATE PACKED</th>
                 <th class="text-center p-3 px-6">KIT CODE</th>
                 <th class="text-center p-3 px-10">TYPE</th>
                 <th class="text-center p-3 px-6">KIT QUANTITY</th>
@@ -915,7 +911,25 @@
                         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" >
                           Kit type
                         </label>
-                        <input class=" appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" >
+                        <select class="appearance-none block w-full bg-grey-lighter text-grey-lighter border border-red rounded py-3 px-4 mb-3">
+                          <option value=""disabled selected >Select kit</option>
+                          <option value="kit_type_1" >Food Pack (1-Day)</option>
+                          <option value="kit_type_1" >Food Pack (2-Days)</option>
+                          <option value="kit_type_1" >Food Pack (4-Days)</option>
+                          <option value="kit_type_1" >Family kit</option>
+                          <option value="kit_type_2">Kitchen kit</option>
+                          <option value="kit_type_2">Snack Pack</option>
+                          <option value="kit_type_2">Comfort Kit</option>
+                          <option value="kit_type_2">Disaster Kit</option>
+                          <option value="kit_type_2">Holiday Pack</option>
+                          <option value="kit_type_1">Bean Bag</option>
+  
+                          <!-- Add more options as needed -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </select>
+                        
                     </div>  
           
                       <!-- Supplier input -->
@@ -1016,6 +1030,189 @@
         </div>
       </div>
    
+      <!-- warehouse settings item modal--> 
+      <div id="warehouseSettingsModal" class="modal hidden fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen">
+          
+          <!-- main content -->
+          <div class="bg-white max-w-4xl border-t-8 border-red-700 mt-8 shadow-md shadow-xl shadow-red/5 p-6 rounded-lg max-w-1xl w-full sm:w-1/2 relative">
+              <div class="p-2 border-b">
+                  <h2 class="text-2xl inline-block">
+                      Warehouse Settings
+                  </h2>
+                  <i id="closeSettingsModal" class="fa-solid fa-circle-xmark cursor-pointer text-gray-700 text-2xl absolute top-5 right-5"></i>
+              </div>
+
+              <div class="flex items-center justify-between ">
+
+                <!-- list of warehouse -->
+                <select style="box-shadow: inset 0 2px 4px 0 rgb(2 6 23 / 0.3), inset 0 -2px 4px 0 rgb(203 213 225);"
+                  class="text-sm mt-2 w-80 inline-flex items-center gap-1 rounded border border-slate-300 bg-gradient-to-b from-slate-50 to-slate-200 px-2 py-2 font-semibold
+                  over:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-300 focus-visible:ring-offset-2 active:opacity-100 cursor-pointer">
+                  <option selected="" class="text-xs p-1 whitespace-nowrap">Alert Center Warehouse</option>
+                  <option class="text-xs p-2">New warehouse (Optional)</option>
+                </select>
+
+                <!-- button for adding warehouse -->
+                <a href="">
+                  <div class="text-sm mt-3 flex gap-2">
+                    <button class="ml-auto cursor-pointer transition-all 
+                          bg-green-700 text-white px-6 py-2 rounded-lg
+                          border-green-800
+                          border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                          active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                          <i class="fa-solid fa-plus"></i> Add Warehouse
+                    </button>      
+                  </div>
+                </a>
+              </div>
+
+              <div class="border-b w-full border-gray-300 my-2"></div>
+
+              <!-- Warehouse Name input -->
+              <div class="-mx-3 md:flex mb-6">
+                <div class="mt-3 md:w-full px-3 mb-2 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                      Warehouse Name
+                    </label>
+                    <input value="Alert Center Warehouse" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                </div>
+              </div>
+
+              <div class="-mx-3 md:flex mb-6">
+                <!-- location -->
+                <div class=" md:w-full px-3">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                  Location
+                  </label>
+                  <input value="Bldg. Alert Center Warehouse Maysan, Brgy. Malinta, Valenzuela city" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" >
+                </div>
+              </div>
+
+              <label class="block uppercase tracking-wide text-grey-darker text-md font-bold mb-2">
+                Warehouse Staff
+              </label>
+
+              <!-- Warehouse staff role and name input -->
+              <div class="-mx-3 md:flex mb-6">
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                      Role/job position
+                    </label>
+                    <input value="Warehouse Head" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                </div>
+
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Staff name
+                  </label>
+                  <input value="Arnel Tiburcio" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                </div>
+              </div>
+
+              <div class="-mx-3 md:flex mb-2">
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                      Role/job position
+                    </label>
+                    <input value="Assistant" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                </div>
+
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Staff name
+                  </label>
+                  <input value="Juan Dela Cruz" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                </div>
+              </div>
+
+              <div class="-mx-3 md:flex mb-2">
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                      Role/job position
+                    </label>
+                    <input value="Assistant" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                </div>
+
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Staff name
+                  </label>
+                  <input value="Juan Dela Cruz" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                </div>
+              </div>
+
+              <div class="-mx-3 md:flex mb-6">
+                <!-- warehouse capacity input -->
+                <div class=" md:w-full px-3">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Warehouse overall capacity
+                  </label>
+                  <input value="5000" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="number" >
+                </div>
+              </div>
+
+              <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                No. of Warehouse floors
+              </label>
+
+              <!-- Warehouse floor and rack input -->
+              <div class="-mx-3 md:flex mb-6">
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                      Floor no.
+                    </label>
+                    <input value="1" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="number" >
+                </div>
+
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    No. of Racks
+                  </label>
+                  <input value="4" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="number" >
+                </div>
+              </div>
+
+              <div class="-mx-3 md:flex mb-6">
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                      Floor no.
+                    </label>
+                    <input value="1" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="number" >
+                </div>
+
+                <div class="mt-3 md:w-1/2 px-3 mb-2 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    No. of Racks
+                  </label>
+                  <input value="6" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="number" >
+                </div>
+              </div>
+
+              <div class="text-sm flex justify-end">
+                <a href="">
+                  <button type="button" class="cursor-pointer mb-3 transition-all bg-gray-700 text-white px-6 py-2 rounded-lg border-gray-800 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                  active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-bgray-300 shadow-gray-300 active:shadow-none ">
+                  <i class="fa-solid fa-plus text-white mr-2"></i>Add another floor 
+                  </button>
+                </a>
+              </div>
+
+              <!-- button save -->
+              <a href="adminStockManage.html">
+                <div class="text-sm mt-5 flex gap-2">
+                  <button class="ml-auto cursor-pointer transition-all 
+                        bg-green-700 text-white px-6 py-2 rounded-lg
+                        border-green-800
+                        border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                        active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                        Save
+                        </button>      
+                </div>
+              </a>
+          </div>
+        </div>
+      </div>
  
       <!-- edit Kit modal--> 
       <div id="editModal" class="modal hidden fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
@@ -1181,6 +1378,41 @@
         });
       });
     </script>
+
+    <!-- edit warehouse Functions -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const editModal = document.getElementById("warehouseSettingsModal");
+        const openEditModalButton = document.getElementById("openSettingsModal");
+        const closeEditModalButton = document.getElementById("closeSettingsModal");
+        const saveChangesButton = document.getElementById("saveChanges");
+
+        // Open the modal when the edit button is clicked
+        openEditModalButton.addEventListener("click", function () {
+          editModal.classList.remove("hidden");
+        });
+
+        // Close the modal when the close button is clicked
+        closeEditModalButton.addEventListener("click", function () {
+          editModal.classList.add("hidden");
+        });
+
+        // Save changes (You can replace this with your actual save logic)
+        saveChangesButton.addEventListener("click", function () {
+          // Add your save logic here
+          console.log("Changes saved!");
+          // Close the modal after saving
+          editModal.classList.add("hidden");
+        });
+
+        // Close the modal when clicking outside the modal content
+        window.addEventListener("click", function (event) {
+          if (event.target === editModal) {
+            editModal.classList.add("hidden");
+          }
+        });
+      });
+</script>  
     
     <script>
       // Function to open the form modal

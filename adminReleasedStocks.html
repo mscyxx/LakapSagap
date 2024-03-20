@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Received Stocks</title>
+    <title>Released Stocks</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -231,9 +231,8 @@
                   <div class="flex items-center">
                     <div class="flex flex-col items-start text-sm">
                       <p class="font-bold text-[15px]">WARNING</p>
-                      <p class="font-bold text-[10px]">[10903 - Corned Beef]</p>
-                      <p class="font-bold text-[10px]">1st Floor-Rack 4</p>
-                      <p class="text-xs text-white-700 font-regular mt-1 cursor-default">1,195 pcs of Corned Beef will expire on May 21, 2024.</p>
+                      <p class="font-bold text-[10px]">[20324-20330 Food Packages]</p>
+                      <p class="text-xs text-white-700 font-regular mt-1 cursor-default">150 pcs of Bear Brand Milk Powder will expire on November 25, 2023.</p>
                     </div>
                   </div>
                   <button @click="showNotification = false" class="text-gray-700 mb-auto mt-3 hover:text-red-700">
@@ -514,7 +513,7 @@
 
                 <li class="inline-flex items-center">
                   <!-- tab for stocks inventory -->   
-                  <a href="adminStockManage.html" class="inline-flex items-center text-sm font-bold text-gray-700 hover:text-green-700">
+                  <a href="adminStockManage.html" class="ms-1 text-sm font-medium text-gray-400 hover:text-green-700 hover:font-bold">
                     <i class="fa-solid fa-box text-sm mr-3"></i>
                     Stocks
                   </a>
@@ -540,7 +539,7 @@
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                    </svg>
                   
-                 <a href="adminReleasedStocks.html" class="ms-1 text-sm font-medium text-gray-400 hover:text-green-700 hover:font-bold">
+                 <a href="adminReleasedStocks.html" class="inline-flex items-center text-sm font-bold text-gray-700 hover:text-green-700">
                   <i class="fa-solid fa-people-carry-box text-sm mr-3"></i>
                    Released stock/kits
                  </a>
@@ -566,19 +565,12 @@
                       </svg>
                   </button>
                  
-                  <select id="pricingType" name="pricingType"
-                  class="w-48 h-8 ml-3 border-2 text-sm border-green-700 focus:outline-none focus:border-green-500 text-gray-500 rounded-lg px-2 md:px-3 py-0 md:py-1 tracking-wider">
-                    <option value="All" selected="" class="text-xs p-2">All</option>
-                    <option value="Freemium" class="text-xs p-2">Newly Arrived</option>
-                    <option value="Free" class="text-xs p-2">Near to Expiry</option>
-                    <option value="Paid" class="text-xs p-2">Expired</option>
-                </select>
               </div>  
             </div>  
           </div>     
 
           <!-- buttons for add, send, and receive -->
-          <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 space-x-0 sm:space-x-4 mt-3">
+          <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 space-x-0 sm:space-x-4">
             <div class="flex rounded-md overflow-hidden w-full sm:w-full">
 
               <!-- receive -->
@@ -595,271 +587,61 @@
         </form>
 
         <!-- Table for stocks -->
-        <div class="w-full mt-5 flex justify-center flex overflow-x-auto">
+        <div class="w-full mt-5 flex justify-center overflow-x-auto">
           <div class="overflow-x-auto">
-            <table class="w-full custom-smaller-text bg-white border border-gray-300 shadow-md rounded mb-4 divide-y divide-gray-200">
+            <table class="w-full custom-smaller-text border border-gray-300 bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
               <thead class="bg-green-700 text-white">
                 <tr>
-                  <th class="text-center px-4 sm:px-6 py-2 whitespace-nowrap">ITEM CODE</th>
-                  <th class="text-center px-4 sm:px-8 py-2">ITEM</th>
-                  <th class="text-center px-4 sm:px-6 py-2">TYPE</th>
-                  <th class="text-center px-4 sm:px-6 py-2">CATEGORY</th>
-                  <th class="text-center px-4 sm:px-5 py-2 whitespace-nowrap">QTY (ITEM)</th>
-                  <th class="text-center px-4 sm:px-5 py-2 whitespace-nowrap">QTY (BOX/SACK)</th>
-                  <th class="text-center px-4 sm:px-8 py-2">LOCATION</th>
-                  <th class="text-center px-4 sm:px-8 py-2 whitespace-nowrap">EXPIRY DATE</th>
-                  <th class="text-center px-4 sm:px-8 py-2">ACTIONS</th>       
+                  <th class="text-center px-4 sm:px-6 py-2 uppercase whitespace-nowrap">request no.</th>
+                  <th class="text-center px-4 sm:px-6 py-2 uppercase whitespace-nowrap">Release TYPE</th>
+                  <th class="text-center px-4 sm:px-4 py-2 uppercase whitespace-nowrap">approved by</th>
+                  <th class="text-center px-4 sm:px-8 py-2 uppercase whitespace-nowrap">No. of recipient</th>
+                  <th class="text-center px-4 sm:px-6 py-2 uppercase whitespace-nowrap">barangay</th>
+                  <th class="text-center px-4 sm:px-8 py-2 uppercase whitespace-nowrap">kit/item</th>
+                  <th class="text-center px-4 sm:px-4 py-2 uppercase whitespace-nowrap">quantity</th>
+                  <th class="text-center px-4 sm:px-8 py-2 uppercase whitespace-nowrap">date sent</th>
+                  <th class="text-center px-4 sm:px-4 py-2 uppercase whitespace-nowrap">action</th>       
                 </tr>
               </thead>   
 
+              <!-- contents of table -->
               <tbody class="bg-white divide-y divide-gray-200">
-                <tr class="hover:bg-green-100">
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold">10901</td>
-                  <td class="text-center px-4 sm:px-8 py-2 font-bold">3n1 Coffee</td>
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                  <td class="text-center px-4 sm:px-5 py-2 font-bold">2,120</td>
-                  <td class="text-center px-4 sm:px-5 py-2 font-bold">20</td>
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 2</td>
-                  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">September 21, 2024</td>
-                  <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                    <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                    </button>
-                    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                        <i class="fa-regular fa-trash-can"></i>
-                    </button>  
+                <tr>
+                  <!-- batch code -->
+                  <td class="text-center px-4 sm:px-6 py-2 font-bold">00010</td>
+
+                  <!-- receive type -->
+                  <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">Emergency</td>
+
+                  <!-- item code -->
+                  <td class="text-center px-4 sm:px-4 py-2 font-bold whitespace-nowrap">Office Head</td>
+
+                  <!-- items -->
+                  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">530</td>
+
+                  <!-- quantity -->
+                  <td class="text-center px-4 sm:px-6 py-2 font-bold">Karuhatan</td>
+
+                  <!-- supplier -->
+                  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">Disaster kit</td>
+
+                  <!-- supplier -->
+                  <td class="text-center px-4 sm:px-4 py-2 font-bold whitespace-nowrap">700</td>
+
+                  <!-- date received -->
+                  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">March 10, 2024</td>
+
+                  <!-- actions -->
+                  <td class="text-center px-4 sm:px-4 py-2 flex">
+
+                    <!-- button for see more details -->
+                    <button id="seeMoreModal" type="button" class="text-xs uppercase bg-blue-500 p-3 font-bold hover:bg-blue-700 whitespace-nowrap text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <i class="fa-solid fa-eye text-sm text-white"></i>
+                      </button>
                   </td>
                 </tr>
-                        
-                <tr class="hover:bg-green-100">
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold">10902</td>
-                  <td class="text-center px-4 sm:px-8 py-2 font-bold">Bear Brand Tipid Pack</td>
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                  <td class="text-center px-4 sm:px-5 py-2 font-bold">1,500</td>
-                  <td class="text-center px-4 sm:px-5 py-2 font-bold">17</td>
-                  <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 3</td>
-                  <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">December 1, 2024</td>
-                  <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                      <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                          <i class="fa-regular fa-pen-to-square"></i>
-                      </button>
-                      <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                          <i class="fa-regular fa-trash-can"></i>
-                      </button>
-                  </td>
-              </tr>
-                        
-              <tr class="bg-red-200 hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10903</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Corned Beef</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">1,195</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">180</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">1st Floor-Rack 4</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">May 21, 2024</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>  
-                </td>
-              </tr>
-                        
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10904</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Cooking oil</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Sachet</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">750</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">200</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">2nd Floor-Rack 2</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 26, 2026</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button> 
-                </td>
-              </tr>
-                      
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10905</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Disposable cup</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Plastic</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">1,100</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">100</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">Outside</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                  <i class="fa-regular fa-pen-to-square"></i>
-                </button>
 
-                <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                  <i class="fa-regular fa-trash-can"></i>
-                </button>  
-                </td>
-              </tr>
-                    
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10906</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Kaldero - big</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Metal</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">200</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Unspecified</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button> 
-                </td>
-              </tr>    
-
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10907</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Kumot</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Cotton</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Comfort</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">540</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">20</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">2nd-Unspecified</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                      <i class="fa-regular fa-trash-can"></i>
-                  </button>
-                </td> 
-              </tr>
-
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10908</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">2,100</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">21</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">March 25, 2025</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>  
-                </td>
-              </tr>
-
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10909</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Meat loaf</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">800</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">60</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 2</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">October 21, 2025</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button> 
-                </td>
-              </tr>
-
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10910</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Rice (50kgs)</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Sacks</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">1,400</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">1,400</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 1</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 11, 2024</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                      <i class="fa-regular fa-trash-can"></i>
-                  </button>  
-                </td>
-              </tr>
-
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10911</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">San Marino</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">810</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">43</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">August 9, 2025</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                      <i class="fa-regular fa-trash-can"></i>
-                  </button>  
-                </td>
-              </tr>
-
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10912</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Sardines</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Cans</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Food</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">4,210</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">205</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">1st floor-Rack 3</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">November 21, 2024</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>  
-                </td>
-              </tr>
-
-              <tr class="hover:bg-green-100">
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">10913</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold">Styro cup</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Styrofoam</td>
-                <td class="text-center px-4 sm:px-6 py-2 font-bold">Kitchen</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">5,000</td>
-                <td class="text-center px-4 sm:px-5 py-2 font-bold">100</td>
-                <td class="text-center px-4 sm:px-3 py-2 font-bold whitespace-nowrap">Outside</td>
-                <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">None</td>
-                <td class="text-center px-4 sm:px-8 py-2 flex items-center justify-center">
-                  <button id="openEditModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button> 
-                </td>
-              </tr>
+                
             </tbody>
           </table>
         </div>
@@ -1125,170 +907,276 @@
       </div>
     </div>
     
-    <!-- edit item modal--> 
-    <div id="editModal" class="modal hidden fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
+    <!-- See more modal--> 
+    <div id="seeModal" class="modal hidden fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
       <div class="flex items-center justify-center min-h-screen">
         
-         <!-- main content -->
+         <!-- Received Details content -->
         <div class="bg-white max-w-4xl border-t-8 border-red-700 mt-8 shadow-md shadow-xl shadow-red/5 p-6 rounded-lg max-w-1xl w-full sm:w-1/2 relative">
             <div class="p-2 border-b">
                 <h2 class="text-2xl inline-block">
-                    Edit Item
+                    Released Details
                 </h2>
                 <i id="closeEditModal" class="fa-solid fa-circle-xmark cursor-pointer text-gray-700 text-2xl absolute top-5 right-5"></i>
             </div>
 
-            <!-- item input -->
-            <div class="-mx-3 md:flex mb-6">
-              <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+            <!-- Recipient details row 1-->
+            <label class="block uppercase mt-3 tracking-wide text-green-700 text-md font-bold">
+                Request Details
+            </label>
+
+            <div class="-mx-3 md:flex">
+              <div class="mt-3 md:w-1/3 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-                  Item Code
+                  Request No.
                   </label>
-                  <input value="23143" class=" appearance-none block w-full bg-grey-lighter text-black border border-red rounded py-3 px-4 mb-3" type="text" >
+                  <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">00010</p>
               </div>
 
-              <!-- Supplier input -->
-              <div class="mt-3 md:w-1/2 px-3">
-                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-                  Item
-                  </label>
-                  <input value="Coffee" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" >
-              </div>
+              <div class="mt-3 md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Date Requested
+                </label>
+                <p class="appearance-none block w-full bg-grey-lighter  text-sm text-black py-3">February 18, 2024</p>
               </div>
 
-              <!-- Type input dropdown -->
-              <div class="-mx-3 md:flex mb-6">
-                <div class="mt-3 md:w-1/3 px-3 mb-6 md:mb-0">
+              <div class="mt-3 md:w-1/3 px-3">
                   <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-                      Type
+                  Release Type
                   </label>
-                  
-                  <div class="relative">
-                    <select id="category-dropdown" name="category"  class="block appearance-none w-full h-12 bg-white border border-gray-200 hover:border-gray-400 px-4 py-2 pr-8 rounded focus:outline-none focus:bg-white focus:border-gray-300">
-                        <option>Sachet</option>
-                        <option>Packs</option>
-                        <option>Cans</option>
-                        <option>Sacks</option>
-                        <option>Bottle</option>
-                        <option class="text-gray-400">&#43; Add type</option>
-                        <option class="text-gray-400">&#8722; Delete category</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
+                  <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Emergency</p>
+              </div>
+
+              <div class="mt-3 md:w-1/3 px-3">
+                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                Reason of request
+                </label>
+                <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Fire incident</p>
+              </div>
+            </div>
+
+            <!-- divider -->
+            <div class="border-b border-gray-300 mb-3"></div>
+
+             <!-- Recipient details row 2-->
+            <div class="-mx-3 md:flex">
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    approved by
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Office Head</p>
+                </div>
+  
+                <div class="mt-3 md:w-1/4 px-3">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    urgency level
+                  </label>
+                  <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Urgent</p>
+                </div>
+
+                <div class="mt-3 md:w-1/4 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                     date sent
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">February 20, 2024</p>
+                </div>
+
+                <div class="mt-3 md:w-1/4 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                     Time sent
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">10:00 AM</p>
+                </div>
+              </div>
+
+            <!-- divider -->
+            <div class="border-b border-gray-300 mb-3"></div>
+
+            <label class="block uppercase mt-3 tracking-wide text-green-700 text-md font-bold">
+                Recipient Details
+            </label>
+              <!-- more delivery details -->
+              <div class="-mx-3 md:flex mb-2">
+
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                      Requester
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Kap. Eduardo Jr.</p>
+                  </div>
+                
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    received by
+                  </label>
+                  <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Kagawad - Kimmy Hernandez</p>
+                </div>
+              
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Phone No.: 
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3"> 09061882353</p>
+                </div>
+
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                        Email
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm  text-black py-3">eduardo@gmail.com</p>
+                </div>
+              </div>
+
+              <!-- more delivery details -->
+              <div class="-mx-3 md:flex mb-2">
+
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                        No. of recipient
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">530</p>
+                  </div>
+                
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    recipient organization/type
+                  </label>
+                  <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Internally Displace Person (IDP)</p>
+                </div>
+              
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    barangay
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3"> Karuhatan</p>
+                </div>
+
+                <div class="mt-3 md:w-1/4 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                        evacuation post address
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm  text-black py-3">15-A San Guillermo st. Valenzuela City</p>
                 </div>
               </div>
               
-                
-                <!-- Category input dropdown -->
-                <div class="mt-3 md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-                  Category
-                  </label>
-
-                  <div class="relative">
-                    <select id="category-dropdown" name="category"  class="block appearance-none w-full h-12 bg-white border border-gray-200 hover:border-gray-400 px-4 py-2 pr-8 rounded focus:outline-none focus:bg-white focus:border-gray-300">
-                        <option>Food</option>
-                        <option>Hygiene</option>
-                        <option>Comfort</option>
-                        <option>Kitchen</option>
-                        <option>Disaster</option>
-                        <option class="text-gray-400">&#43; Add category</option>
-                        <option class="text-gray-400">&#8722; Delete category</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Supplier input -->
-                <div class="mt-3 md:w-1/3 px-3">
-                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-                  Remaining Quantity
-                  </label>
-                  <input value="200" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="number" >
-                </div>
-              </div>
-
-              <div class="-mx-3 md:flex mb-6">
-                <!-- Quantity Per item input -->
-                <div class="mt-3 md:w-1/2 px-3">
+              <!-- more delivery details -->
+              <div class="-mx-3 md:flex mb-2">
+                <div class="md:w-full px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-                    Location
+                        Reason
                     </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-sm text-black py-3">Magandang araw po, nais ko sanang humingi ng tulong para sa isang proyektong makakatulong sa mga naapektuhan ng kamakailang kalamidad.
 
-                    <div class="relative">
-                      <select id="category-dropdown" name="category"  class="block appearance-none w-full h-12 bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-300">
-                          <option>1st Floor</option>
-                          <option>2nd Floor</option>
-                          <option>Outside</option>
-                      </select>
-                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                              <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                          </svg>
-                      </div>
+                        Sa pagtutulungan natin, nais naming magkaruon ng koleksyon ng relief goods para sa mga pamilyang nangangailangan. Ang inyong suporta at donasyon ay makakatulong ng malaki sa mabilisang pagtugon sa pangangailangan ng ating mga kabarangay.
+                        
+                        Kung maari po, maaaring kayo ay maging bahagi ng aming adhikain sa pamamagitan ng anumang donasyon o tulong.
+                        
+                        Maraming salamat po sa inyong oras at pagmamalasakit sa ating komunidad.</p>
                   </div>
                 </div>
+              
+              
+            <!-- divider -->
+            <div class="border-b border-gray-300 mb-3"></div>
+
+            <label class="block uppercase tracking-wide text-green-700 text-md font-bold">
+                Donation relief Details
+            </label>
+
+              <!-- Details of item received -->
+              <div class="-mx-3 md:flex mb-6">
 
                 <div class="mt-3 md:w-1/2 px-3">
-
-                  <div class="relative">
-                    <select id="category-dropdown" name="category"  class="block appearance-none w-full mt-6 h-12 bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-300">
-                        <option>Rack 2</option>
-                        <option>Rack 1</option>
-                        <option>Rack 3</option>
-                        <option>Rack 4</option>
-                        <option>Rack 5</option>
-                        <option>Rack 6</option>
-                        <option>Unspecified</option>
-                        <option>Outside</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Kit/Item
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-black py-3">
+                        Disaster kit
+                        </p>
                 </div>
-              </div>
-            </div>
-    
-            <div class="-mx-3 md:flex mb-6">
-                <!-- Item Code input -->
-              <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                    Date receive
-                  </label>
-                  <input value="03/03/2024" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="date" >
-              </div>
 
-               <!-- Expiry date input -->
-               <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                  Expiry date
-                </label>
-                <input value="03/03/2024" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="date" >
-              </div>
+                <div class="mt-3 md:w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Quantity (per pcs.)
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-black py-3">
+                        700
+                        </p>
+                </div>
+
+                <div class="mt-3 md:w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+                    Expiry date
+                    </label>
+                    <p class="appearance-none block w-full bg-grey-lighter text-black py-3">
+                        12/18/2026
+                        </p>
+                </div>
             </div>
 
-             
-            <!-- button save -->
-            <a href="adminStockManage.html">
-              <div class="text-sm mt-5 flex gap-2">
-                <button class="ml-auto cursor-pointer transition-all 
-                      bg-green-700 text-white px-6 py-2 rounded-lg
-                      border-green-800
-                      border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-                      active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
-                      Save Changes
-                      </button>      
+            <!-- divider -->
+            <div class="border-b border-gray-300 mb-3"></div>
+
+            <!-- Assigned staffs for distribution-->
+            <label class="block uppercase tracking-wide text-green-700 text-md font-bold">
+                Assigned staff/volunteers
+            </label>
+
+            <div class="w-full mt-5 flex justify-center overflow-x-auto">
+                <div class="overflow-x-auto">
+                  <table class="w-full custom-smaller-text bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
+                    <thead class="bg-gray-700 text-white">
+                      <tr>
+                        <th class="text-center px-4 sm:px-6 py-2 uppercase whitespace-nowrap">name</th>
+                        <th class="text-center px-4 sm:px-6 py-2 uppercase whitespace-nowrap">contact</th>
+                        <th class="text-center px-4 sm:px-4 py-2 uppercase whitespace-nowrap">sex</th>
+                        <th class="text-center px-4 sm:px-8 py-2 uppercase whitespace-nowrap">organization/company/school</th>
+                        <th class="text-center px-4 sm:px-6 py-2 uppercase whitespace-nowrap">designation</th>  
+                      </tr>
+                    </thead>   
+      
+                    <!-- contents of table -->
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      <tr>
+                        <!-- Full name -->
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">Josephine Custodio</td>
+      
+                        <!-- contact -->
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">09061726523</td>
+      
+                        <!-- sex -->
+                        <td class="text-center px-4 sm:px-4 py-2 font-bold whitespace-nowrap">Female</td>
+      
+                        <!-- organization -->
+                        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">PLV</td>
+      
+                        <!-- designation/job position -->
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold">Volunteer</td>
+                      </tr>
+
+                      <tr>
+                        <!-- Full name -->
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">Juan Dela Cruz</td>
+      
+                        <!-- contact -->
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold whitespace-nowrap">09235532913</td>
+      
+                        <!-- sex -->
+                        <td class="text-center px-4 sm:px-4 py-2 font-bold whitespace-nowrap">Male</td>
+      
+                        <!-- organization -->
+                        <td class="text-center px-4 sm:px-8 py-2 font-bold whitespace-nowrap">CSWD</td>
+      
+                        <!-- designation/job position -->
+                        <td class="text-center px-4 sm:px-6 py-2 font-bold">Staff</td>
+                      </tr>
+      
+                      
+                  </tbody>
+                </table>
               </div>
-            </a>
+              <!-- end table --> 
+            </div>
         </div>
       </div>
     </div>
@@ -1359,8 +1247,8 @@
       <!-- edi item Functions -->
       <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const editModal = document.getElementById("editModal");
-          const openEditModalButton = document.getElementById("openEditModal");
+          const editModal = document.getElementById("seeModal");
+          const openEditModalButton = document.getElementById("seeMoreModal");
           const closeEditModalButton = document.getElementById("closeEditModal");
           const saveChangesButton = document.getElementById("saveChanges");
       
@@ -1492,10 +1380,11 @@
       </script>
       
       <script>
-      // delete item Function to hide the modal
+      // Function to hide the modal
       function hideModal() {
           document.getElementById("popup-modal").classList.add("hidden");
       }
+
       </script>
 
       <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>

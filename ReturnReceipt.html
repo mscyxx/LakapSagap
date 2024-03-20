@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add stock</title>
+    <title>Return Receipt</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -298,239 +298,145 @@
     </header>
     <!-- End of header -->
 
-    <!-- Main Content-->
-    <div class="w-full min-h-screen bg-gray-200 transition-all main sm:px-32 sm:py-3">
-        
-      <!-- Add Stock Form -->
-      <div class="ml-2 p-2 mb-2">
-        <div class="bg-white shadow-md rounded-2xl px-8 pt-10 pb-10 mb-36 flex flex-col my-2">
-          <h2 class="block uppercase tracking-wide text-grey-darker text-2xl font-bold mb-2">Receive Stock</h2>
-          <div class="border-b border-gray-300 my-4"></div>
+    <!-- main content -->
+    <div class="w-full min-h-screen bg-gray-200 transition-all main sm:px-48 sm:py-3">
+      <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 mb-56 p-4">
 
-          <div class="-mx-3 md:flex mb-6 px-12">
-            <div class="mt-3 md:w-1/3 px-3 mb-6 md:mb-0">
-              <!-- Batch No. Input -->
-              <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">Batch No.</label>
-              <input class="appearance block w-full h-12 bg-grey-lighter text-grey-darker border border-gray-400 rounded py-3 px-4 mb-3" type="text">
-            </div>
+        <!-- Receipt content -->
+        <div class="bg-white border-t-8 border-red-700 px-10  shadow-md shadow-red/5 p-6 rounded-md">
+          <div class="flex justify-between mb-1 items-start">
+              <div class="text-2xl font-bold text-red-700">Return Stock Receipt</div> 
 
-            <div class="mt-3 md:w-1/3 px-3 mb-6 md:mb-0">
-              <!-- Supplier Input -->
-              <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                Receiving Stock type: 
-              </label>
-      
-              <div class="relative">
-                  <select id="category-dropdown" name="category"  class="block appearance-none w-full h-12 bg-white border border-gray-400 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                      <option disabled selected value="" hidden>Select Receive type</option>
-                      <option>Local Purchase</option>
-                      <option>Donation</option>
-                      <option class="text-gray-400">&#43; Add receive type</option>
-                      <option class="text-gray-400">&#8722; Delete receive type</option>
-                  </select>
-                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                      </svg>
-                  </div>
-              </div>
-            </div>
+              <!-- export icon -->
+              <a href="">
+              <i class="fa-solid fa-download text-1xl text-blue-800 inline-block cursor-pointer ml-auto inline-block"> </i>
+                <p class="ml-3 text-blue-800 lowercase-text cursor-pointer inline-block">Download Receipt</p>
+              </a>
+          </div>   
+            
+            <!-- Details of receipt  -->
+            <div class="overflow-x-auto">
+              <span class="text-md font-bold font-sans inline-block">Batch No.: </span>
+              <span class="text-md font-bold font-sans inline-block">BAT010 </span>
+            <div>
 
-            <div class="mt-3 md:w-1/3 px-3">
-              <!-- received by Input -->
-              <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">Received by</label>
-              <input class="appearance-none block w-full h-12 bg-grey-lighter text-grey-darker border border-gray-400 rounded py-3 px-4" type="text">
-            </div>
-          </div>
+            <div class="overflow-x-auto">
+              <span class="text-md font-bold font-sans inline-block">Receive type: </span>
+              <span class="text-md font-bold font-sans inline-block">Local Purchase </span>
+            <div>
+            
+            <div class="overflow-x-auto">
+              <span class="text-md font-bold font-sans inline-block">Received by:  </span>
+              <span class="text-md font-bold font-sans inline-block">Arnel Tiburcio </span>
+            <div>
 
-          <h2 class="block uppercase tracking-wide text-grey-darker ml-12 text-md font-bold">Delivery details</h2>
-          <!-- Row 1 -->
-          <div class="-mx-3 md:flex mb-6 px-12">
-           
-              <div class="mt-3 md:w-1/3 px-3 mb-6 md:mb-0">
-                  <!-- Truck plate No. Input -->
-                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">Truck plate No.</label>
-                  <input class="appearance block w-full h-12 bg-grey-lighter text-grey-darker border border-gray-400 rounded py-3 px-4 mb-3" type="text">
+            <div class="py-3">
+                <div class="text-gray-700 text-sm mb-8">
+                    TRUCK PLATE NO.: <span>ABC 1234 </span><br>
+                    DRIVER NAME: <span>Jon Batumbakal</span><br>
+                    SUPPLIER/ORGANIZATION: <span> Uncle John Corporation</span><br>
+                    DATE RECEIVED: <span>March 10, 2024</span></p>
+
+            <div class="overflow-x-auto mt-3">
+              <span class="text-md font-bold font-sans inline-block">Reason: </span>
+              <span class="text-md font-bold font-sans inline-block">All items are damaged, and some of them are expired. </span>
+            <div>
+
+              <div class="flex justify-center">
+                <p class="text-lg font-bold mt-8 font-sans inline-block uppercase">Details of Return Stocks </p>
               </div>
 
-              <div class="mt-3 md:w-1/3 px-3 relative">
-                <!-- Driver name Input -->
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="item-input">Driver name</label>
-                <div class="relative">
-                  <input type="text" class="w-full px-4 h-12 border border-gray-400 rounded-md focus:outline-none focus:border-indigo-500">
+              <!-- Table for stocks -->
+              <div class="w-full mt-2 flex justify-center flex overflow-x-auto">
+                <div class="overflow-x-auto">
+                  <table class="w-full custom-smaller-text bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
+
+                     <!-- columns -->
+                    <thead class="bg-gray-200 text-black text-md">
+                      <tr>
+                        <th class="text-center px-4 sm:px-4 py-2 whitespace-nowrap">Item code</th>
+                        <th class="text-center px-12 sm:px-18 py-2">Item</th>
+                        <th class="text-center px-8 sm:px-8 py-2 whitespace-nowrap">QTY(Item)</th>
+                        <th class="text-center px-8 sm:px-8 py-2 whitespace-nowrap">QTY(Box)</th>
+                      </tr>
+                    </thead>   
+
+                       <!-- content of the columns -->
+                      <tbody class="bg-white text-black font-regular text-md">
+                          <tr>
+                            <td class="text-center px-5 py-2 whitespace-nowrap">20382</td>
+                            <td class="text-center px-16 py-2">Bear Brand Tipid Packs</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">2500</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">250</td>
+                          </tr>
+
+                          <tr>
+                            <td class="text-center px-5 py-2 whitespace-nowrap">20381</td>
+                            <td class="text-center px-16 py-2">Corned beef</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">3010</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">300</td>
+
+                          <tr>
+                            <td class="text-center px-5 py-2 whitespace-nowrap">20380</td>
+                            <td class="text-center px-16 py-2">Meat loaf</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">1200</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">100</td>
+                          </tr>
+
+                          <tr>
+                            <td class="text-center px-5 py-2 whitespace-nowrap">20379</td>
+                            <td class="text-center px-16 py-2">Spoon plastic</td>
+                            <td class="text-center px-8 py-2 whitespace-nowrap">1000</td>
+                            <td class="text-center px-8 py-2 whitespace-nowrap">300</td>
+                          </tr>
+
+                          <tr>
+                            <td class="text-center px-5 py-2 whitespace-nowrap">20378</td>
+                            <td class="text-center px-16  py-2">Fork plastic</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">1000</td>
+                            <td class="text-center px-8  py-2 whitespace-nowrap">200</td>
+                          </tr>
+
+                      </tbody>
+                  </table>
                 </div>
-              </div>   
+              </div>    
 
-                
-              <div class="mt-3 md:w-1/3 px-3">
-                <!-- Supplier Input -->
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                    Supplier/organization
-                </label>
-          
-                <div class="relative">
-                    <select id="category-dropdown" name="category"  class="block appearance-none w-full h-12 bg-white border border-gray-400 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option disabled selected value=""hidden>Select supplier</option>
-                        <option>Supplier 1</option>
-                        <option>Supplier 1</option>
-                        <option>Supplier 1</option>
-                        <option class="text-gray-400">&#43; Add supplier</option>
-                        <option class="text-gray-400">&#8722; Delete supplier</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
+               <!-- buttons  -->      
+              <div class="flex justify-between">
+                  <path
+                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+
+                <div class="text-sm flex gap-2">
+                  <a href="adminReturnStock.html">
+                  <button class="cursor-pointer transition-all 
+                      bg-red-700 text-white px-8 py-2 rounded-lg
+                      border-red-800
+                      border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                      active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-red-300 shadow-green-300 active:shadow-none">
+                      Back
+                      </button></a>
+
+                      <a href="adminReceiveStocks.html">
+                      <button id="confirmButton" class="cursor-pointer transition-all 
+                      bg-green-700 text-white px-6 py-2 rounded-lg
+                      border-green-800
+                      border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                      active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                      Confirm
+                      </button>
+                    </a>
                 </div>
-              </div> 
-
-              <div class="mt-3 md:w-1/3 px-3">
-                <!-- Supplier Input -->
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">Date Received</label>
-                <input class="appearance-none block w-full h-12 bg-grey-lighter text-grey-darker border border-gray-400 rounded py-3 px-4" type="date">
               </div>
+            </div>
           </div>
-
-          <!-- Row 2 -->
-          <h2 class="block uppercase tracking-wide text-grey-darker text-md font-bold">Stock details</h2>
-
-        <!-- Table for stocks -->
-        <div class="w-full mt-2 flex justify-center flex overflow-x-auto">
-          <div class="overflow-x-auto">
-            <table class="w-full custom-smaller-text bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
-              <thead class="bg-gray-200 text-black text-sm">
-                <tr>
-                  <th class="text-center px-2 sm:px-2 py-2 whitespace-nowrap">Item code</th>
-                  <th class="text-center px-10 sm:px-16 py-2">Item</th>
-                  <th class="text-center px-6 sm:px-12 py-2">Type</th>
-                  <th class="text-center px-6 sm:px-12 py-2">Category</th>
-                  <th class="text-center px-4 sm:px-5 py-2 whitespace-nowrap">QTY (pcs.)</th>
-                  <th class="text-center px-4 sm:px-5 py-2 whitespace-nowrap">QTY (box)</th>
-                  <th class="text-center px-2 sm:px-2 py-2">Floor</th>
-                  <th class="text-center px-2 sm:px-2 py-2">Rack</th>
-                  <th class="text-center px-10 sm:px-16 py-2 whitespace-nowrap">Expiry date</th>      
-                </tr>
-              </thead>   
-
-                <!-- content of table -->
-                <tbody class="bg-white text-black font-regular text-sm">
-
-                    <tr>
-                      <!-- item code input -->
-                      <td class="text-left px-2 py-2 whitespace-nowrap"><input type="number" class="w-full border border-gray-300 px-2 py-1 rounded-md"></td>
-
-                      <!-- item name input -->
-                      <td class="text-left px-2  py-2"><input id="searchInput" type="text" class="w-full border border-gray-300 px-2 py-1 rounded-md">
-                        <ul id="autocompleteResults" class="absolute z-10 left-30 w-30 mt-1 max-h-32 overflow-y-auto px-3 py-2 bg-white border border-gray-300 rounded-md shadow-lg hidden"></ul></td>
-                      
-                       <!-- type of item input -->
-                      <td class="text-left px-2 py-2">
-                          <select class="w-full border border-gray-300 px-2 py-1 rounded-md">
-                            <option disabled selected value="" hidden>Select type</option>
-                            <option>Sachet</option>
-                            <option>Packs</option>
-                            <option>Cans</option>
-                            <option>Sacks</option>
-                            <option>Bottle</option>
-                            <option class="text-gray-400">&#43; Add type</option>
-                            <option class="text-gray-400">&#8722; Delete category</option>
-                          </select>
-                      </td>
-
-                       <!-- category of item input -->
-                      <td class="text-left px-2 py-2">
-                        <select class="w-full border border-gray-300 px-2 py-1 rounded-md">
-                          <option disabled selected value=""hidden>Select category</option>
-                          <option>Food</option>
-                          <option>Hygiene</option>
-                          <option>Comfort</option>
-                          <option>Kitchen</option>
-                          <option>Disaster</option>
-                          <option class="text-gray-400">&#43; Add category</option>
-                          <option class="text-gray-400">&#8722; Delete category</option>
-                        </select>
-                      </td>
-
-                      <!-- Quantity per item -->
-                      <td class="text-left px-2  py-2 whitespace-nowrap"><input type="number" class="w-full border border-gray-300 px-2 py-1 rounded-md"></td>
-
-                       <!-- Quantity per box -->
-                       <td class="text-left px-2  py-2 whitespace-nowrap"><input type="number" class="w-full border border-gray-300 px-2 py-1 rounded-md"></td>
-
-                      <!-- location of stock floor -->
-                      <td class="text-center px-2 py-2">
-                        <select class="w-30 border border-gray-300 px-2 py-1 rounded-md">
-                          <option disabled selected value="" hidden>Floor</option>
-                          <option>1st Floor</option>
-                          <option>2nd Floor</option>
-                          <option>Outside</option>
-                        </select>
-                      </td>
-
-                      <!-- location of stock rack -->
-                      <td class="text-center px-2 py-2">
-                        <select class="w-30 border border-gray-300 px-2 py-1 rounded-md">
-                          <option disabled selected value="" hidden>Rack</option>
-                          <option>Rack 1</option>
-                          <option>Rack 2</option>
-                          <option>Rack 3</option>
-                          <option>Rack 4</option>
-                          <option>Rack 5</option>
-                          <option>Rack 6</option>
-                          <option>Unspecified</option>
-                          <option>Outside</option>
-                        </select>
-                      </td>
-                      <td class="center px-2 py-2 whitespace-nowrap"><input type="date" class="w-full border border-gray-300 px-3 py-1 rounded-md"></td>
-                    </tr>
-
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                       <!-- just for adding multiple stock -->
-                      <td class="text-center px-2 py-2 whitespace-nowrap">
-                        <div class="text-sm flex ml-auto">
-                          <a href="">
-                            <button type="button" class="cursor-pointer mb-3 transition-all bg-blue-700 text-white px-6 py-2 rounded-lg border-blue-800 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-                            active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-blue-300 shadow-blue-300 active:shadow-none ">
-                            <i class="fa-solid fa-plus text-white mr-2"></i>Add multiple stock 
-                            </button>
-                          </a>
-                        </div>
-                      </td>
-                    </tr> 
-                </tbody>
-            </table>
-          </div>
-        </div>          
-                      
-              <!-- buttons --> 
-              <div class="text-sm mt-5 flex ml-auto gap-2"> <!-- for alignment of buttons --> 
-
-                <a href="adminStockManage.html">
-                <button type="button" class="cursor-pointer transition-all bg-red-700 text-white px-6 py-2 rounded-lg border-red-800 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-                active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-red-300 shadow-red-300 active:shadow-none ">
-                Discard 
-                </button></a>
-
-                <a href="DeliveryReceipt.html">
-                <button id="saveButton" type="submit" class="cursor-pointer transition-all bg-green-700 text-white mr-10 px-6 py-2 rounded-lg border-green-800
-                border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
-                Next
-                </button></a>        
-
-              </div>
-
         </div>
-      </div>               
-    </div>          
+      </div>
+    </div>         
   </body>
           
       <!-- JS SCRIPT -->
@@ -550,7 +456,7 @@
          }
            }
       </script>
-
+     
       <script>
      // Function to switch images based on screen size
        function switchImages() {
@@ -598,6 +504,11 @@
           });
       </script>
 
+      <script>
+      document.getElementById('confirmButton').addEventListener('click', function() {
+        alert("Stock successfully remove to inventory.");
+      });
+      </script>
 
       <script>
           // JavaScript to toggle the dropdown
@@ -616,48 +527,5 @@
         });
       </script>
 
-      <script>
-      const searchInput = document.getElementById('searchInput');
-      const autocompleteResults = document.getElementById('autocompleteResults');
-
-      searchInput.addEventListener('input', function(event) {
-        const query = event.target.value;
-
-        // Simulated autocomplete results
-        const autocompleteSuggestions = ['Bear Brand', 'Coffee', 'Corned Beef', 'Meat Loaf', 'Sausage'];
-
-        // Clear previous results
-        autocompleteResults.innerHTML = '';
-
-        // Display autocomplete results
-        autocompleteSuggestions
-          .filter(suggestion => suggestion.toLowerCase().includes(query.toLowerCase()))
-          .forEach(suggestion => {
-            const li = document.createElement('li');
-            li.textContent = suggestion;
-            li.classList.add('py-2', 'px-4', 'hover:text-red-500'); 
-            li.addEventListener('click', function() {
-              searchInput.value = suggestion;
-              autocompleteResults.classList.add('hidden');
-            });
-            autocompleteResults.appendChild(li);
-          });
-
-        // Show autocomplete dropdown if there are results
-        if (autocompleteResults.children.length > 0) {
-          autocompleteResults.classList.remove('hidden');
-        } else {
-          autocompleteResults.classList.add('hidden');
-        }
-      });
-
-      // Hide autocomplete dropdown when user clicks outside
-      document.addEventListener('click', function(event) {
-        if (!autocompleteResults.contains(event.target) && event.target !== searchInput) {
-          autocompleteResults.classList.add('hidden');
-        }
-      });
-      </script>
-      
   </body>
 </html>

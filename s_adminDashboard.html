@@ -323,7 +323,7 @@
                     <div class="min-w-0 flex-auto">
 
                         <!-- Other details -->
-                        <p class="text-sm font-semibold leading-6 text-gray-900">Kap. Martel</p>
+                        <p class="text-sm font-semibold leading-6 text-gray-900">Kap. Eduardo Jr.</p>
                         <p class="truncate text-xs leading-5 text-gray-900">Brgy. Karuhatan</p>
                         <p class="truncate text-xs font-bold leading-5 text-gray-500">Food Pack - Fire incident</p>
                     </div>    
@@ -446,164 +446,175 @@
           <div class="w-full col-span-1 sm:col-span-1 lg:col-span-1 flex flex-col p-7 bg-white rounded-2xl shadow-2xl shadow-green-100 cursor-default overflow-y-auto max-h-[450px]">
             <div class=" text-red-700 text-md mb-3 cursor-default">
               <i class="fa-solid fa-warehouse text-green-700"></i> <b class="text-green-700 text-1xl mt-3 ml-4">Current Warehouse Capacity</b>
-            </div>          
-                     
-          <!-- Warehouse Capacity -->
-          <div class="mb-2">
-                        
-            <!-- Legends go here -->
-            <div class="flex justify-center">
-              <div class="legend-item flex items-center mr-4">
-                <div class="legend-square bg-green-500 w-2 h-2 mr-2"></div>
-                <span>Available Space </span>
-              </div>
-
-              <div class="legend-item flex items-center mr-4">
-                <div class="legend-square bg-red-500 w-2 h-2 mr-2"></div>
-                <span>Occupied</span>
-              </div>
             </div>
-          </div>
+           
+            <!-- Warehouse Capacity -->
+            <div class="mb-2">
+              
+              <!-- Legends go here -->
+              <div class="flex justify-center">
+                <div class="legend-item flex items-center mr-4">
+                  <div class="legend-square bg-green-500 w-2 h-2 mr-2"></div>
+                  <span>Available Space </span>
+                </div>
 
-          <div class="w-64 h-64 mb-4 mx-auto flex items-center justify-center">
-            <canvas id="donut-chart"></canvas>
-          </div>
-
-          <!-- storage usage text -->
-          <div class="legend-item flex items-center mr-4">
-            <p class="truncate text-[11px] mx-auto mt-1 mb-1 font-regular leading-5 mb-2 text-gray-500"> Storage Update: 1744 of 5000 Occupied</p>
-          </div>            
-
-          <!-- 1st floor capacity -->
-          <div class="border-b border-gray-300 mt-5 my-4"></div>
-            <span class="text-green-700 font-bold text-md">
-            <i class="fa-solid fa-square-minus mr-3"></i>FIRST FLOOR</span>
-          
-          <!-- rack 1 capacity -->
-          <div class="flex items-center justify-between"></div>
-            <span class="text-gray-700 font-bold text-sm">RACK 1</span>
-            <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">33% Available space</span>
-          
-        
-          <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-            <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 67%">
-              <span class="p-1 text-white font-bold"> 67% used</span>
-            </div>
-          </div>                
-
-          <!-- rack 2 capacity -->
-          <div class="flex items-center mt-5 justify-between">
-            <span class="text-gray-700 font-bold text-sm">RACK 2</span>
-            <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">56% Available space</span>
-          </div>
-          
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 46%">
-                <span class="p-1 text-white font-bold"> 46% used</span>
+                <div class="legend-item flex items-center mr-4">
+                  <div class="legend-square bg-red-500 w-2 h-2 mr-2"></div>
+                  <span>Occupied</span>
+                </div>
              </div>
-            </div>                  
-
-            <!-- rack 3 capacity -->
-            <div class="flex items-center mt-5 justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 3</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">76% Available space</span>
             </div>
-            
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 24%">
-                <span class="p-1 text-white font-bold"> 24% used</span>
-              </div>
-            </div>                  
-                         
-            <!-- rack 4 capacity -->
-            <div class="flex items-center mt-5 justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 4</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">84% Available space</span>
-            </div>
-          
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 16%">
-                <span class="p-1 text-white font-bold"> 16% used</span>
-              </div>
-            </div>                    
 
-            <!-- 2nd floor capacity -->
-            <div class="border-b border-gray-300 mt-5 my-4"></div>
+            <!-- Chart -->
+            <div class="w-64 h-64 mb-4 mx-auto flex items-center justify-center">
+              <canvas id="donut-chart"></canvas>
+            </div>
+
+            <div class="legend-item flex items-center mr-4">
+              <p class="truncate text-[11px] mx-auto mt-1 mb-1 font-regular leading-5 mb-2 text-gray-500"> Storage Update: 3160 of 5000 Occupied</p>
+            </div>           
+
+            <!-- First floor Rack Lists -->
+            <!-- 1st floor capacity -->
+          <div class="mb-1 mt-3 flex items-center justify-between">
             <span class="text-green-700 font-bold text-md">
-            <i class="fa-solid fa-square-minus mr-3"></i>SECOND FLOOR</span>
+              <i class="fa-solid fa-square-minus mr-3"></i>FIRST FLOOR
+            </span>
+          </div>
+
+          <!-- Per Racks capacity -->
+          <div class="flex mt-3 mb-3">
+            <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+              RACK 1
+            </div>
+
+            <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+              <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>1600</span> 
+            </div>
+          </div>
+
+          <div class="flex mb-3">
+            <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+              RACK 2
+            </div>
+
+            <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+              <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>320</span> 
+            </div>
+          </div>
+
+          <div class="flex mb-3">
+            <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+              RACK 3
+            </div>
+
+            <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+              <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>310</span> 
+            </div>
+          </div>
+
+          <div class="flex mb-3">
+            <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+              RACK 4
+            </div>
+
+            <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+              <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>205</span> 
+            </div>
+          </div>
+
+          <div class="flex mb-3">
+            <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+              Unspecified
+            </div>
+
+            <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+              <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>50</span> 
+            </div>
+          </div>
             
-            <!-- rack 1 capacity -->
-            <div class="flex items-center justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 1</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">11% Available space</span>
-            </div>
-          
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 89%">
-                <span class="p-1 text-white font-bold"> 89% used</span>
-              </div>
+            <!-- 2nd floor capacity -->
+
+            <div class="border-b border-gray-300 mt-5 my-4"></div>
+
+            <div class="mb-1 mt-3 flex items-center justify-between">
+              <span class="text-green-700 font-bold text-md">
+              <i class="fa-solid fa-square-minus mr-3"></i>SECOND FLOOR
+              </span>
             </div>
 
-            <!-- rack 2 capacity -->
-            <div class="flex items-center mt-5 justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 2</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">28% Available space</span>
-            </div>
+            <!-- Per Racks capacity -->
+            <div class="flex mt-3 mb-3">
+              <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+                RACK 1
+              </div>
+
+              <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+                <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>80</span> 
+              </div>
+            </div> 
+
+            <div class="flex mb-3">
+              <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+                RACK 2
+              </div>
+
+              <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+                <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>230</span> 
+              </div>
+            </div> 
             
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 72%">
-                <span class="p-1 text-white font-bold"> 72% used</span>
+            <div class="flex mb-3">
+              <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+                RACK 3
               </div>
-            </div>
 
-            <!-- rack 3 capacity -->
-            <div class="flex items-center mt-5 justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 3</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">24% Available space</span>
-            </div>
-              
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 76%">
-                <span class="p-1 text-white font-bold"> 76% used</span>
+              <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+                <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>85</span> 
               </div>
-            </div>                      
-                             
-            <!-- rack 4 capacity -->
-            <div class="flex items-center mt-5 justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 4</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">44% Available space</span>
-            </div>
-              
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 56%">
-                <span class="p-1 text-white font-bold"> 56% used</span>
-              </div>
-            </div>
-        
-            <!-- rack 5 capacity -->
-            <div class="flex items-center mt-5 justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 5</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">81% Available space</span>
-            </div>
-                
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 19%">
-                <span class="p-1 text-white font-bold"> 19% used</span>
-              </div>
-            </div>
+            </div> 
 
-            <!-- rack 6 capacity -->
-            <div class="flex items-center mt-5 justify-between">
-              <span class="text-gray-700 font-bold text-sm">RACK 6</span>
-              <span class="px-2 py-1 bg-blue-50 rounded-lg text-xs text-green-700 font-medium min-w-[46px] text-center">34% Available space</span>
-            </div>
-                  
-            <div class="w-full bg-gray-200 h-10 mt-2 rounded-full border border-gray-500">
-              <div class="flex bg-green-700 items-center justify-center h-10  rounded-full text-xs leading-none" style="width: 66%">
-                <span class="p-1 text-white font-bold"> 66% used</span>
+            <div class="flex mb-3">
+              <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+                RACK 4
               </div>
-            </div>                                               
-        </div>
+
+              <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+                <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>65</span> 
+              </div>
+            </div> 
+
+            <div class="flex mb-3">
+              <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+                RACK 5
+              </div>
+
+              <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+                <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>95</span> 
+              </div>
+            </div> 
+
+            <div class="flex mb-3">
+              <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+                RACK 6
+              </div>
+
+              <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+                <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>90</span> 
+              </div>
+            </div> 
+
+            <div class="flex mb-3">
+              <div class="flex w-40 text-sm font-bold items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-slate-200 p-2">
+                Unspecified
+              </div>
+  
+              <div class="w-full bg-green-700 p-2 rounded-tr-lg rounded-br-lg text-white text-xs font-semibold hover:bg-green-900 transition-colors">
+                <i class="fa-solid fa-box-open text-sm ml-3"></i> <span class="mr-3">Boxes: </span> <span>30</span> 
+              </div>
+            </div> 
+                                
+            </div>
     </div>
     
     <!-- Grid 2 close -->
@@ -708,70 +719,112 @@
       <!--Warehouse Status start -->
       <div class="col-span-1 sm:col-span-1  lg:col-span-1 flex flex-col p-5 px-3 py-3 bg-white rounded-2xl shadow-2xl shadow-green-200 overflow-y-auto max-h-[400px]">
         <div class="text-md ">
-        <i class="fa-solid fa-box-open mt-3 text-green-700  mr-2 "></i></a>
-        <b class="text-green-700">Kits Status</b>
+          <i class="fa-solid fa-box-open mt-3 text-green-700  mr-2 "></i></a>
+          <b class="text-green-700">Kits Status</b>
         </div>
 
-        <!--border line -->
+        <!--Border  line-->
         <div class="border-b border-gray-300 mt-5 my-4"></div>
 
-         <!--list of kits with their numbers-->
+        <!--List of kits-->
         <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
-          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
           <div class="flex flex-col">
-              <span class="font-bold text-sm">Unpacked items</span>
+            <span class="font-bold text-sm">Unpacked items</span>
           </div>
-          <p class="text-sm ml-auto">98 boxes</p>
+            <p class="text-sm ml-auto">6823 boxes</p>
         </div>
 
-
+        <!--Food (1day) pack-->
         <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
           <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
-          <div class="flex flex-col">
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Food Pack (1-Day)</span>
+            </div>
+          <p class="text-sm ml-auto">120 pcs.</p>
+        </div>
+
+        <!--Food (2days) pack-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Food Pack (2-Days)</span>
+            </div>
+          <p class="text-sm ml-auto">350 pcs.</p>
+        </div>
+
+        <!--Food (4days) pack-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Food Pack (4-Days)</span>
+            </div>
+          <p class="text-sm ml-auto">60 pcs.</p>
+        </div>
+
+        <!--Family kit-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
               <span class="font-bold text-sm">Family Kit</span>
-          </div>
-          <p class="text-sm ml-auto">510 pcs.</p>
+            </div>
+          <p class="text-sm ml-auto">230 pcs.</p>
         </div>
-      
-      <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
-        <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
-        <div class="flex flex-col">
-            <span class="font-bold text-sm">Food Pack</span>
-        </div>
-        <p class="text-sm ml-auto">345 pcs.</p>
-      </div>
 
-      <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
-        <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
-        <div class="flex flex-col">
-            <span class="font-bold text-sm">Comfort Kit</span>
+
+        <!--Comfort Kit-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Comfort Kit</span>
+            </div>
+          <p class="text-sm ml-auto">190 pcs.</p>
         </div>
-        <p class="text-sm ml-auto">400 pcs.</p>
-      </div>
    
-      <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
-        <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
-        <div class="flex flex-col">
-            <span class="font-bold text-sm">Snack Pack</span>
+        <!--Snack Pack-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+                <span class="font-bold text-sm">Snack Pack</span>
+            </div>
+          <p class="text-sm ml-auto">450 pcs.</p>
+        </div>  
+        
+        <!--Disaster Kit-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+                <span class="font-bold text-sm">Disaster Kit</span>
+            </div>
+          <p class="text-sm ml-auto">920 pcs.</p>
         </div>
-        <p class="text-sm ml-auto">430 pcs.</p>
-      </div>     
 
-      <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
-        <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
-        <div class="flex flex-col">
-            <span class="font-bold text-sm">Kitchen Kit</span>
+        <!--Kitchen Pack-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Kitchen Kit</span>
+            </div>
+          <p class="text-sm ml-auto">700 pcs.</p>
         </div>
-        <p class="text-sm ml-auto">800 pcs.</p>
-      </div>
 
-      <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
-        <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
-        <div class="flex flex-col">
-            <span class="font-bold text-sm">Disaster Kit</span>
+        <!--Holiday Pack-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Holiday pack</span>
+            </div>
+          <p class="text-sm ml-auto">450 pcs.</p>
         </div>
-        <p class="text-sm ml-auto">1000 pcs.</p>
-      </div>                
+
+        <!--Bean Bag-->
+        <div class="mb-3 overflow-hidden relative transition-all duration-500  w-full h-16 border-l-8 border-green-700 bg-neutral-50 rounded-md shadow-md flex items-center gap-2 px-4 py-5 p-2">
+          <i class="fa-solid fa-box-open ml-2 text-gray-700"></i>
+            <div class="flex flex-col">
+              <span class="font-bold text-sm">Bean Bag</span>
+            </div>
+          <p class="text-sm ml-auto">250 pcs.</p>
+        </div>            
          
       </div>
     </div>

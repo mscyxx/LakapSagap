@@ -317,6 +317,8 @@
           <table class="w-full min-w-[540px]">
             <thead> <!-- columns -->
               <tr>
+                <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-2 text-left">Request code</th>
+                <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-2 text-left">Urgency Level</th>
                 <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Requester Name</th>
                 <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Reason</th>
                 <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Barangay</th>
@@ -330,11 +332,21 @@
 
               <!--1ST LIST -->
               <tr>
+                <!-- Request code -->
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-gray-600">00010</span>
+                </td> 
+
+                 <!--Urgency lvl -->
+                 <td class="py-2 px-4 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-red-600">URGENT</span>
+                </td> 
+
               <!-- requester name -->
                 <td class="py-2 px-4 border-b border-b-gray-50">
                   <div class="flex items-center mt-3">
                     <img src="https://img.freepik.com/premium-vector/new-female-avatar-icon-flat-illustration-female-avatar-vector-icon-any-web-design_98396-3364.jpg" alt="" class="w-8 h-8 rounded-full object-cover block">
-                    <p class="text-gray-600 text-sm font-medium ml-2 ">Kap. Martel De Gula</p>
+                    <p class="text-gray-600 text-sm font-medium ml-2 ">Kap. Eduardo Jr.</p>
                   </div>
                 </td>        
 
@@ -363,17 +375,25 @@
                 <td class="">
                   <a href="pendingRequest_View.html">
                     <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>View More</b>
+                    <b>Open</b>
                   </a>
                     </button>
                 </td>
 
-              <!-- icon for download -->
-                <td class="text-blue-700 cursor-pointer"> <i class="fa-solid fa-download text-blue-700 mr-5"></i></td>  
               </tr>
 
               <!--2ND LIST -->
               <tr>
+                <!-- Request code -->
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-gray-600">00009</span>
+                </td> 
+
+                 <!-- Urgency lvl -->
+                 <td class="py-2 px-4 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-red-600">URGENT</span>
+                </td> 
+
               <!-- requester name -->
                <td class="py-2 px-4 border-b border-b-gray-50">
                 <div class="flex items-center mt-3">
@@ -406,17 +426,25 @@
                 <td class="">
                   <a href="pendingRequest_View.html">
                     <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>View More</b>
+                    <b>Open</b>
                   </a>
                     </button>
                 </td>
-
-              <!-- icon for download -->
-                <td class="text-blue-700 cursor-pointer"> <i class="fa-solid fa-download text-blue-700 mr-5"></i></td>             
+   
               </tr>
               
               <!--3RD LIST -->
               <tr>
+                <!-- Request code -->
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-gray-600">00008</span>
+                </td> 
+
+                <!-- Urgency lvl -->
+                <td class="py-2 px-4 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-gray-600">NON-URGENT</span>
+                </td> 
+
               <!-- requester name -->
                 <td class="py-2 px-4 border-b border-b-gray-50">
                   <div class="flex items-center mt-3">
@@ -449,13 +477,11 @@
                 <td class="">
                   <a href="pendingRequest_View.html">
                     <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>View More</b>
+                    <b>Open</b>
                   </a>
                     </button>
                 </td>
 
-              <!-- icon for download -->
-                <td class="text-blue-700 cursor-pointer"> <i class="fa-solid fa-download text-blue-700 mr-5"></i></td>              
               </tr>
             </tbody>
           </table>
@@ -514,12 +540,13 @@
               <table class="w-full min-w-[540px]">
                 <thead>  <!--columns -->
                   <tr>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-2 text-left rounded-tl-md rounded-bl-md">Request code</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Released Donation</th>
-                      <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Requester Name</th>
-                      <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Reason</th>
-                      <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Approved By</th>
-                      <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Barangay</th>
-                      <div class="border-b border-gray-300 my-4">
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Requester Name</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Reason</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Approved By</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Barangay</th>
+                    <div class="border-b border-gray-300 my-4">
                   </tr>
               </thead>     
             </div>
@@ -528,9 +555,13 @@
             <tbody>
               <!--1st list -->
               <tr>
+
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-gray-600">00007</span>
+                </td> 
+
                 <td class="py-2 px-4 border-b border-b-gray-50">
                   <div class="flex items-center  mt-3">
-                      
                     <span class="text-gray-600 text-sm font-semibold ">Family kit</span>
                   </div>
                 </td>   
@@ -555,17 +586,18 @@
                 <td class="">
                   <a href="confirmation_requestReceipt.html">
                     <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>View More</b>
+                      <b>Open</b>
                   </a>
                     </button>
                 </td>
-
-                <!-- icon for download -->
-                <td class="text-blue-700 cursor-pointer"> <i class="fa-solid fa-download text-blue-700 mr-5"></i></td>
               </tr>           
 
               <!--2nd list -->
               <tr>
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-gray-600">00006</span>
+                </td> 
+
                 <td class="py-2 px-4 border-b border-b-gray-50">
                   <div class="flex items-center  mt-3">
                     <span class="text-gray-600 text-sm font-semibold ">Kitchen Packs, Food Pack</span>
@@ -592,16 +624,20 @@
                 <td class="">
                   <a href="">
                     <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>View More</b>
+                    <b>Open</b>
                   </a>
                     </button>
                 </td>
-                <!-- icon for download -->
-                <td class="text-blue-700 cursor-pointer"> <i class="fa-solid fa-download text-blue-700 mr-5"></i></td>
+
               </tr>          
 
               <!--3rd list -->
               <tr>
+                <!-- Request code -->
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-[13px] font-bold text-gray-600">00005</span>
+                </td> 
+
                 <td class="py-2 px-4 border-b border-b-gray-50">
                     <div class="flex items-center  mt-3">
                       <span class="text-gray-600 text-sm font-semibold ">Snack Packs</span>
@@ -628,13 +664,10 @@
                 <td class="">
                   <a href="">
                     <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>View More</b>
+                    <b>Open</b>
                   </a>
                     </button>
                 </td>
-
-                <!-- icon for download -->
-                <td class="text-blue-700 cursor-pointer"> <i class="fa-solid fa-download text-blue-700 mr-5"></i></td>
               </tr>          
                           
             </tbody>
