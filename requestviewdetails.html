@@ -198,45 +198,40 @@
       <!-- form content -->
       <div class="bg-white border-t-8 border-red-700  shadow-md shadow-red/5 p-6 rounded-md">
         <div class="flex justify-between mb-1 items-start">
-          <div class="text-2xl font-bold text-red-700">Pending Relief Request</div> 
+            <div class="text-2xl font-bold text-red-700">Relief Request</div> 
 
-           <!-- export icon -->
-          <i class="fa-solid fa-download text-1xl text-blue-800 inline-block cursor-pointer ml-auto inline-block"> </i>
-            <p class="ml-3 text-blue-800 lowercase-text cursor-pointer inline-block">Export Receipt</p>
+            <!-- export icon -->
+            <i class="fa-solid fa-download text-1xl text-blue-800 inline-block cursor-pointer ml-auto inline-block"> </i>
+              <p class="ml-3 text-blue-800 lowercase-text cursor-pointer inline-block">Export Receipt</p>
         </div>
       
-        <!-- details  -->
-        <div class="overflow-x-auto">
-          <p class="text-lg font-bold font-sans inline-block">Reason: </p>
-          <p class="text-lg font-bold font-sans">[Food] Donation for Fire victims in Maysan, Malinta</p>
-          <p class="text-gray-700 font-semibold text-sm "> Barangay/Organization:
-            <span >Karuhatan</span>
-            <br>
-          </p>
+        <p class="text-lg font-bold text-red-700 font-sans inline-block">[Urgent] </p>
+        <p class="text-lg font-bold font-sans">Donation for Fire victims</p>
+        <p class="text-gray-700 font-semibold text-sm "> Requested by:
+          <span >Office Head</span>
+          <br></p>
+        <p class="text-gray-700 font-semibold text-sm "> Barangay:
+          <span >Karuhatan</span>
+          <br></p>
+        <p class="text-gray-700 font-semibold text-sm "> Recipient type:
+            <span >Internally Displace Person (IDP)</span>
+            <br></p>
 
-          <p class="text-gray-700 font-semibold text-sm ">
-          Address of Evacuation Post: <span> 15-A San Guillermo st. Valenzuela City </span> <br>
-          </p>
+             <p class="text-gray-700 font-semibold text-sm ">
+              Evacuation Post Address: <span> 15-A San Guillermo st. Valenzuela City </span> <br>
+             </p>
 
         <div>
-          <!-- contact information  -->
           <div class="py-3">
             <p class="text-gray-700 text-sm mb-3">
-              Date: <span>February 18, 2024 </span><br>
-              Requested by: <span>Kap. Eduardo Jr.</span><br>
+              Date Requested: <span>February 18, 2024 </span><br>
               Phone No.: <span>09061882353</span> <br>
               Email: <span>eduardo@gmail.com</span></p>
-          
-            <!-- reason  -->
-            <p class="text-gray-700 font-semibold text-sm"> Reason:</p>
-            <p class="text-black text-sm mb-3">
-              <br>Magandang araw po, nais ko sanang humingi ng tulong para sa isang proyektong makakatulong sa mga naapektuhan ng kamakailang kalamidad.
-              <br><br>Sa pagtutulungan natin, nais naming magkaruon ng koleksyon ng relief goods para sa mga pamilyang nangangailangan. Ang inyong suporta at donasyon ay makakatulong ng malaki sa mabilisang pagtugon sa pangangailangan ng ating mga kabarangay.
-              <br><br>Kung maari po, maaaring kayo ay maging bahagi ng aming adhikain sa pamamagitan ng anumang donasyon o tulong. 
-              <br><br>Maraming salamat po sa inyong oras at pagmamalasakit sa ating komunidad.
-            </p>
 
-            <!-- other details  -->
+        
+            <p class="text-gray-700 font-semibold text-sm"> Reason:</p>
+            <p class="text-black text-sm mb-3"> Need donations for fire incident IDPs.</p>
+
             <p class="mt-3 font-bold text-gray-700 text-sm inline-block"> Will Receive by: </p>
             <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> Kagawad - Kimmy Hernandez </p>
           </div>
@@ -244,7 +239,7 @@
           <div class="mb-3">
             <p class="text-gray-700 font-semibold text-sm"> Name of Representative:</p>
             <p class="text-black text-sm">Chief Office - Eduardo Kineso</p>
-          </div>   
+          </div>
 
           <div class="mb-3">
             <p class="text-gray-700 font-semibold text-sm"> No. of Recipients:</p>
@@ -257,106 +252,103 @@
             <p class="text-black text-sm">10:00 AM</p>
           </div>
 
-            <!--table for request  -->
             <div>
               <p class="mt-3 font-bold text-gray-700 text-sm inline-block"> Requests: </p>
-                <table class="w-60 lg:max-w-screen-2xl text-md bg-white shadow-md border border-red-200 shadow-red-100 rounded mb-4">
-                  <thead>
-                    <tr class="text-white bg-gradient-to-r from-red-700 to-orange-700"> <!-- column names -->
-                      <th class="text-center p-1 px-4 py-2">Pack/Item</th>
-                      <th class="text-center p-1 px-4 py-2">Type</th>
-                      <th class="text-center p-1 px-4 py-2">Quantity</th>
-                    </tr>
+
+              <!-- table for request -->
+              <table class="w-60 lg:max-w-screen-2xl text-md bg-white shadow-md border border-gray-200 rounded mb-4">
+
+                <!-- column names -->
+                <thead>
+                  <tr class="text-white bg-gray-400 to-orange-700"> 
+                    <th class="text-center p-1 px-4 py-2">Kit/Item</th>
+                    <th class="text-center p-1 px-4 py-2">Quantity</th>
+                  </tr>
                   
-                  <tbody>
-                    <!-- columns content -->
-                    <tr class="border-b hover:bg-blue-100 bg-gray-100">
-                      <td class="p-1 px-4 py-2"><input type="text" value="Food Pack" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="Food" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="541" class="bg-transparent  text-center"></td>
-                    </tr>
+                  <!-- columns content -->
+                  <tr class="border-b hover:bg-blue-100 bg-gray-100">
+                    <td class="p-1 px-4 py-2"><input type="text" value="Food Pack" class="bg-transparent text-center"></td>
+                    <td class="p-1 px-4 py-2"><input type="text" value="541" class="bg-transparent  text-center"></td>
+                  </tr>
 
-                    
-                    <tr class="border-b hover:bg-blue-100 bg-gray-100">
-                      <td class="p-1 px-4 py-2"><input type="text" value="Kitchen kit" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="Kitchenware" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="541" class="bg-transparent  text-center"></td>
-                    </tr>
+                  
+                  <tr class="border-b hover:bg-blue-100 bg-gray-100">
+                    <td class="p-1 px-4 py-2"><input type="text" value="Kitchen kit" class="bg-transparent text-center"></td>
+                    <td class="p-1 px-4 py-2"><input type="text" value="541" class="bg-transparent  text-center"></td>
+                  </tr>
 
-                    
-                    <tr class="border-b hover:bg-blue-100 bg-gray-100">
-                      <td class="p-1 px-4 py-2"><input type="text" value="Comfort kit" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="Clothes" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="541" class="bg-transparent  text-center"></td>
-                    </tr>
+                  
+                  <tr class="border-b hover:bg-blue-100 bg-gray-100">
+                    <td class="p-1 px-4 py-2"><input type="text" value="Comfort kit" class="bg-transparent text-center"></td>
+                    <td class="p-1 px-4 py-2"><input type="text" value="541" class="bg-transparent  text-center"></td>
+                  </tr>
 
-                    <tr class="border-b hover:bg-blue-100 bg-gray-100">
-                      <td class="p-1 px-4 py-2"><input type="text" value="Rice" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="Sacks" class="bg-transparent text-center"></td>
-                      <td class="p-1 px-4 py-2"><input type="text" value="80" class="bg-transparent  text-center"></td>
-                    </tr>
-                  </tbody>
+                  <tr class="border-b hover:bg-blue-100 bg-gray-100">
+                    <td class="p-1 px-4 py-2"><input type="text" value="Rice" class="bg-transparent text-center"></td>
+                    <td class="p-1 px-4 py-2"><input type="text" value="80" class="bg-transparent  text-center"></td>
+                  </tr>
+                </tbody>
               </table>
             </div>
 
-            <!-- attachment section  -->
-            <b class="mt-20 text-sm font-bold leading-6 text-gray-700">Attachment/s</b>
-            <div class="px-2 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dd class="mt-2 text-sm text-gray-900 space-y-6 w-80 sm:col-span-2 sm:mt-0">
-                    
-                <div class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                  <div class="flex w-0 flex-1 items-center">
-                    <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd"
-                      d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
-                      clip-rule="evenodd" />
-                    </svg>
+        <!-- attachment section  -->
+        <b class="mt-20 text-sm font-bold leading-6 text-gray-700">Attachment/s</b>
+        <div class="px-2 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dd class="mt-2 text-sm text-gray-900 space-y-6 w-80 sm:col-span-2 sm:mt-0">
+                 
+            <div class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+              <div class="flex w-0 flex-1 items-center">
+                <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd"
+                        d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                        clip-rule="evenodd" />
+                </svg>
 
-                      <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                          <span class="truncate font-medium">Kap. Ronaldo E-Signature</span>
-                          <span class="flex-shrink-0 text-gray-400">4.5mb</span>
-                      </div>
-                  </div>
-
-                  <div class="ml-4 flex-shrink-0 ">
-                      <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                        <i class="fa-solid fa-download mr-8"></i>
-                      </a>
-                  </div>
-                </div>         
-              </dd>
-            </div>
-
-            <div class="flex justify-between">
-              <path
-                d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
-                stroke-linejoin="round"
-                stroke-linecap="round"
-              ></path>
-            </svg>
-
-              <!-- buttons  -->
-              <div class="text-sm flex gap-2">
-                <a href="requestmainpage.html">
-                  <button class="cursor-pointer transition-all 
-                    bg-gray-700 text-white px-8 py-2 rounded-lg
-                    border-gray-800
-                    border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-                    active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-red-300 shadow-green-300 active:shadow-none">
-                    Back
-                    </button></a>
-
-                    <a href="requestmainpage.html">
-                    <button class="cursor-pointer transition-all 
-                    bg-red-700 text-white px-6 py-2 rounded-lg
-                    border-red-800
-                    border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-                    active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
-                    Cancel Request
-                  </button>
-                </a>
+                <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                  <span class="truncate font-medium">Office Head Juan Dela Cruz</span>
+                  <span class="flex-shrink-0 text-gray-400">4.5mb</span>
+                </div>
               </div>
-            </div>
+              
+              <div class="ml-4 flex-shrink-0 ">
+                  <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    <i class="fa-solid fa-download mr-8"></i>
+                  </a>
+              </div>         
+            </div> 
+          </dd>
+        </div>
+
+        <div class="flex justify-between">
+          <path
+            d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          ></path>
+        </svg>
+
+        <!-- buttons  -->
+        <div class="text-sm flex gap-2">
+          <a href="requestdonationform.html">
+          <button class="cursor-pointer transition-all 
+              bg-gray-700 text-white px-8 py-2 rounded-lg
+              border-gray-800
+              border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+              active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-red-300 shadow-green-300 active:shadow-none">
+              Back
+              </button></a>
+
+              <a href="requestmainpage.html">
+              <button onclick="alert('Your request has been successfully sent!')" class="cursor-pointer transition-all 
+              bg-green-700 text-white px-6 py-2 rounded-lg
+              border-green-800
+              border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+              active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+              Send Request
+              </button>
+            </a>
+          </div>
+        </div>
 
     <!-- JS SCRIPT -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
