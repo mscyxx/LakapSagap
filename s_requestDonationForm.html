@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Making a request</title>
+    <title>Request Form</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -199,36 +199,53 @@
           <div class="flex justify-between mb-1 items-start">
             <div class="text-2xl font-bold text-gray-700">Request Relief Form</div>
           </div>   
-  
-          <!-- Flex container for the row -->
-          <div class="flex flex-wrap -mx-3 mt-6">  
-  
-            <!-- First set of inputs -->
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
-                Reason for Request
-              </label>
 
-              <!-- Dropdown -->
-              <div class="relative">
-                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason">
-                  <option value="" disabled selected>Select reason...</option>
-                  <option value="fire">Fire incident</option>
-                  <option value="flood">Flood incident</option>
-                  <option value="earthquake">Earthquake incident</option>
-                  <option>Other</option>
-                </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          <!-- Flex container for the row -->
+          <div class="flex flex-wrap -mx-3 mt-6">
+
+              <!-- Urgency level input -->
+              <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                  Reason for Request
+                </label>
+                <div class="relative">
+                  <select id="category-dropdown" name="category"  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                      <option disabled selected value="">Select Reason</option>
+                      <option>Calamity</option>
+                      <option>Non-calamity</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                  </div>
                 </div>
               </div>
-              
+
+            <!-- First set of inputs -->
+            <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                Specific Reason
+              </label>
+              <div class="relative">
+                <input id="autocompleteInput" placeholder="ex. Fire incident" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason" type="text" placeholder="00"
+                />
+              </div>
+
               <!-- Input for "Other" option -->
               <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mt-2" id="other-reason" type="text" placeholder="Enter your reason" style="display: none;">
-            </div>  
-            
-            <!-- second set of inputs -->
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            </div>
+
+              <!-- third set of inputs -->
+              <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0 ">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  No. of Recipients
+                </label>
+                  <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="00">
+              </div>
+          
+               <!-- second set of inputs -->
+            <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
                 Barangay/Organization
               </label>
@@ -236,156 +253,150 @@
               <div class="relative" onclick="event.stopImmediatePropagation();">
                 <input id="autocompleteInput" placeholder="Select Barangay name" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason" type="text" placeholder="00"
                 onkeyup="onkeyUp(event)"/>
-                
+
                 <div id="dropdown" class="w-full h-30 border border-gray-300 rounded-md bg-white absolute overflow-y-auto hidden"></div>
               </div>
-            </div>    
+            </div> 
 
-            <!-- third set of inputs -->
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0 ">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                No. of Recipients
-              </label>
-              <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="00">
-            </div>
-          
-            <!-- Address-->
-            <div class="w-full px-3 mb-6 mt-10 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
-                Address of Evacuation Post
-              </label>
-              <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
-            </div>
 
-            <!-- Reason-->
-            <div class="w-full px-3 mb-6 mt-10 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
-                Please state the specific reason for your request:
-              </label>
-              <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-8 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Enter your reason to request">
-            </div>
-
-            <!-- Contact information-->
-            <div class="w-full md:w-1/3 px-3 mb-6 mt-6 md:mb-0 ">
-              <label class="block text-md uppercase tracking-wide text-gray-700 font-bold mb-2" for="grid-state">
-                Contact information
-              </label>
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                Will Receive by
-              </label>
-              <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
-            </div>
-            
-            <div class="w-full md:w-1/3 px-3 mb-6 mt-14 md:mb-0 ">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                Phone No.
-              </label>
-              <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="09XXXXXXXXX">
-            </div>
-            
-            <div class="w-full md:w-1/3 px-3 mt-14 mb-6 md:mb-0 ">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                Email Address
-              </label>
-              <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="e.g.(email@gmail.com)">
-            </div>
-  
-            <div class="w-full md:w-full px-3 mt-5 mb-6 md:-0">
-              <!-- Upload ID or Documents Section -->
-              <div class="mt-2 col-span-full">
-                <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Upload your e-signature or other necessary documents here</label>
-                  <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div class="text-center">
-                        <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
-                        </svg>
-
-                      <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                              <span>Upload a file</span>
-                              <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                        </label>
-                          <p class="pl-1">or drag and drop</p>
-                      </div>
-                        <p class="text-xs leading-5 text-gray-600">PNG or JPG up  to 10MB</p>
-                    </div>
-                  </div>
-              </div>                 
-            </div>
-  
-            <!-- Other details of making a request -->
-            <div class="w-full md:w-1/2 px-3 mt-6 mb-6 md:mb-0 ">
-              <label class="block text-md uppercase tracking-wide text-gray-700 font-bold mb-2" for="grid-state">
-               Estimated Relief Receive
-              </label>
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                Date
-              </label>
-              <input type="date" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-5 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-            </div>
-  
-            <div class="w-full md:w-1/2 px-3 mt-14 mb-6 md:mb-0 ">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                Time
-              </label>
-              <input type="time" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-5 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"">
-            </div>
-            
-            <!-- Table for requesting -->
-            <div class="w-full md:w-1/2 px-3 mb-6 mt-10 md:mb-10">
-              <label class="block text-md uppercase tracking-wide text-gray-700 font-bold" for="grid-state">
-                Select your request kit
-               </label>
-               
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
-                Type of Kit
-              </label>
-
-              <!-- Dropdown -->
-              <div class="relative">
-                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason">
-                  <option value="" disabled selected>Select Kit...</option>
-                  <option value="fire">Family Pack</option>
-                  <option value="flood">Food Kit</option>
-                  <option value="flood">Comfort Kit</option>
-                  <option value="earthquake">Kitchen Kit</option> 
-                  <option value="flood">Snack Pack</option>
-                </select>
-              </div>
-
-              <!-- Input for "Other" option -->
-              <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mt-2" id="other-reason" type="text" placeholder="Enter your reason" style="display: none;">
-            </div>
-  
-             <!-- Quantity of Kit input -->
-              <div class="w-full md:w-1/2 px-3 mb-6 mt-16 md:mb-10 ">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                  Quantity
+              <!-- input for requests-->
+              <div class="w-full md:w-1/2 px-3 mt-10 md:mb-5">
+                <label class="block text-md uppercase tracking-wide text-gray-700 font-bold" for="grid-state">
+                  Select your request kit
                 </label>
-                <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="00">
-              </div>
               
-             <!-- First set of buttons: Add Kit and Add Specific Item -->
-              <div class="text-sm flex ml-auto gap-5">
-                <button class="cursor-pointer transition-all 
-                            bg-green-700 text-white px-3 py-1 rounded-lg
-                            border-green-800
-                            border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-                            active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
-                  <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
-                  Add Kit
-                </button>
-  
-                <button class="cursor-pointer transition-all mr-4
-                            bg-green-700 text-white px-5 py-1 rounded-lg
-                            border-green-800
-                            border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-                            active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
-                  <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
-                  Add Specific Item
-                </button>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                  Type of Kit
+                </label>
+
+                <!-- dropdown-->
+                <div class="relative">
+                  <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason">
+                    <option value="" disabled selected>Select Kit...</option>
+                    <option value="fire">Family Pack</option>
+                    <option value="flood">Food Kit</option>
+                    <option value="flood">Comfort Kit</option>
+                    <option value="earthquake">Kitchen Kit</option> 
+                    <option value="flood">Snack Pack</option>
+                  </select>
+                </div>
+
+                <!-- Input for "Other" option -->
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mt-2" id="other-reason" type="text" placeholder="Enter your reason" style="display: none;">
               </div>
+
+              
+            <!-- Quantity of Kit input -->
+            <div class="w-full md:w-1/2 px-3 mt-16 md:mb-5">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                Quantity
+              </label>
+                <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="00">
+            </div>
+            
+           <!-- First set of buttons: Add Kit and Add Specific Item -->
+            <div class="text-sm flex ml-auto gap-5">
+              <button class="cursor-pointer transition-all 
+                          bg-green-700 text-white px-3 py-1 rounded-lg
+                          border-green-800
+                          border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                          active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
+                Add Kit
+              </button>
+
+              <button class="cursor-pointer transition-all mr-4
+                          bg-green-700 text-white px-5 py-1 rounded-lg
+                          border-green-800
+                          border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                          active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
+                Add Specific Item
+              </button>
+            </div> 
+        </div>
+
+        <!--date and time-->
+        <div class="flex flex-wrap -mx-3">
+          <div class="w-full md:w-1/2 px-3 mt-6 mb-6 md:mb-0 ">
+            <label class="block text-md uppercase tracking-wide text-gray-700 font-bold mb-2" for="grid-state">
+              Target Date for Receiving Relief
+            </label>
+
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              Date
+            </label>
+            <input type="date" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-5 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
           </div>
+
+          <div class="w-full md:w-1/2 px-3 mt-14 mb-6 md:mb-0 ">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              Time
+            </label>
+            <input type="time" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-5 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"">
+          </div>
+        </div>
+
+              <!-- Address-->
+              <div class="w-full px-3 mb-6 mt-10 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                  Address of Evacuation Post
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
+              </div>
+
+              <!-- Reason-->
+              <div class="w-full px-3 mb-6 mt-10 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                  Please state the specific reason for your request:
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-8 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Enter your reason to request">
+              </div>
+
+              <!-- Other details-->
+              <div class="flex flex-wrap -mx-3">
+              <div class="w-full md:w-1/2 px-3 mb-6 mt-6 md:mb-0 ">
+                <label class="block text-md uppercase tracking-wide text-gray-700 font-bold mb-2" for="grid-state">
+                  Contact information
+                </label>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  Will Receive by
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
+              </div>
+          
+              <div class="w-full md:w-1/2 px-3 mb-6 mt-14 md:mb-0 ">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  Phone No.
+                </label>
+                <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="09XXXXXXXXX">
+              </div>
+            </div>
+              <!-- attachments-->
+              <div class="w-full md:w-full px-3 mt-5 mb-6 md:-0">
+
+                <!-- Upload ID or Documents Section -->
+                <div class="mt-2 col-span-full">
+                  <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Upload your e-signature or other necessary documents here</label>
+                    <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div class="text-center">
+                        <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                        </svg>     
+
+                        <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                          </label>
+                            <p class="pl-1">or drag and drop</p>
+                        </div>
+
+                      <p class="text-xs leading-5 text-gray-600">PNG or JPG up  to 10MB</p>
+                      </div>
+                    </div>
+                </div>
+              </div> 
 
           <!-- Second set of buttons: Another set of Cancel and Send -->
           <div class="text-sm mt-10 flex justify-end gap-5">
@@ -408,7 +419,8 @@
                 Send
               </button>
             </a>
-          </div>    
+          </div>  
+  
   
         </div>
       </div>
