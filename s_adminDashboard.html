@@ -145,28 +145,26 @@
               </svg>
             </button>  
             
-              <!-- Notification Alert -->
-              <div x-show="showNotification" @click.away="showNotification = false" class="absolute top-16 right-36 p-4 space-y-4">
-                <div class="flex w-64 h-28 shadow-lg rounded-lg">
-
-                  <!-- warning -->
-                  <div class="px-4 py-2 bg-white border border-l-8 border-red-700 text-gray-700 flex justify-between rounded">
-                    <div class="flex items-center">
-                      <div class="flex flex-col items-start text-sm">
-                        <p class="font-bold text-[15px]">WARNING</p>
-                        <p class="font-bold text-[10px]">[20324-20330 Food Packages]</p>
-                        <p class="text-xs text-white-700 font-regular mt-1 cursor-default">150 pcs of Bear Brand Milk Powder will expire on November 25, 2023.</p>
+                <!-- Notification Alert -->
+                <div x-show="showNotification" @click.away="showNotification = false" class="absolute top-16 right-36 p-4 space-y-4">
+                  <div class="flex w-64 h-28 shadow-lg rounded-lg">
+                    <!-- warning -->
+                    <div class="px-4 py-2 bg-white border border-l-8 border-green-700 text-gray-700 flex justify-between rounded">
+                      <div class="flex items-center">
+                        <div class="flex flex-col items-start text-sm">
+                          <p class="font-bold text-[15px] text-green-700">The Request Relief Successfully Delivered! </p>
+                          <p class="font-bold text-[10px]">[Brgy. Karuhatan Request]</p>
+                          <p class="text-xs text-white-700 font-regular mt-1 cursor-default">Mr. Jasper Darlang confirmed the receipt of the relief..</p>
+                        </div>
                       </div>
+                      <button @click="showNotification = false" class="text-gray-700 mb-auto mt-3 hover:text-red-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
-
-                    <button @click="showNotification = false" class="text-gray-700 mb-auto mt-3 hover:text-red-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
                   </div>
                 </div>
-              </div>
 
               <!-- Profile -->
               <div x-data="{ open: false, rotateArrow: false }">
