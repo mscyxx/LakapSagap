@@ -352,14 +352,13 @@
             <!-- Table for stocks -->
             <div class="w-full flex  justify-center flex overflow-x-auto">
               <div class="overflow-x-auto">
-                <table class="w-full  custom-smaller-text bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
+                <table class="w-full px-5 custom-smaller-text bg-white shadow-md rounded mb-4 divide-y divide-gray-200">
                   <thead class="bg-gray-200 text-black text-sm">
                     <tr>
                       <th class="text-center px-6 sm:px-24 py-4 whitespace-nowrap">Kit Type</th>
                       <th class="text-center px-6 sm:px-24 py-4">Item/s</th>
                       <th class="text-center px-6 sm:px-12 py-4">Availability</th>
-                      <th class="text-center px-4 sm:px-5 py-4 whitespace-nowrap">Quantity</th>
-                      <th class="text-center px-10 sm:px-24 py-4 whitespace-nowrap">Expiry date</th>      
+                      <th class="text-center px-4 sm:px-5 py-4 whitespace-nowrap">Quantity</th>    
                     </tr>
                   </thead>   
 
@@ -370,7 +369,7 @@
                           <!-- type of kit input -->
                           <td class="text-left px-4 py-4">
                               <select class="w-full border border-gray-300 px-2 py-1 rounded-md">
-                                <option disabled selected value="">Select Kit</option>
+                                <option disabled selected value="">Disaster Kit</option>
                                 <option>Food Pack (1-day)</option>
                                 <option>Food Pack (2-days)</option>
                                 <option>Food Pack (4-days)</option>
@@ -384,20 +383,21 @@
                               </select>
                           </td>
 
-                          <td class="text-left px-4 py-4 whitespace-nowrap"><input type="text" class="w-full border border-gray-300 px-3 py-1 rounded-md"></td>
+                          <td class="text-left px-4 py-4 whitespace-nowrap">
+                            <input value="Food Pack, Family Kit" type="text" class="w-full border border-gray-300 px-3 py-3 rounded-md" title="Food Pack, Family Kit, Kitchen Kit, Comfort Pack">
+                          </td>
 
-                          <td class="text-left px-4 py-4 whitespace-nowrap"><input type="number" class="w-full border border-gray-300 px-3 py-1 rounded-md"></td>
+                          <td class="text-left px-4 py-4 whitespace-nowrap"><input value="1400" type="number" class="w-full border border-gray-300 px-3 py-1 rounded-md"></td>
 
-                          <td class="text-left px-4 py-4 whitespace-nowrap"><input type="number" class="w-full border border-gray-300 px-3 py-1 rounded-md"></td>
+                          <td class="text-left px-4 py-4 whitespace-nowrap"><input value="950" type="number" class="w-full border border-gray-300 px-3 py-1 rounded-md"></td>
 
-                          <td class="text-left px-4 py-4 whitespace-nowrap"><input type="date" class="w-full border border-gray-300 px-3 py-1 rounded-md"></td>
                         </tr>
 
                         <tr>
                           <td></td>
                           <td></td>
                           <td></td>
-                          <td></td>
+                      
                           <td class="text-center px-2 py-2 whitespace-nowrap">
                             <div class="text-sm flex justify-end">
 

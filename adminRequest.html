@@ -374,7 +374,7 @@
               <!-- button for view details -->
                 <td class="">
                   <a href="pendingRequest_View.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                    <button type="button" class="inline-block rounded-2xl text-blue-700 border border-blue-400 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
                     <b>Open</b>
                   </a>
                     </button>
@@ -425,7 +425,7 @@
               <!-- button for view details -->
                 <td class="">
                   <a href="pendingRequest_View.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                    <button type="button" class="inline-block rounded-2xl text-blue-700 border border-blue-400 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
                     <b>Open</b>
                   </a>
                     </button>
@@ -476,7 +476,7 @@
               <!-- button for view details -->
                 <td class="">
                   <a href="pendingRequest_View.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                    <button type="button" class="inline-block rounded-2xl text-blue-700 border border-blue-400 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
                     <b>Open</b>
                   </a>
                     </button>
@@ -531,21 +531,23 @@
       <!-- 2nd main content -->
       <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6  p-4">
         <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-2xl">
-            <div class="flex justify-between mb-1 items-start">
-              <div class="text-lg font-bold text-gray-700">Recent Accepted Request</div>
-            </div>
-              
+          <div class="flex justify-between mb-1 items-start">
+            <div class="text-lg font-bold text-gray-700">Recent Accepted/Rejected Request</div>
+          </div>
+                
             <!--table -->
             <div class="overflow-x-auto">
               <table class="w-full min-w-[540px]">
                 <thead>  <!--columns -->
                   <tr>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-2 text-left rounded-tl-md rounded-bl-md">Request code</th>
-                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Released Donation</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-2 text-left rounded-tl-md rounded-bl-md">Request code</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Requested Relief</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Requester Name</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Reason</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Approved By</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Barangay</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Remark</th>
                     <div class="border-b border-gray-300 my-4">
                   </tr>
               </thead>     
@@ -555,6 +557,11 @@
             <tbody>
               <!--1st list -->
               <tr>
+                <td class="py-5 px-4 bg-gray-50 rounded-md">
+                  <div class="flex items-center">
+                    <i class="fa-solid text-green-600 mr-2 fa-circle-check"></i> <span class="text-green-600 text-sm font-semibold ">APPROVED</span>
+                  </div>
+                </td>   
 
                 <td class="py-2 px-2 border-b border-b-gray-50">
                   <span class="text-[13px] font-bold text-gray-600">00007</span>
@@ -582,18 +589,19 @@
                   <span class="text-gray-600 text-sm font-medium ">Polo</span>
                 </td>
 
-                <!-- button for view details -->
-                <td class="">
-                  <a href="confirmation_requestReceipt.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                      <b>Open</b>
-                  </a>
-                    </button>
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-gray-600 text-sm font-medium ">The requester confirmed the delivery of the relief.</span>
                 </td>
               </tr>           
 
               <!--2nd list -->
               <tr>
+                <td class="py-5 px-4 bg-gray-50 rounded-md">
+                  <div class="flex items-center">
+                    <i class="fa-solid fa-circle-exclamation text-red-600 mr-2"></i><span class="text-red-600 text-sm font-semibold ">REJECTED</span>
+                  </div>
+                </td>  
+
                 <td class="py-2 px-2 border-b border-b-gray-50">
                   <span class="text-[13px] font-bold text-gray-600">00006</span>
                 </td> 
@@ -613,26 +621,27 @@
                 </td>
 
                 <td class="py-2 px-4 border-b border-b-gray-50">
-                  <span class="text-gray-600 text-sm font-medium ">Office Head</span>
+                  <span class="text-gray-600 text-sm font-medium ">--</span>
                 </td>
 
                 <td class="py-2 px-4 border-b border-b-gray-50">
                   <span class="text-gray-600 text-sm font-medium ">Marulas</span>
                 </td>
 
-                <!-- button for view details -->
-                <td class="">
-                  <a href="">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>Open</b>
-                  </a>
-                    </button>
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-gray-600 text-sm font-medium ">The request is not applicable.</span>
                 </td>
 
               </tr>          
 
               <!--3rd list -->
               <tr>
+                <td class="py-5 px-4 bg-gray-50 rounded-md">
+                  <div class="flex items-center">
+                    <i class="fa-solid text-green-600 mr-2 fa-circle-check"></i> <span class="text-green-600 text-sm font-semibold ">APPROVED</span>
+                  </div>
+                </td>   
+
                 <!-- Request code -->
                 <td class="py-2 px-2 border-b border-b-gray-50">
                   <span class="text-[13px] font-bold text-gray-600">00005</span>
@@ -660,57 +669,67 @@
                   <span class="text-gray-600 text-sm font-medium ">Canumay West</span>
                 </td>
 
-                <!-- button for view details -->
-                <td class="">
-                  <a href="">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>Open</b>
-                  </a>
-                    </button>
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-gray-600 text-sm font-medium ">The request has been successfully delivered.</span>
                 </td>
               </tr>          
                           
             </tbody>
           </table>         
-          <!--end of table -->
-          
-          <!-- pagination section --> 
-          <div class="flex items-center justify-between mt-3  bg-white px-4 py-3 sm:px-6">
-            <div class="flex flex-1 justify-between sm:hidden">
+          <!--end of table -->     
+              
+              <!-- pagination section --> 
+              <div class="flex items-center justify-between mt-3  bg-white px-4 py-3 sm:px-6">
+                <div class="flex flex-1 justify-between sm:hidden">
 
-              <!-- pagination links for small device --> 
-              <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
-              <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
-            </div>
+                  <!-- pagination links for small device --> 
+                  <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
+                  <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
+                </div>
 
-            <div class="hidden sm:flex sm:flex-1 sm:items-center lg:justify-end sm:justify-between">
-              <div class="pagination-container relative z-40">
-                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                <div class="hidden sm:flex sm:flex-1 sm:items-center lg:justify-end sm:justify-between">
+                  <div class="pagination-container relative z-40">
+                    <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
 
-                  <!-- pagination links for large device--> 
-                    <a href="#" class="pagination-link inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                      <!-- pagination links for large device--> 
+                      <a href="#" class="pagination-link inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                         <span class="sr-only">Previous</span>
-                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-            
-                    <a href="#" aria-current="page" class="pagination-link z-10 inline-flex items-center bg-gray-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">1</a>
-                    <a href="#" class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
-                    <a href="#" class="pagination-link hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
-                    <span class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
-            
-                    <a href="#" class="pagination-link inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
-                        <span class="sr-only">Next</span>
-                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </nav>
+                          </svg>
+                        </a>
+                
+                        <a href="#" aria-current="page" class="pagination-link z-10 inline-flex items-center bg-gray-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">1</a>
+                        <a href="#" class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+                        <a href="#" class="pagination-link hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+                        <span class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+                
+                        <a href="#" class="pagination-link inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                            <span class="sr-only">Next</span>
+                            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </nav>
+                  </div>
+                </div>
               </div>
+
+          <!-- Modal for rejecting request -->
+          <div id="rejectModal" class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <!-- Modal content -->
+            <div class="bg-white p-8 rounded-md shadow-lg w-96">
+              <p class="text-lg mb-4">Are you sure you want to reject the request?</p>
+              <form id="rejectForm">
+                <label for="reason" class="block text-sm font-medium text-gray-700 mb-2">Please provide a reason for rejection:</label>
+                <textarea id="reason" name="reason" rows="4" class="border border-gray-500 w-full border-gray-300 rounded-md px-3 py-2" required></textarea>
+                <div class="mt-4 flex justify-end">
+                  <button type="submit" class="text-sm px-4 py-2 bg-red-500 text-white rounded-md mr-2">Reject</button>
+                  <button type="button" id="cancelReject" class="text-sm px-4 py-2 bg-gray-300 text-gray-800 rounded-md">Cancel</button>
+                </div>
+              </form>
             </div>
           </div>
-
         </div>
       </div>
      </div>
