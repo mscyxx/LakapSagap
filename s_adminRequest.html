@@ -304,10 +304,17 @@
               <!-- button for view details -->
                 <td class="">
                   <a href="s_pendingRequest_View.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                    <button type="button" class="inline-block rounded-2xl border border-blue-400 text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
                     <b>Open</b>
                   </a>
                     </button>
+                </td>
+
+              <!-- button for rejecting request -->
+                <td class="">
+                  <button id="openRejectModal" type="button" class="inline-block rounded-2xl border border-red-400 text-red-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-red-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                    <b>Reject</b>
+                  </button>
                 </td>
 
               </tr>
@@ -355,11 +362,19 @@
               <!-- button for view details -->
                 <td class="">
                   <a href="s_pendingRequest_View.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                    <button type="button" class="inline-block rounded-2xl border border-blue-400 text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
                     <b>Open</b>
                   </a>
                     </button>
                 </td>
+
+              <!-- button for rejecting request -->
+              <td class="">
+                <button id="openRejectModal" type="button" class="inline-block rounded-2xl border border-red-400 text-red-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-red-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                  <b>Reject</b>
+                </button>
+              </td>
+
    
               </tr>
               
@@ -406,11 +421,19 @@
               <!-- button for view details -->
                 <td class="">
                   <a href="s_pendingRequest_View.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                    <button type="button" class="inline-block rounded-2xl border border-blue-400 text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
                     <b>Open</b>
                   </a>
                     </button>
                 </td>
+
+              <!-- button for rejecting request -->
+              <td class="">
+                <button id="openRejectModal" type="button" class="inline-block rounded-2xl border border-red-400 text-red-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-red-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                  <b>Reject</b>
+                </button>
+              </td>
+
 
               </tr>
             </tbody>
@@ -461,7 +484,7 @@
       <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6  p-4">
         <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-2xl">
           <div class="flex justify-between mb-1 items-start">
-            <div class="text-lg font-bold text-gray-700">Recent Accepted Request</div>
+            <div class="text-lg font-bold text-gray-700">Recent Accepted/Rejected Request</div>
           </div>
                 
             <!--table -->
@@ -470,11 +493,13 @@
                 <thead>  <!--columns -->
                   <tr>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-2 text-left rounded-tl-md rounded-bl-md">Request code</th>
-                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Released Donation</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-2 text-left rounded-tl-md rounded-bl-md">Request code</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Requested Relief</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Requester Name</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Reason</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Approved By</th>
                     <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Barangay</th>
+                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-600 py-2 px-4 text-left">Remark</th>
                     <div class="border-b border-gray-300 my-4">
                   </tr>
               </thead>     
@@ -484,6 +509,11 @@
             <tbody>
               <!--1st list -->
               <tr>
+                <td class="py-5 px-4 bg-gray-50 rounded-md">
+                  <div class="flex items-center">
+                    <i class="fa-solid text-green-600 mr-2 fa-circle-check"></i> <span class="text-green-600 text-sm font-semibold ">APPROVED</span>
+                  </div>
+                </td>   
 
                 <td class="py-2 px-2 border-b border-b-gray-50">
                   <span class="text-[13px] font-bold text-gray-600">00007</span>
@@ -511,18 +541,19 @@
                   <span class="text-gray-600 text-sm font-medium ">Polo</span>
                 </td>
 
-                <!-- button for view details -->
-                <td class="">
-                  <a href="confirmation_requestReceipt.html">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                      <b>Open</b>
-                  </a>
-                    </button>
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-gray-600 text-sm font-medium ">The requester confirmed the delivery of the relief.</span>
                 </td>
               </tr>           
 
               <!--2nd list -->
               <tr>
+                <td class="py-5 px-4 bg-gray-50 rounded-md">
+                  <div class="flex items-center">
+                    <i class="fa-solid fa-circle-exclamation text-red-600 mr-2"></i><span class="text-red-600 text-sm font-semibold ">REJECTED</span>
+                  </div>
+                </td>  
+
                 <td class="py-2 px-2 border-b border-b-gray-50">
                   <span class="text-[13px] font-bold text-gray-600">00006</span>
                 </td> 
@@ -542,26 +573,27 @@
                 </td>
 
                 <td class="py-2 px-4 border-b border-b-gray-50">
-                  <span class="text-gray-600 text-sm font-medium ">Office Head</span>
+                  <span class="text-gray-600 text-sm font-medium ">--</span>
                 </td>
 
                 <td class="py-2 px-4 border-b border-b-gray-50">
                   <span class="text-gray-600 text-sm font-medium ">Marulas</span>
                 </td>
 
-                <!-- button for view details -->
-                <td class="">
-                  <a href="">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>Open</b>
-                  </a>
-                    </button>
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-gray-600 text-sm font-medium ">The request is not applicable.</span>
                 </td>
 
               </tr>          
 
               <!--3rd list -->
               <tr>
+                <td class="py-5 px-4 bg-gray-50 rounded-md">
+                  <div class="flex items-center">
+                    <i class="fa-solid text-green-600 mr-2 fa-circle-check"></i> <span class="text-green-600 text-sm font-semibold ">APPROVED</span>
+                  </div>
+                </td>   
+
                 <!-- Request code -->
                 <td class="py-2 px-2 border-b border-b-gray-50">
                   <span class="text-[13px] font-bold text-gray-600">00005</span>
@@ -589,13 +621,8 @@
                   <span class="text-gray-600 text-sm font-medium ">Canumay West</span>
                 </td>
 
-                <!-- button for view details -->
-                <td class="">
-                  <a href="">
-                    <button type="button" class="inline-block rounded-2xl text-blue-700 bg-neutral-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-blue-700 hover:text-white focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
-                    <b>Open</b>
-                  </a>
-                    </button>
+                <td class="py-2 px-2 border-b border-b-gray-50">
+                  <span class="text-gray-600 text-sm font-medium ">The request has been successfully delivered.</span>
                 </td>
               </tr>          
                           
@@ -639,6 +666,22 @@
                   </div>
                 </div>
               </div>
+
+          <!-- Modal for rejecting request -->
+          <div id="rejectModal" class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <!-- Modal content -->
+            <div class="bg-white p-8 rounded-md shadow-lg w-96">
+              <p class="text-lg mb-4">Are you sure you want to reject the request?</p>
+              <form id="rejectForm">
+                <label for="reason" class="block text-sm font-medium text-gray-700 mb-2">Please provide a reason for rejection:</label>
+                <textarea id="reason" name="reason" rows="4" class="border border-gray-500 w-full border-gray-300 rounded-md px-3 py-2" required></textarea>
+                <div class="mt-4 flex justify-end">
+                  <button type="submit" class="text-sm px-4 py-2 bg-red-500 text-white rounded-md mr-2">Reject</button>
+                  <button type="button" id="cancelReject" class="text-sm px-4 py-2 bg-gray-300 text-gray-800 rounded-md">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -686,6 +729,58 @@
     </script>
 
     <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const openRejectModalButton = document.getElementById("openRejectModal");
+      const rejectModal = document.getElementById("rejectModal");
+      const rejectForm = document.getElementById("rejectForm");
+      const cancelRejectButton = document.getElementById("cancelReject");
+    
+      // Function to open the modal
+      function openRejectModal() {
+        rejectModal.classList.remove("hidden");
+        rejectModal.classList.add("flex");
+      }
+    
+      // Function to close the modal
+      function closeRejectModal() {
+        rejectModal.classList.add("hidden");
+        rejectModal.classList.remove("flex");
+      }
+    
+      // Event listener for opening the modal
+      openRejectModalButton.addEventListener("click", function() {
+        openRejectModal();
+      });
+    
+      // Event listener for closing the modal
+      cancelRejectButton.addEventListener("click", function() {
+        closeRejectModal();
+      });
+    
+      // Event listener for form submission (rejecting the request)
+      rejectForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        // Get the reason for rejection from the form
+        const reasonInput = document.getElementById("reason").value;
+    
+        // Handle rejection logic (replace with your own logic)
+        console.log("Request rejected with reason:", reasonInput);
+    
+        // Close the modal after handling rejection
+        closeRejectModal();
+      });
+    
+      // Close the modal if user clicks outside of the modal content
+      rejectModal.addEventListener("click", function(event) {
+        if (event.target === rejectModal) {
+          closeRejectModal();
+        }
+      });
+    });
+  </script>
         
   </body>
 </html>
