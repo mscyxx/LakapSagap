@@ -7,31 +7,37 @@
         <title>Request Form</title>
         <link rel="stylesheet" href="requestform.css">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet"
           href="https://fontawesome.com/icons/file-circle-plus?f=classic&s=regular"
           integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"
-        />
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     </head>
 
     <body class="font-[Roboto]">
-      <script src="https://cdn.tailwindcss.com"></script>
-
-
       <div class="grid">
-        <div class="form-container">
+        <div class="form-container mt-36">
           <img src="images/colored_wo_bg.png" alt="Form Image" class="form-image"> <!-- Image for the form -->
 
           <!--Title & Paragraph-->
           <div class="title">
-            <h1 class="text-2xl font-bold text-red-500 mb-0">Account Request Form</h1>
+            <h1 class="text-2xl font-bold text-red-500">Account Request Form</h1>
           </div>
-          <div class="p">
+          <div class="w-full">
             <p class="text-gray-500 mb-5">Please fill up this form and an admin will be in touch with you shortly.</p>
           </div>
 
@@ -39,23 +45,22 @@
           <form id="myForm" action="#">
 
             <div class="user-details">
-              
-
               <div class="input-box">
                 <input type="text" placeholder="First Name" required>
-
-                <!--Required reminder in filling up the field-->
-                <span class="required-warning" style="color: #34A853; display: none;">This field is required</span>
               </div>
+
               <div class="input-box">
                 <input type="text" placeholder="Last Name" required>
               </div>
+
               <div class="input-box">
                 <input type="number" placeholder="Phone Number" required>
               </div>
+
               <div class="input-box">
                 <input type="email" placeholder="Email Adress" required>
               </div>
+
               <div class="input-box">
                 <input type="text" placeholder="Full Address" required>
               </div>
@@ -115,73 +120,139 @@
                   </label>
                 </div>
               </div>
-              
-            </div>
 
-            <!--Continue Button-->
-            <a href="requestapprov.html">
-              <button id="continueButton" class="continue-button mb-0" type="button" disabled>Continue</button>
-            </a>
-            
-            <!--Continue button disabled when required to fill up the fields-->
-            <script>
-              // Get form and button elements
-              var myForm = document.getElementById('myForm');
-              var continueButton = document.getElementById('continueButton');
+          <!--Setting up email and pass-->
+          <div class="flex justify-start mb-30">
+            <h1 class="text-lg mt-5 font-bold text-gray-700 mb-0">Setup your Username and Password</h1>
+          </div>
 
-              // Add a listener for the 'input' event on the form
-              myForm.addEventListener('input', function() {
-                //Check if the form is valid
-                if (myForm.checkValidity()) {
-                  // if valid, enable button
-                  continueButton.removeAttribute('disabled');
-                } else {
-                  // if not valid, disable the button
-                  continueButton.setAttribute('disabled', 'true');
-                }
-              });
-            </script>
+          <div class=" -mx-5 w-full md:flex px-2">
+            <div class="mt-5 md:w-1/2 px-3 mb-6 md:mb-0">
+              <!-- username input -->
+                <input placeholder="Username" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-gray-400 rounded py-3 px-4 mb-3" type="text" required >
+            </div>  
 
-            <!--Script for showing/hiding required warnings-->
-            <script>
-              var fullNameInput = document.getElementById('fullName');
-              var fullNameWarning = fullNameInput.nextElementSibling;
+            <div class="mt-5 md:w-1/2 px-3 mb-6 md:mb-0">
+              <!-- password input -->
+              <div class="relative">
+                  <input id="passwordInput" placeholder="Password (8 characters minimum)" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-gray-400 rounded py-3 px-4 pr-12 mb-3" type="password" minlength="8" required>
+                  <span id="togglePassword" class="absolute top-0 right-0 mt-3 mr-4 cursor-pointer" onclick="togglePasswordVisibility()">
+                    <i class="fa-solid fa-eye text-gray-600"></i>
+                  </span>
+              </div>
 
-              function validateForm() {
-                // Check each required field and show/hide warnings
-                if (fullNameInput.checkValidity()) {
-                  fullNameWarning.style.display = 'none';
-                } else {
-                  fullNameWarning.style.display = 'block';
-                }
+               <!-- password label -->
+              <div id="passwordWarning" class="text-red-500 text-sm"></div>
+          </div>
+          
+          </div>
+        </div>
 
-                // Check if the form is valid
-                if (fullNameInput.checkValidity()) {
-                  continueButton.removeAttribute('disabled');
-                } else {
-                  continueButton.setAttribute('disabled', 'true');
-                }
+         <!--Continue Button-->
+         <div class="flex justify-end">
+         <a id="continueLink" href="requestapprov.html">
+          <button id="continueButton" disabled class="cursor-pointer transition-all bg-gray-400 text-white text-sm px-16 py-4 mb-5 rounded-lg 
+           hover:brightness-110 hover:-translate-y-[1px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl shadow-green-300 active:shadow-none" type="button">Continue</button>
+        </a>
 
-                // Add event listeners to validate the form on input
-                fullNameInput.addEventListener('input', validateForm);
-              }
-            </script>
+      </div>
 
-            <!-- Gray divider -->
-            <div class="font-bold border-b border-gray-300 my-4 mt-0"></div>
-    
-            <!-- Already have an account? -->
-            <div class="flex justify-end items-center mb-5">
-              <p class="text-gray-600 mr-2">Already have an account?</p>
+          <!-- Gray divider -->
+          <div class="font-bold border-b border-gray-300 my-4 mt-0"></div>
+        
+          <!-- Already have an account? -->
+          <div class="flex justify-end items-center mb-5">
+            <p class="text-gray-600 mr-2">Already have an account?</p>
               <a href="index.html" class="text-blue-500">
-                Log in
-                <i class="fas fa-arrow-right ml-1"></i> <!-- Use your arrow icon here -->
+                Log in <i class="fas fa-arrow-right ml-1"></i> <!-- Use your arrow icon here -->
               </a>
-            </div>
+          </div>
 
           </form>
-            
         </div>
       </div>
-    </body>
+
+    <!-- javascript -->
+    <!-- continue button function -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const formInputs = document.querySelectorAll('input[required], select[required]');
+        const continueButton = document.getElementById('continueButton');
+        const continueLink = document.getElementById('continueLink');
+    
+          formInputs.forEach(input => {
+            input.addEventListener('input', function() {
+              validateForm();
+            });
+          });
+    
+          continueButton.addEventListener('click', function(event) {
+            if (continueButton.hasAttribute('disabled')) {
+                  event.preventDefault(); // Prevent default behavior if button is disabled
+            } else {
+            // Allow the link to proceed if the button is enabled
+                window.location.href = continueLink.getAttribute('href');
+            }
+          });
+    
+        function validateForm() {
+          let isFormValid = true;
+          formInputs.forEach(input => {
+            if (!input.value.trim()) {
+                isFormValid = false;
+              }
+            });
+    
+            if (isFormValid) {
+              continueButton.removeAttribute('disabled');
+              continueButton.classList.remove('bg-gray-400');
+              continueButton.classList.add('bg-green-700', 'border-green-800');
+
+            } else {
+              continueButton.setAttribute('disabled', 'true');
+              continueButton.classList.remove('bg-green-700', 'border-green-800');
+              continueButton.classList.add('bg-gray-400');
+            }
+          }
+        });
+    </script>
+
+    <!-- password input status -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const passwordInput = document.getElementById('passwordInput');
+    const passwordWarning = document.getElementById('passwordWarning');
+
+    passwordInput.addEventListener('input', function() {
+        const password = passwordInput.value;
+        const isStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+
+        if (isStrong) {
+            passwordWarning.textContent = 'Strong password.';
+            passwordWarning.style.display = 'block';
+            passwordWarning.classList.remove('text-red-500');
+            passwordWarning.classList.add('text-green-500');
+        } else {
+            passwordWarning.textContent = 'Weak password. Please include lowercase, uppercase, numbers, and special characters.';
+            passwordWarning.style.display = 'block';
+            passwordWarning.classList.remove('text-green-500');
+            passwordWarning.classList.add('text-red-500');
+        }
+      });
+    });
+
+    <!-- password show function -->
+    </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const passwordInput = document.getElementById('passwordInput');
+          const togglePassword = document.getElementById('togglePassword');
+      
+          togglePassword.addEventListener('click', function() {
+              const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+              passwordInput.setAttribute('type', type);
+          });
+      });
+    </script>
+  </body>
 </html>
