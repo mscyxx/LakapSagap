@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Password Reset Sent</title>
+        <!-- Tailwind CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome CSS stylesheet link -->
+
+        <style>
+
+            .align {
+                display: grid;
+                place-items: center;
+            }
+
+            .grid {
+                inline-size: 100%; /* Inline size of the grid container */
+                margin-inline: auto; /* Auto margin for horizontal centering */
+                max-inline-size: 36rem; 
+                margin-top: 1px; 
+            }
+
+            /* loader css */
+            .wrapper {
+                width: 200px;
+                height: 60px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .circle {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                border-radius: 50%;
+                left: 15%;
+                transform-origin: 50%;
+                animation: circle7124 .5s alternate infinite ease;
+            }
+
+            @keyframes circle7124 {
+                0% {
+                    top: 60px;
+                    height: 5px;
+                    border-radius: 50px 50px 25px 25px;
+                    transform: scaleX(1.7);
+                }
+
+                40% {
+                    height: 20px;
+                    border-radius: 50%;
+                    transform: scaleX(1);
+                }
+
+                100% {
+                    top: 0%;
+                }
+            }
+
+            .circle:nth-child(1) {
+                background-color: red;
+                animation-delay: 0s;
+            }
+
+            .circle:nth-child(2) {
+                background-color: blue;
+                left: 45%;
+                animation-delay: .2s;
+            }
+
+            .circle:nth-child(3) {
+                background-color: green;
+                left: auto;
+                right: 15%;
+                animation-delay: .3s;
+            }
+
+            .shadow {
+                width: 20px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: rgba(0,0,0,0.9);
+                position: absolute;
+                top: 62px;
+                transform-origin: 50%;
+                z-index: -1;
+                left: 15%;
+                filter: blur(1px);
+                animation: shadow046 .5s alternate infinite ease;
+            }
+
+            @keyframes shadow046 {
+                0% {
+                    transform: scaleX(1.5);
+                }
+
+                40% {
+                    transform: scaleX(1);
+                    opacity: .7;
+                }
+
+                100% {
+                    transform: scaleX(.2);
+                    opacity: .4;
+                }
+            }
+
+            .shadow:nth-child(4) {
+                left: 45%;
+                animation-delay: .2s
+            }
+
+            .shadow:nth-child(5) {
+                left: auto;
+                right: 15%;
+                animation-delay: .3s;
+            }
+
+            /* Hide elements initially */
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body class="align bg-cover bg-center bg-fixed min-h-screen font-sans"
+        style="background-image: linear-gradient(rgba(212, 212, 212, 0.7), rgba(212, 212, 212, 0.7)),
+        url(images/val-cityhall.jpg);
+            min-height: 50vh; /* Minimum height of the viewport */
+        width: 100%;
+        background-attachment: fixed; 
+        background-size: cover; 
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        color: #606468;">
+
+        <!-- loader -->
+        <div class="wrapper">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="shadow"></div>
+            <div class="shadow"></div>
+            <div class="shadow"></div>
+        </div>
+
+        <div class="grid hidden">  <!-- container -->
+            <div class="place-items-center">
+                <div class="form-container bg-white p-2 w-400 rounded-lg shadow-lg">
+                    <div class="flex justify-center">
+                        <img src="images/colored_wo_bg.png" alt="LakapSagapLogo" class="form-image w-36 h-12">
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <p class="text-3xl font-bold text-blue-600 mb-3">
+                            <span>Reset your password</span>
+                        </p>
+                    </div>
+
+                    <form>
+                        <div class="flex justify-center">
+                            <p class="text-sm p-5 text-gray-600 mb-3 text-center">
+                                <span>Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder.</span>
+                            </p>
+                        </div>
+
+                        <!-- retun to login button -->
+                        <div class="flex justify-center">
+                            <a href="index.html">
+                                <button class="w-200 py-2 px-12 mb-4 bg-white border border-blue-500 text-blue-800 font-semibold rounded-lg shadow-lg shadow-blue-300 transition duration-300 hover:bg-blue-600 hover:text-white"
+                                    type="button">Return to Log in
+                                </button>
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                // Delay for 3 seconds
+                setTimeout(function(){
+                    // Hide the loader and show the other elements
+                    $('.wrapper').hide();
+                    $('.grid').removeClass('hidden');
+                }, 3000);
+            });
+        </script>
+
+    </body>
+</html>
