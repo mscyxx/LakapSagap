@@ -155,21 +155,26 @@
             <form method="POST" class="form login">
               
               <div class="relative mb-4">
-                 <!-- username input -->
+                <!-- username input -->
                 <input type="text" name="username" id="email"
                       class="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"
                       placeholder="Username">
-                    <i class="fa fa-user absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-600"></i>
+                      <svg class="absolute top-1/2 transform -translate-y-1/2 left-3 h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                      </svg>     
               </div>
-
+            
               <div class="relative mb-4">
-                 <!-- password input -->
-                <input type="password" name="password" id="password"
-                      class="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"
-                      placeholder="Password">
-                    <i class="fa fa-lock absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-600"></i>
+                  <!-- password input -->
+                  <input type="password" name="password" id="password"
+                        class="w-full py-2 pl-10 pr-10 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                        placeholder="Password">
+                        <svg class="absolute top-1/2 transform -translate-y-1/2 left-3 h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                          <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clip-rule="evenodd" />
+                        </svg>                      
+                  <i class="fa fa-eye-slash absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-600 cursor-pointer" onclick="togglePasswordVisibility('password')"></i>
               </div>
-
+      
                <!-- forgot password -->
               <div class="flex justify-end">
                 <a class="forgotPass text-gray-400 text-xs block mb-4" href="forgotpass.html">Forgot password?</a>
@@ -192,6 +197,8 @@
       </div>
     </div>
   </div>
+
+
   <script>
     function auth() {
         var email = document.getElementById("email").value;
@@ -218,6 +225,8 @@
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <!-- cube duration -->
   <script>
       $(document).ready(function () {
           setTimeout(function () {
@@ -226,6 +235,23 @@
       });
   </script>
 
-  </body>
+  <!-- for pass show icon -->
+  <script>
+    function togglePasswordVisibility(inputId) {
+        var input = document.getElementById(inputId);
+        var icon = document.querySelector('.fa');
 
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        } else {
+            input.type = "password";
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        }
+    }
+  </script>
+
+  </body>
 </html>
