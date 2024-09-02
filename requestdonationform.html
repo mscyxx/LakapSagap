@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Donation Form</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Add this in the head section of your HTML -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body class="bg-gray-200 font-[Roboto]">
+
+    <!-- Header starts here -->
+    <header class="bg-white py-2 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-300">
+      <div class="mx-auto px-2 sm:px-6">
+        <div class="flex h-16 items-center justify-between">
+            
+          <!-- Hamburger Icon for Small Screens -->
+          <div x-data="{ openMobileMenu: false }">
+            <div class="md:hidden">
+
+              <!-- Toggle Button -->
+              <button @click="openMobileMenu = !openMobileMenu" class="p-2 text-gray-700 hover:text-red-900 focus:outline-none focus:bg-red-100">
+                <i class="fa-solid fa-bars text-xl"></i>
+              </button>    
+          
+                  <!-- Sidebar -->
+                  <div x-show="openMobileMenu" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300" class="fixed inset-0 z-50 bg-red-800 bg-opacity-95 sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 p-2 w-[300px] overflow-y-auto text-center shadow h-screen lg:block md:hidden">
+                    <div class="flex justify-start h-full relative">
+                          
+                    <!-- Close Button (Top Right) -->
+                    <button @click="openMobileMenu = false" class="absolute top-4 right-4 text-white">
+                      <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+
+                    <!-- Sidebar Content -->
+                    <div class="flex flex-col items-start text-white mt-6">
+
+                      <!-- Your mobile menu items here -->
+                      <img src="images/colored2_w_stroke.png" class="mr-auto" alt="Icon" style="width: 200px; height: 70px; ">
+                      <a href="requestmainpage.html" class="text-white font-bold p-4">Request</a>
+                      <a href="donations.html" class="text-white p-4">History</a>
+                    </div>     
+
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+          <!-- Nav Bar Content -->
+          <a class="block text-teal-600 dark:text-teal-600 mr-auto" href="requestmainpage.html">
+            <span class="sr-only">Home</span>
+            <img
+              id="largeImage"
+              src="images/colored_wo_bg.png"
+              class="mr-auto"
+              alt="Icon"
+              style="width: 220px; height: 80px; "/>
+            <img
+              id="smallImage"
+              src="images/icon_only_colored.png"
+              class="mr-auto"
+              alt="Icon"
+              style="width: 40px; height: 40px; display: none;"/>      
+          </a>
+
+          <!-- Tabs for Medium and Large Screens -->
+          <div class="hidden md:block">
+            <nav aria-label="Global">
+
+              <ul class="flex items-center gap-8 text-sm">
+                <li>  <!-- Request Tab -->
+                  <a href="requestmainpage.html">
+                    <div class="group p-2.5 px-6 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer bg-blue-700 shadow-md shadow-blue-500/50">
+                      <i class="fa-solid fa-house text-white group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-white group-hover:text-white">Request</span>
+                    </div>
+                  </a>
+                </li>  
+                                                            
+                <li> <!-- History Tab -->
+                  <a href="donations.html">
+                    <div class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-500 hover:border-gray-500 border border-gray-300">
+                      <i class="fa-solid fa-hand-holding-hand text-gray-700 group-hover:text-white"></i>
+                      <span class="text-[12px] ml-2 font-bold text-gray-700 group-hover:text-white">History</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>       
+            </nav>
+          </div>
+
+          <div x-data="{ showNotification: false }" class="flex items-center ml-auto relative">
+
+            <!-- Notification Bell Icon -->
+              <button @click="showNotification = !showNotification" class="relative p-2 ml-2 text-red-700 bg-gray-200 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+                <span class="sr-only">Notifications</span>
+                <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                  <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+              </button>
+            
+              <!-- Notification Alert -->
+              <div x-show="showNotification" @click.away="showNotification = false" class="absolute top-16 right-56 p-4 space-y-4">
+                <div class="flex w-64 h-28 shadow-lg rounded-lg">
+
+                  <!-- warning -->
+                  <div class="px-4 py-2 bg-white border text-gray-700 flex justify-between rounded">
+                    <div class="flex items-center">
+                      <div class="flex flex-col items-start text-sm">
+                        <p class="font-bold text-[15px] text-green-700">Request Approved!</p>
+                        <p class="text-xs text-white-700 font-regular mt-1 cursor-default">Congratulations! Your request Food Donation from November 18, 2023 is now approved.</p>
+                      </div>
+                    </div>
+
+                    <button @click="showNotification = false" class="text-gray-700 mb-auto mt-3 hover:text-red-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Profile -->
+              <div x-data="{ open: false, rotateArrow: false }">
+                <div @click="open = !open; rotateArrow = !rotateArrow" class="group p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer">
+                  <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNqyXqvleb0QBYwdbzB9wAYj-h1_XHe8F2BA" alt="" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="dark:text-gray-700">
+                      <div class="cursor-pointer">
+                        <span class="font-semibold text-md">Jasper Darlang</span><br>
+                        <span class="text-[13px] text-gray-600">Barangay Representative</span>
+                      </div>
+                    </div>
+
+                      <span class="text-sm ml-2 text-red-700" :class="{ 'rotate-180': rotateArrow }">
+                        <i class="fa-solid fa-angle-down"></i>
+                      </span>
+                  </div>
+                  
+                  <!-- Dropdown Profile -->
+                    <template x-if="open">
+                      <div @click.away="open = false; rotateArrow = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95"  class="absolute w-48 px-6 py-3 bg-blue-700  rounded-lg shadow border dark:border-transparent mt-36">
+                        <ul class="space-y-3 dark:text-white">
+
+                          <!-- Account Setting -->
+                          <li class="font-medium">
+                            <a href="reqaccountsettings.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                              <div class="mr-3" id="submenu-account">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                              </div>
+                              Account Setting
+                            </a>
+                          </li>
+
+                          <!-- Logout -->
+                          <li class="font-medium">
+                            <a href="index.html" class="flex items-center text-[13px] transform transition-colors duration-200 text-white border-r-4 border-transparent hover:border-white hover:text-white hover:font-bold">
+                              <div class="mr-3" id="submenu-logout">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                              </div>
+                              Logout
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End of header -->
+
+    <!-- Centered White Container -->
+    <div class="w-full min-h-screen bg-gray-200 transition-all main sm:px-20 sm:py-3">
+      <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6 p-4 gap-10">
+
+        <!-- card -->
+        <div class="bg-white border-t-8 border-green-700 mt-3 shadow-lg shadow-green-300 p-6 rounded-md">
+          <div class="flex justify-between mb-1 items-start">
+            <div class="text-2xl font-bold text-gray-700">Request Relief Form</div>
+          </div>
+
+          <!-- Flex container for the row -->
+          <div class="flex flex-wrap -mx-3 mt-6">
+
+              <!-- Urgency level input -->
+              <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                  Reason for Request
+                </label>
+                <div class="relative">
+                  <select id="category-dropdown" name="category"  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                      <option disabled selected value="">Select Reason</option>
+                      <option>Calamity</option>
+                      <option>Non-calamity</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                  </div>
+                </div>
+              </div>
+
+            <!-- First set of inputs -->
+            <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                Specific Reason
+              </label>
+              <div class="relative">
+                <input id="autocompleteInput" placeholder="ex. Fire incident" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason" type="text" placeholder="00"
+                />
+              </div>
+
+              <!-- Input for "Other" option -->
+              <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mt-2" id="other-reason" type="text" placeholder="Enter your reason" style="display: none;">
+            </div>
+
+              <!-- third set of inputs -->
+              <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0 ">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  No. of Recipients
+                </label>
+                  <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="00">
+              </div>
+          
+              <!-- second set of inputs -->
+              <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                  Barangay/Organization
+                </label>
+
+                <div class="relative" onclick="event.stopImmediatePropagation();">
+                  <input disabled value="Karuhatan" class="appearance-none block w-full bg-gray-100 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason" type="text" placeholder="00"/>
+                </div>
+              </div>
+
+              <!-- input for requests-->
+              <div class="w-full md:w-1/2 px-3 mt-10 md:mb-5">
+                <label class="block text-md uppercase tracking-wide text-gray-700 font-bold" for="grid-state">
+                  Select your request kit
+                </label>
+              
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                  Type of Kit
+                </label>
+
+                <!-- dropdown-->
+                <div class="relative">
+                  <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="request-reason">
+                    <option value="" disabled selected>Select Kit...</option>
+                    <option value="fire">Family Pack</option>
+                    <option value="flood">Food Kit</option>
+                    <option value="flood">Comfort Kit</option>
+                    <option value="earthquake">Kitchen Kit</option> 
+                    <option value="flood">Snack Pack</option>
+                  </select>
+                </div>
+
+                <!-- Input for "Other" option -->
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mt-2" id="other-reason" type="text" placeholder="Enter your reason" style="display: none;">
+              </div>
+
+              
+            <!-- Quantity of Kit input -->
+            <div class="w-full md:w-1/2 px-3 mt-16 md:mb-5">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                Quantity
+              </label>
+                <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="00">
+            </div>
+            
+           <!-- First set of buttons: Add Kit and Add Specific Item -->
+            <div class="text-sm flex ml-auto gap-5">
+              <button class="cursor-pointer transition-all 
+                          bg-green-700 text-white px-3 py-1 rounded-lg
+                          border-green-800
+                          border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                          active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
+                Add Kit
+              </button>
+
+              <button class="cursor-pointer transition-all mr-4
+                          bg-green-700 text-white px-5 py-1 rounded-lg
+                          border-green-800
+                          border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                          active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
+                Add Specific Item
+              </button>
+            </div> 
+        </div>
+
+        <!--date and time-->
+        <div class="flex flex-wrap -mx-3">
+          <div class="w-full md:w-1/2 px-3 mt-6 mb-6 md:mb-0 ">
+            <label class="block text-md uppercase tracking-wide text-gray-700 font-bold mb-2" for="grid-state">
+              Target Date for Receiving Relief
+            </label>
+
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              Date
+            </label>
+            <input type="date" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-5 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+          </div>
+
+          <div class="w-full md:w-1/2 px-3 mt-14 mb-6 md:mb-0 ">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+              Time
+            </label>
+            <input type="time" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-5 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"">
+          </div>
+        </div>
+
+              <!-- Address-->
+              <div class="w-full px-3 mb-6 mt-10 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                  Address of Evacuation Post
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
+              </div>
+
+              <!-- Reason-->
+              <div class="w-full px-3 mb-6 mt-10 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="request-reason">
+                  Please state the specific reason for your request:
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-8 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Enter your reason to request">
+              </div>
+
+              <!-- Other details-->
+              <div class="flex flex-wrap -mx-3">
+              <div class="w-full md:w-1/2 px-3 mb-6 mt-6 md:mb-0 ">
+                <label class="block text-md uppercase tracking-wide text-gray-700 font-bold mb-2" for="grid-state">
+                  Contact information
+                </label>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  Will Receive by
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
+              </div>
+          
+              <div class="w-full md:w-1/2 px-3 mb-6 mt-14 md:mb-0 ">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  Phone No.
+                </label>
+                <input type="number" class="appearance-none block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="09XXXXXXXXX">
+              </div>
+            </div>
+            <div class="w-full md:w-full px-3 mt-5 mb-6 md:-0">
+              <!-- Upload ID or Documents Section -->
+              <div class="mt-2 col-span-full">
+                <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Upload your e-signature or other necessary documents here</label>
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div class="text-center">
+                    <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                    </svg>     
+                    <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                        <span>Upload a file</span>
+                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                      </label>
+                      <p class="pl-1">or drag and drop</p>
+                    </div>
+                    <p class="text-xs leading-5 text-gray-600">PNG or JPG up to 10MB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+        <!-- Terms and Conditions Checkbox -->
+        <div class="w-full md:w-full px-3 mt-5 mb-6 md:-0">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms" class="text-xs leading-6 text-gray-900">
+            I have and agree to the 
+            <a href="#" class="text-indigo-600 hover:text-indigo-500 underline" data-modal-target="#termsModal">Terms and Conditions</a>
+            and
+            <a href="#" class="text-indigo-600 hover:text-indigo-500 underline" data-modal-target="#privacyPolicyModal">Privacy Policy</a> of Lakap Sagap.
+          </label>
+        </div>
+
+        <!-- Modal for Terms and Conditions -->
+        <div id="termsModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+          <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                  <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <h3 class="text-lg leading-6 font-bold text-gray-900" id="modal-title">Terms and Conditions</h3>
+                    <!-- Scrollable Content -->
+                    <div class="mt-2 max-h-60 overflow-y-auto">
+                      <p class="text-xs text-gray-500">
+                        Please read these terms and conditions carefully before using The Lakap Sagap Website https://mscyxx.github.io/LakapSagap/ operated by the Lakap Sagap Team.
+                        <p class="text-sm font-medium mt-2">
+                          Conditions of use
+                        </p>        
+                                  
+                        <p class="text-xs text-gray-500">
+                          By using this website, you certify that you have read and reviewed this Agreement and that you agree to comply with its terms. If you do not want to be bound by the terms of this Agreement, you are advised to stop using the website accordingly. Lakap Sagap only grants use and access to this website, and its services to those who have accepted its terms.
+                        </p>
+                        
+                        <p class="text-sm font-medium mt-2">
+                          Privacy policy
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                          Before you continue using our website, we advise you to read our privacy policy PRIVACY MANUAL.docx regarding our user data collection. It will help you better understand our practices.
+                        </p>          
+
+                        <p class="text-sm font-medium mt-2">
+                          Age restriction
+                        </p>          
+
+                        <p class="text-xs text-gray-500">
+                          You must be at least 18 (eighteen) years of age before you can use this website. By using this website, you warrant that you are at least 18 years of age and you may legally adhere to this Agreement. Lakap Sagap assumes no responsibility for liabilities related to age misrepresentation.
+                        </p>          
+
+                        <p class="text-sm font-medium mt-2">
+                          Intellectual property
+                        </p>          
+
+                        <p class="text-xs text-gray-500">
+                          You agree that all materials and services provided on this website are the property of Lakap Sagap, its affiliates, Administrator, officers, staff, suppliers, or licensors including all copyrights, trade secrets, trademarks, patents, and other intellectual property. You also agree that you will not reproduce or redistribute Lakap Sagap's intellectual property in any way, including electronic, digital, or new trademark registrations.
+                          <br><br>You grant Lakap Sagap a royalty-free and non-exclusive license to display, use, copy, transmit, and broadcast the content you upload and publish. For issues regarding intellectual property claims, you should visit the Lakap Sagap website: https://mscyxx.github.io/LakapSagap/ and contact the organization to come to an agreement.
+                        </p>          
+                                  
+                        <p class="text-sm font-medium mt-2">
+                          Personal Data
+                        </p>
+                                  
+                        <p class="text-xs text-gray-500">
+                          By using the Lakap Sagap website, you agree to use your personal data, including your e-signature and documents you provided in the request form, for documentation of transactions, tracking assistance requests, and managing inventory within the Lakap Sagap System. This includes monitoring the status of relief requests, tracking the availability and location of relief goods, and generating reports for decision-making purposes. Your personal data will be securely stored within the Lakap Sagap System to ensure confidentiality and protection.
+                          <br><br>If you suspect any unauthorized access or potential security breaches, notify us immediately so we can take the necessary steps to secure your account and protect your information.
+                        </p>
+
+                        <p class="text-sm font-medium mt-2">
+                          Applicable law
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                          By using the Lakap Sagap website, you agree that the laws of the Republic of the Philippines, without regard to principles of conflict of laws, will govern these terms and conditions and any disputes between you and Lakap Sagap or its business partners and associates.
+                        </p>
+
+                        <p class="text-sm font-medium mt-2">
+                          Disputes
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                          Any dispute related in any way to your use of this website shall be arbitrated by the state or federal court Republic of the Philippines and you consent to the exclusive jurisdiction and venue of such courts.
+                        </p>
+
+                        <p class="text-sm font-medium mt-2">
+                          Indemnification
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                          You agree to indemnify Lakap Sagap and its affiliates and hold Lakap Sagap harmless against legal claims and demands that may arise from your use or misuse of our services. We reserve the right to select our own legal counsel.
+                        </p>
+
+                        <p class="text-sm font-medium mt-2">
+                          Limitation on liability
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                          Lakap Sagap is not liable for any damages that may occur to you as a result of your misuse of our website. Lakap Sagap reserves the right to edit, modify, and change this Agreement at any time. We shall let our users know of these changes through electronic mail. This Agreement is an understanding between Lakap Sagap and the user, and this supersedes and replaces all prior agreements regarding the use of this website.
+                        </p>
+
+                      </p>                      
+                    </div>
+                  </div>
+                </div>
+              </div>     
+
+              <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:text-center">
+                <button type="button" id="closeTermsModal" class="w-full bg-blue-600 text-white border rounded-full inline-flex justify-center px-8 py-2 text-base font-medium hover:bg-blue-800 sm:w-auto sm:text-sm" data-modal-close="#termsModal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>                  
+          
+        <!-- Modal for Privacy Policy -->
+        <div id="privacyPolicyModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+          <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                  <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <h3 class="text-lg leading-6 font-bold text-gray-900" id="modal-title">Privacy Policy</h3>
+                    <!-- Scrollable Content -->
+                    <div class="mt-2 max-h-60 overflow-y-auto">
+                        <p class="text-xs text-gray-500">
+                        Effective Date: September 01, 2024 <br><br>
+                        Welcome to LAKAP SAGAP, a web-based relief transaction management and monitoring system developed for the CSWD Unit of Valenzuela City. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our system. Please read this Privacy Policy carefully. By accessing or using the system, you agree to the terms of this Privacy Policy.
+                        </p>
+
+                        <p class="text-xs font-bold text-gray-500"><br>
+                        Information We Collect
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                        We may collect information about you in a variety of ways, including:
+                        </p>
+
+                        <p><br>
+                          <ul class="list-disc pl-5 text-xs ml-3 font-bold text-gray-500">
+                          <li>Personal Information</li></ul>
+                        </p>
+
+                        <p class="text-xs ml-3 text-gray-500">
+                        When you register or interact with our system, we may collect personally identifiable information such as your name, email address, phone number, and any other details you provide when creating an account or submitting requests.
+                        </p>
+                    
+                        <p><br>
+                          <ul class="list-disc pl-5 mt-2 text-xs ml-3 font-bold text-gray-500">
+                          <li>Document Uploads</li></ul>
+                        </p>
+
+                        <p class="text-xs ml-3 text-gray-500">
+                          To request relief or services, you may need to upload certain documents as proof. These documents may contain personal information such as identification details, proof of residence, and other relevant data.
+                        </p>
+
+                        <p class="text-xs font-bold text-gray-500"><br>
+                          How We Use Your Information
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                          We may use the information we collect from you in the following ways:
+                        </p>
+
+                        <p>
+                          <ul class="list-disc pl-5 mt-2 text-xs ml-3 font-bold text-gray-500">
+                          <li>To Process Requests: </li> </ul>
+                        </p>
+                        
+                        <p class="text-xs ml-3 text-gray-500">
+                          We use your personal information and document uploads to process and manage your relief transactions and monitor the distribution of services.
+                        </p>
+
+                        <p>
+                          <ul class="list-disc pl-5 mt-2 text-xs ml-3 font-bold text-gray-500">
+                          <li> To Improve Our System:</li></ul>
+                        </p>
+
+                        <p class="text-xs ml-3 text-gray-500">
+                          We may use feedback and usage data to enhance the functionality and user experience of the system.
+                        </p>
+
+                        <p>
+                          <ul class="list-disc pl-5 mt-2 text-xs ml-3 font-bold text-gray-500">
+                          <li>  To Communicate with You:</li></ul>
+                        </p>
+
+                        <p class="text-xs ml-3 text-gray-500">
+                          We may use your contact information to send you updates, respond to your inquiries, and provide customer support.
+                        </p>
+
+                      <p>
+                        <ul class="list-disc pl-5 mt-2 text-xs ml-3 font-bold text-gray-500">
+                        <li>To Comply with Legal Obligations: </li></ul>
+                      </p>
+                      
+                      <p class="text-xs ml-3 text-gray-500">
+                        We may use your information as necessary to comply with applicable laws and regulations.
+                      </p>
+
+                      <p class="text-xs font-bold text-gray-500"><br>
+                        Sharing Your Information
+                      </p>
+
+                      <p class="text-xs ml-3 text-gray-500">
+                        We may share your information with:
+                      </p>
+
+                      <p>
+                        <ul class="list-disc pl-5 mt-2 text-xs ml-3 font-bold text-gray-500">
+                        <li>CSWD Administrators and Staff: </li></ul>
+                      </p>
+                      
+                        
+                      <p class="text-xs ml-3 text-gray-500">
+                        Authorized personnel within the CSWD Unit of Valenzuela City who are involved in the processing and approval of your requests.
+                      </p>
+
+                      <p>
+                        <ul class="list-disc pl-5 mt-2 text-xs ml-3 font-bold text-gray-500">
+                        <li> Legal Requirements:  </li></ul>
+                      </p>
+                        
+                        
+                      <p class="text-xs ml-3 text-gray-500">
+                        If required by law or in response to valid legal processes, we may disclose your information.
+                      </p>
+
+                      <p class="text-xs font-bold text-gray-500"><br>
+                        Security of Your Information
+                      </p>
+
+                      <p class="text-xs ml-3 text-gray-500">
+                        We take the security of your personal information seriously. We implement appropriate technical and organizational measures to protect your data from unauthorized access, use, or disclosure. However, please be aware that no method of electronic storage or transmission is 100% secure, and we cannot guarantee absolute security.
+                      </p>
+
+                      <p class="text-xs font-bold text-gray-500"><br>
+                        Retention of Your Information
+                      </p>
+
+                      <p class="text-xs ml-3 text-gray-500">
+                        We will retain your personal information and uploaded documents only for as long as necessary to fulfill the purposes outlined in this Privacy Policy unless a longer retention period is required or permitted by law.
+                      </p>
+
+                      <p class="text-xs font-bold text-gray-500"><br>
+                        Your Rights
+                      </p>
+
+                      <p class="text-xs ml-3 text-gray-500">
+                        You have the right to access, update, or delete your personal information within the system. If you wish to exercise these rights, please contact us using the contact information provided below. We will respond to your request in accordance with applicable laws.
+                      </p>
+
+                      <p class="text-xs font-bold text-gray-500"><br>
+                        Changes to This Privacy Policy
+                      </p>
+
+                      <p class="text-xs ml-3 text-gray-500">
+                        We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any significant changes by posting the new Privacy Policy on our system and updating the "Last Updated" date at the top of this document. We encourage you to review this Privacy Policy periodically.
+                      </p>
+
+                      <p class="text-xs font-bold text-gray-500"><br>
+                        Contact Us
+                      </p>
+
+                      <p class="text-xs ml-3 text-gray-500">
+                        If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at: <br><br>
+                        Lakap Sagap<br>
+                        [LakapSagap]<br>
+                        [LakapSagap@gmail.com]<br>
+                        [63+900000] <br><br>
+                        This Privacy Policy is intended to protect the privacy of users of the LAKAP SAGAP system while ensuring that the system operates effectively to manage relief transactions and monitor the distribution of services. By using the system, you acknowledge that you have read and understood this policy.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:text-center">
+                <button type="button" id="closePrivacyPolicyModal" class="w-full bg-blue-600 text-white border rounded-full inline-flex justify-center px-8 py-2 text-base font-medium hover:bg-blue-800 sm:w-auto sm:text-sm" data-modal-close="#privacyPolicyModal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warning Modal -->
+        <div id="warningModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-warning-title" role="dialog" aria-modal="true">
+          <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full">
+              <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                <svg class="w-12 h-12 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div class="mt-3 text-center">
+                <h3 class="text-2xl font-bold leading-6 font-medium text-gray-900" id="modal-warning-title">Warning</h3>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-500">
+                    Please indicate that you accept the Terms and Conditions and Privacy Policy.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-5">
+                <button class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm" data-modal-close="#warningModal">
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <!-- Second set of buttons: Cancel and Send -->
+            <div class="text-sm mt-10 flex justify-end gap-5">
+              <a href="requestmainpage.html">
+                <button class="cursor-pointer transition-all 
+                              bg-red-700 text-white px-6 py-2 rounded-lg
+                              border-red-800
+                              border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                              active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-red-300 shadow-red-300 active:shadow-none ">
+                  Cancel
+                </button>
+              </a>
+
+              <a href="requestviewdetails.html">
+                <button id="sendButton" class="cursor-not-allowed transition-all 
+                              bg-gray-400 text-white px-6 py-2 rounded-lg
+                              border-gray-600
+                              border-b-[4px] opacity-50 hover:brightness-90 hover:border-gray-600 shadow-gray-300">
+                  Send
+                </button>
+              </a>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+    <!-- JS SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+
+    <!-- my custom script -->
+    <script src="script.js"></script>
+
+    <!-- Dropdown Menu Toggle Function -->
+    <script>
+      // Toggle dropdown menu visibility
+      function toggleDropdown(type) {
+      // Toggle visibility for the specified dropdown
+
+        if (type === 'account'){
+          document.querySelector('#arrow-account').classList.toggle('rotate-0');
+        }
+          }
+    </script>
+
+    <!-- for term and conditions, warning, and privacy policy -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const termsCheckbox = document.getElementById('terms');
+        const sendButton = document.getElementById('sendButton');
+        const warningModal = document.getElementById('warningModal');
+        const warningCloseButton = warningModal.querySelector('[data-modal-close]');
+        const termsModal = document.getElementById('termsModal');
+        const privacyPolicyModal = document.getElementById('privacyPolicyModal');
+        const closeTermsButton = termsModal.querySelector('[data-modal-close]');
+        const closePrivacyPolicyButton = privacyPolicyModal.querySelector('[data-modal-close]');
+        
+        // Show the Terms and Conditions and Privacy Policy modals when clicking the link
+        document.querySelectorAll('[data-modal-target]').forEach(function(element) {
+          element.addEventListener('click', function(event) {
+            event.preventDefault();
+            const target = document.querySelector(this.getAttribute('data-modal-target'));
+            if (target) {
+              target.classList.remove('hidden');
+            }
+          });
+        });
+
+        // Handle enabling and disabling the Send button
+        termsCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            sendButton.classList.remove('cursor-not-allowed', 'bg-gray-400', 'border-gray-600', 'opacity-50');
+            sendButton.classList.add('cursor-pointer', 'bg-green-700', 'border-green-800');
+            sendButton.disabled = false;
+          } else {
+            sendButton.classList.add('cursor-not-allowed', 'bg-gray-400', 'border-gray-600', 'opacity-50');
+            sendButton.classList.remove('cursor-pointer', 'bg-green-700', 'border-green-800');
+            sendButton.disabled = true;
+          }
+        });
+
+        // Show the warning modal if the Send button is clicked while terms are not accepted
+        sendButton.addEventListener('click', function(event) {
+          if (termsCheckbox.checked === false) {
+            event.preventDefault(); // Prevent the default action
+            warningModal.classList.remove('hidden');
+          }
+        });
+
+        // Close the warning modal
+        warningCloseButton.addEventListener('click', function() {
+          warningModal.classList.add('hidden');
+        });
+
+        // Close the terms modal
+        closeTermsButton.addEventListener('click', function() {
+          termsModal.classList.add('hidden');
+        });
+
+        // Close the privacy policy modal
+        closePrivacyPolicyButton.addEventListener('click', function() {
+          privacyPolicyModal.classList.add('hidden');
+        });
+
+        // Close any modal if clicked outside of it
+        window.addEventListener('click', function(event) {
+          if (event.target === warningModal || event.target === termsModal || event.target === privacyPolicyModal) {
+            event.target.classList.add('hidden');
+          }
+        });
+      });
+    </script>
+
+    <script>
+    // Function to switch images based on screen size
+      function switchImages() {
+        const largeImage = document.getElementById('largeImage');
+        const smallImage = document.getElementById('smallImage');
+
+          if (window.innerWidth <= 768) {
+            // Show the small image on screens with a width of 768 pixels or less
+            smallImage.style.display = 'block';
+            largeImage.style.display = 'none';
+            } else {
+              // Show the large image on screens with a width greater than 768 pixels
+              smallImage.style.display = 'none';
+              largeImage.style.display = 'block';
+            }
+      }
+
+        // Initial call to switchImages on page load
+        switchImages();
+
+        // Add an event listener to handle window resize
+        window.addEventListener('resize', switchImages);
+    </script>
+
+    <script>
+      // JavaScript to toggle visibility of the "Other" input based on the selected option
+      document.getElementById('request-reason').addEventListener('change', function () {
+        var otherReasonInput = document.getElementById('other-reason');
+        otherReasonInput.style.display = this.value === 'Other' ? 'block' : 'none';
+      });
+    </script>
+
+    <script>
+      // Custom search functionality
+      document.getElementById('barangay-search').addEventListener('input', function() {
+        var input, filter, select, option, i;
+        input = this.value.toLowerCase();
+        select = document.getElementById('grid-state');
+        option = select.getElementsByTagName('option');
+
+        for (i = 0; i < option.length; i++) {
+          if (option[i].text.toLowerCase().indexOf(input) > -1) {
+            option[i].style.display = '';
+          } else {
+            option[i].style.display = 'none';
+          }
+        }
+      });
+    </script>
+
+    <script>
+      let countries = [
+        { name: "Arkong Bato", code: "AB" },
+        { name: "Bagbaguin", code: "BA" },
+        { name: "Canumay East", code: "CE" },
+        { name: "Coloong", code: "CO" },
+        { name: "Dalandanan", code: "DA" },
+        { name: "Gen. T. de Leon	", code: "GT" },
+        { name: "Karuhatan", code: "KA" },
+        { name: "Lawang Bato", code: "LB" },
+        { name: "Malinta", code: "MA" },
+        { name: "Malanday", code: "MAL" },
+        { name: "Parada", code: "PAR" },
+        { name: "Pasolo", code: "PAS" },
+
+      ];
+      function onkeyUp(e) {
+        let keyword = e.target.value;
+        let dropdownEl = document.querySelector("#dropdown");
+        dropdownEl.classList.remove("hidden");
+        let filteredCountries = countries.filter((c) =>
+          c.name.toLowerCase().includes(keyword.toLowerCase())
+        );
+
+        renderOptions(filteredCountries);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderOptions(countries);
+      });
+
+      function renderOptions(options) {
+        let dropdownEl = document.querySelector("#dropdown");
+
+        let newHtml = ``;
+
+        options.forEach((country) => {
+          newHtml += `<div
+            onclick="selectOption('${country.name}')"
+            class="px-5 py-3 border-b border-gray-200 text-stone-600 cursor-pointer hover:bg-slate-100 transition-colors"
+          >
+            ${country.name}
+          </div>`;
+        });
+
+        dropdownEl.innerHTML = newHtml;
+      }
+
+      function selectOption(selectedOption) {
+        hideDropdown();
+        let input = document.querySelector("#autocompleteInput");
+        input.value = selectedOption;
+      }
+
+      document.addEventListener("click", () => {
+        hideDropdown();
+      });
+
+      function hideDropdown() {
+        let dropdownEl = document.querySelector("#dropdown");
+        dropdownEl.classList.add("hidden");
+      }
+    </script>
+
+  </body>
+</html>

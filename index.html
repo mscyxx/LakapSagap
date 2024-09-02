@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="utf-8" />
+      <title>Portal</title>
+      <!-- Tailwind CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome CSS stylesheet link -->
+        
+      <style>
+        .cube-loader_bg {
+            position: fixed;
+            z-index: 999999;
+            background: #e6e6e6;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        
+        .cube-loader {
+          position: relative;
+        width: 75px;
+        height: 75px;
+        transform-style: preserve-3d;
+        transform: rotateX(-30deg);
+        animation: animate 4s linear infinite;
+        }
+        
+        @keyframes animate {
+          0% {
+            transform: rotateX(-30deg) rotateY(0);
+          }
+        
+          100% {
+            transform: rotateX(-30deg) rotateY(360deg);
+          }
+        }
+        
+        .cube-loader .cube-wrapper {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+        }
+        
+        .cube-loader .cube-wrapper .cube-span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);
+          background: #ea4335; /* Set the initial color to red */}
+        
+        .cube-loader .cube-wrapper .cube-span:nth-child(even) {
+          background: #4285f4;
+        }
+        
+        .cube-top {
+          position: absolute;
+          width: 75px;
+          height: 75px;
+          background: green;
+          transform: rotateX(90deg) translateZ(37.5px);
+          transform-style: preserve-3d;
+        
+        }
+        
+        .cube-top::before {
+          content: '';
+          position: absolute;
+          width: 75px;
+          height: 75px;
+          background: hsl(176.61, 42.28%, 40.7%) 19.6%;
+          transform: translateZ(-90px);
+          filter: blur(10px);
+          box-shadow: 0 0 10px #323232,
+                      0 0 20px hsl(176.61, 42.28%, 40.7%) 19.6%,
+                      0 0 30px #323232,
+                      0 0 40px hsl(176.61, 42.28%, 40.7%) 19.6%;
+        }
+        
+        /* Add more media queries as needed for different screen sizes */
+        @media (max-width: 600px) {
+          .cube-loader {
+            width: 40vw;
+            height: 40vw;
+            max-width: none;
+            max-height: none;
+          }
+        
+          .cube-top,
+          .cube-top::before {
+            width: 40vw;
+            height: 40vw;
+            max-width: none;
+            max-height: none;
+          }
+        }
+
+        .align {
+          display: grid;
+          place-items: center;
+        }
+
+        .grid {
+          inline-size: 56%; /* Inline size of the grid container */
+          margin-inline: auto; /* Auto margin for horizontal centering */
+          max-inline-size: 30rem; 
+          margin-top: 5px; 
+        }
+
+      </style>
+  </head>
+
+  <body class="align bg-cover bg-center bg-fixed min-h-screen font-sans"
+        style="background-image: linear-gradient(rgba(212, 212, 212, 0.7), rgba(212, 212, 212, 0.7)),
+        url(images/val-cityhall.jpg);
+          min-height: 50vh; /* Minimum height of the viewport */
+        width: 100%;
+        background-attachment: fixed; 
+        background-size: cover; 
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        color: #606468;">
+        
+  <div class="cube-loader_bg">    <!-- For cube animation -->
+    <div class="cube-loader">
+      <div class="cube-top"></div>
+      <div class="cube-wrapper">
+        <span style="--i:0" class="cube-span"></span>
+        <span style="--i:1" class="cube-span"></span>
+        <span style="--i:2" class="cube-span"></span>
+        <span style="--i:3" class="cube-span"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">  <!-- For login container -->
+    <div class="place-items-center">
+      <div class="form-container bg-white p-10 w-400 rounded-lg shadow-lg">
+        <div class="flex justify-center">
+          <img src="images/colored_wo_bg.png" alt="LakapSagapLogo" class="form-image mb-4 w-64 h-24">
+        </div>
+            <form method="POST" class="form login">
+              
+              <div class="relative mb-2">
+                <!-- username input -->
+                <input type="text" name="username" id="email"
+                      class="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                      placeholder="Username">
+                      <svg class="absolute top-1/2 transform -translate-y-1/2 left-3 h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                      </svg>     
+              </div>
+
+                <!-- forgot password -->
+                <div class="flex justify-end">
+                  <a class="forgotPass text-gray-400 text-xs block hover:text-blue-500 mb-1" href="forgotpass.html">Forgot password?</a>
+                </div>
+            
+              <div class="relative mb-4">
+
+                  <!-- password input -->
+                  <input type="password" name="password" id="password"
+                        class="w-full py-2 pl-10 pr-10 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                        placeholder="Password">
+                        <svg class="absolute top-1/2 transform -translate-y-1/2 left-3 h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                          <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clip-rule="evenodd" />
+                        </svg>                      
+                  <i class="fa fa-eye-slash absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-600 cursor-pointer" onclick="togglePasswordVisibility('password')"></i>
+              </div>
+      
+               <!-- login button -->
+              <div class="">
+                <button class="loginAdmin w-full py-2 px-4 mt-3 bg-blue-400 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-blue-600"
+                  type="button" onclick="auth()">Login</button>
+              </div>
+
+            </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function auth() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Check if username and password are not empty
+        if (email.trim() === "" || password.trim() === "") {
+            alert("Username and password are required");
+            return;
+        }
+
+        // Your existing authentication logic
+        if (email == "admin@gmail.com" && password == "admin123") {
+            window.location.assign("admindashboard.html");
+        } else if (email == "admin2@gmail.com" && password == "admin2123") {
+            window.location.assign("s_adminDashboard.html");
+        } else if (email == "barangay@gmail.com" && password == "barangay123") {
+            window.location.assign("requestmainpage.html");
+        } else {
+            // Handle invalid login
+            alert("Please make sure that username and password are correct.");
+        }
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <!-- cube duration -->
+  <script>
+      $(document).ready(function () {
+          setTimeout(function () {
+              $('.cube-loader_bg').fadeOut();
+          }, 1500);
+      });
+  </script>
+
+  <!-- for pass show icon -->
+  <script>
+    function togglePasswordVisibility(inputId) {
+        var input = document.getElementById(inputId);
+        var icon = document.querySelector('.fa');
+
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        } else {
+            input.type = "password";
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        }
+    }
+  </script>
+
+  </body>
+</html>
