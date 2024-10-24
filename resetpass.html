@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="utf-8" />
+      <title>Portal</title>
+      <!-- Tailwind CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome CSS stylesheet link -->
+        
+      <style>
+        .cube-loader_bg {
+            position: fixed;
+            z-index: 999999;
+            background: #e6e6e6;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        
+        .cube-loader {
+          position: relative;
+        width: 75px;
+        height: 75px;
+        transform-style: preserve-3d;
+        transform: rotateX(-30deg);
+        animation: animate 4s linear infinite;
+        }
+        
+        @keyframes animate {
+          0% {
+            transform: rotateX(-30deg) rotateY(0);
+          }
+        
+          100% {
+            transform: rotateX(-30deg) rotateY(360deg);
+          }
+        }
+        
+        .cube-loader .cube-wrapper {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+        }
+        
+        .cube-loader .cube-wrapper .cube-span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);
+          background: #ea4335; /* Set the initial color to red */}
+        
+        .cube-loader .cube-wrapper .cube-span:nth-child(even) {
+          background: #4285f4;
+        }
+        
+        .cube-top {
+          position: absolute;
+          width: 75px;
+          height: 75px;
+          background: green;
+          transform: rotateX(90deg) translateZ(37.5px);
+          transform-style: preserve-3d;
+        
+        }
+        
+        .cube-top::before {
+          content: '';
+          position: absolute;
+          width: 75px;
+          height: 75px;
+          background: hsl(176.61, 42.28%, 40.7%) 19.6%;
+          transform: translateZ(-90px);
+          filter: blur(10px);
+          box-shadow: 0 0 10px #323232,
+                      0 0 20px hsl(176.61, 42.28%, 40.7%) 19.6%,
+                      0 0 30px #323232,
+                      0 0 40px hsl(176.61, 42.28%, 40.7%) 19.6%;
+        }
+        
+        /* Add more media queries as needed for different screen sizes */
+        @media (max-width: 600px) {
+          .cube-loader {
+            width: 40vw;
+            height: 40vw;
+            max-width: none;
+            max-height: none;
+          }
+        
+          .cube-top,
+          .cube-top::before {
+            width: 40vw;
+            height: 40vw;
+            max-width: none;
+            max-height: none;
+          }
+        }
+
+        .align {
+          display: grid;
+          place-items: center;
+        }
+
+        .grid {
+          inline-size: 56%; /* Inline size of the grid container */
+          margin-inline: auto; /* Auto margin for horizontal centering */
+          max-inline-size: 30rem; 
+          margin-top: 5px; 
+        }
+
+      </style>
+  </head>
+
+  <body class="align bg-cover bg-center bg-fixed min-h-screen font-sans"
+        style="background-image: linear-gradient(rgba(212, 212, 212, 0.7), rgba(212, 212, 212, 0.7)),
+        url(images/val-cityhall.jpg);
+          min-height: 50vh; /* Minimum height of the viewport */
+        width: 100%;
+        background-attachment: fixed; 
+        background-size: cover; 
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        color: #606468;">
+
+  <div class="grid">  <!-- For login container -->
+    <div class="place-items-center">
+      <div class="form-container bg-white p-10 w-full max-w-4xls rounded-lg shadow-lg">
+        <div class="flex flex-col justify-center items-center">
+            <img src="images/colored_wo_bg.png" alt="LakapSagapLogo" class="form-image w-48 h-16">
+            <span class="text-3xl mb-3 text-blue-500 font-bold">Change Your Password</span>
+        </div>
+        
+        <form method="POST" class="form login" onsubmit="return validatePassword()">
+            <div class="relative mb-2">
+                <!-- new password input -->
+                <input type="password" name="newpass" id="newPassword"
+                    class="w-full py-2 pl-4 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder="New Password">
+                <i class="fa fa-eye-slash absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-600 cursor-pointer" 
+                    onclick="togglePasswordVisibility('newPassword', this)"></i>      
+            </div>
+        
+            <div class="relative mb-4">
+                <!-- confirm password input -->
+                <input type="password" name="confirmpass" id="confirmPassword"
+                    class="w-full py-2 pl-4 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder="Confirm Password">    
+                <i class="fa fa-eye-slash absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-600 cursor-pointer" 
+                    onclick="togglePasswordVisibility('confirmPassword', this)"></i>        
+            </div>
+        
+            <span id="passwordError" class="text-sm mb-3 font-regular text-red-600"></span>
+        
+            <!-- change password button -->
+            <div>
+                <button class="loginAdmin w-full py-2 px-4 mt-3 bg-blue-400 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-blue-600"
+                    type="submit">Change Password</button>
+            </div>
+        </form>
+
+        <!-- Success Modal -->
+       <!-- Success Modal -->
+        <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+                <h2 class="text-xl font-bold mb-4 text-center">Success!</h2>
+                <p class="text-center mb-4">Your password has been changed successfully.</p>
+                <button class="bg-blue-500 text-white py-2 px-4 w-full rounded mt-4"
+                    onclick="redirectToPage()">OK</button>
+            </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- for pass show and validation icon -->
+
+    <script>
+        function togglePasswordVisibility(inputId, icon) {
+            var input = document.getElementById(inputId);
+    
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                input.type = "password";
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        }
+    
+        function validatePassword() {
+            var password = document.getElementById("newPassword").value;
+            var errorMessage = document.getElementById("passwordError");
+    
+            // Clear previous error message
+            errorMessage.textContent = "";
+    
+            // Check if password is at least 15 characters or follows the 8-char rule
+            if (password.length >= 15 || (password.length >= 8 && /[a-z]/.test(password) && /\d/.test(password))) {
+                // Show the success modal
+                showSuccessModal();
+                return false; // Prevent immediate form submission
+            }
+    
+            // If validation fails, display an error message
+            errorMessage.textContent = "Password must be at least 15 characters OR at least 8 characters including a number and a lowercase letter.";
+            return false;
+        }
+    
+        function showSuccessModal() {
+            var modal = document.getElementById("successModal");
+            modal.classList.remove("hidden"); // Show the modal
+        }
+    
+        function redirectToPage() {
+            // Redirect to another page after clicking OK
+            window.location.href = "index.html";
+        }
+    </script>
+
+  </body>
+</html>
